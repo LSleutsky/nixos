@@ -2,8 +2,9 @@
 
 {
   imports = [
-    ./hardware-configuration.nix
-     <home-manager/nixos>
+    <nixos-hardware/framework/12th-gen-intel>
+		./hardware-configuration.nix
+		<home-manager/nixos>
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -16,6 +17,9 @@
       automatic = true;
       dates = "weekly";
       options = "--delete-old";
+    };
+    settings = {
+      auto-optimise-store = true;
     };
   };
 
@@ -30,7 +34,11 @@
       "iTCO_wdt"
       "sp5100_tco"
     ];
+    initrd = {
+      kernelModules = [ "i915" ];
+    };
     kernelParams = [
+      "i915.fastboot=1"
       "loglevel=3"
       "nmi_watchdog=0"
       "nowatchdog"
@@ -47,8 +55,14 @@
     };
   };
 
+  console = {
+    earlySetup = true;
+    packages = with pkgs; [ terminus_font ];
+    font = "${pkgs.terminus_font}/share/consolefonts/ter-122b.psf.gz";
+    keyMap = "us";
+  };
+
   systemd = {
-    extraConfig = "DefaultTimeoutStopSec=10s";
     services = {
       NetworkManager-wait-online.enable = false;
     };
@@ -72,8 +86,10 @@
   };
 
   services = {
+    fwupd.enable = true;
     openssh.enable = true;
     printing.enable = true;
+    thermald.enable = true;
     tlp.enable = true;
     pipewire = {
       enable = true;
@@ -101,15 +117,20 @@
   environment = {
     systemPackages = with pkgs; [
       bibata-cursors
+      cava
+      cargo
       coreutils
       curl
       fd
+      feh
       figlet
       fortune
+      fwupd
       gcc
       git
       gping
       lolcat
+      lynx
       neo-cowsay
       neofetch
       networkmanager
@@ -119,12 +140,19 @@
       tty-clock
       unzip
       wget
+      wl-clipboard
+      zip
     ];
     variables = {
       EDITOR = "nvim";
       NIXPKGS_ALLOW_UNFREE = "1";
+      PAGER = "less";
       SUDO_EDITOR = "nvim";
       SYSTEMD_EDITOR = "nvim";
+      XDG_CACHE_HOME = "$HOME/.cache";
+      XDG_CONFIG_HOME = "$HOME/.config";
+      XDG_DATA_HOME = "$HOME/.local/share";
+      XDG_STATE_HOME = "$HOME/.local/state";
     };
     pathsToLink = [ "/share/zsh" ];
   };
@@ -171,6 +199,15 @@
               opacity = 0.75;
             };
             font = {
+              normal = {
+                family = "ComicShannsMono Nerd Font";
+              };
+              bold = {
+                family = "ComicShannsMono Nerd Font";
+              };
+              italic = {
+                family = "ComicShannsMono Nerd Font";
+              };
               size = 11;
             };
             cursor = {
@@ -206,11 +243,23 @@
             "--long"
           ];
         };
-        feh = {
+        firefox = {
           enable = true;
+          package = pkgs.firefox-devedition;
         };
         gh = {
           enable = true;
+					settings = {
+						browser = "firefox";
+						editor = "nvim";
+						git_protocol = "https";
+						pager = "less";
+						aliases = {
+              al = "auth login";
+							rc = "repo create";
+							rl = "repo clone";
+						};
+					};
         };
         git = {
           enable = true;
@@ -222,6 +271,14 @@
               line-numbers = true;
             };
           };
+          ignores = [
+            ".DS_Store"
+            "*.log"
+            "node_modules"
+            ".npm"
+            "Thumbs.db"
+            ".yarn"
+          ];
           userEmail = "LushSleutsky@gmail.com";
           userName = "LSleutsky";
         };
@@ -367,13 +424,16 @@
             "........" = "cd ../../../../../../../";
             "........." = "cd ../../../../../../../../";
             ".........." = "cd ../../../../../../../../../";
+            batt = "bat /sys/class/power_supply/BAT1/capacity";
             clock = "tty-clock -bcsC4 -f %a,\\ %b\\ %d";
             config = "sudo -Es nvim /etc/nixos/configuration.nix";
             df = "df -h";
             free = "free -mth";
             garbage = "nix-collect-garbage --delete-old && sudo nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot";
+            gsb = "git status -sb";
             grep = "grep --color=auto";
             history = "history -i";
+            lsblk = "lsblk -f";
             man = "batman";
             mkdir = "mkdir -p";
             n = "nvim";
@@ -423,17 +483,17 @@
 
             unset CASE_SENSITIVE HYPHEN_INSENSITIVE
 
-             bindkey -e
-             bindkey "^[[3~" delete-char
-             bindkey "^[[5~" beginning-of-buffer-or-history
-             bindkey "^[[6~" end-of-buffer-or-history
-             bindkey "^[[H" beginning-of-line
-             bindkey "^[[F" end-of-line
-             bindkey "^[[1;5C" forward-word
-             bindkey "^[[1;5D" backward-word
-             bindkey "^[[A" up-line-or-beginning-search
-             bindkey "^[[B" down-line-or-beginning-search
-             bindkey '^w' zsh-backward-kill-word
+            bindkey -e
+            bindkey "^[[3~" delete-char
+            bindkey "^[[5~" beginning-of-buffer-or-history
+            bindkey "^[[6~" end-of-buffer-or-history
+            bindkey "^[[H" beginning-of-line
+            bindkey "^[[F" end-of-line
+            bindkey "^[[1;5C" forward-word
+            bindkey "^[[1;5D" backward-word
+            bindkey "^[[A" up-line-or-beginning-search
+            bindkey "^[[B" down-line-or-beginning-search
+            bindkey '^w' zsh-backward-kill-word
            '';
           initExtraBeforeCompInit = ''
             autoload -U up-line-or-beginning-search
@@ -460,11 +520,11 @@
           "$mainMod" = "SUPER";
           "$mainModShift" = "SUPERSHIFT";
           monitor = [
-            "eDP-1,1920x1080@60,0x0,1"
+            "eDP-1,2250x1504@60,0x0,1"
           ];
           exec-once = [
             "hyprctl setcursor Bibata-Modern-Classic 24"
-             "waybar"
+            "waybar"
           ];
           input = {
             repeat_rate = 50;
@@ -508,9 +568,9 @@
             bezier = "overshot,0.13,0.99,0.29,1.1";
             animation = [
               "windows,1,4,overshot,slide"
-               "fade,1,10,default"
-               "workspaces,1,8.8,overshot,slide"
-               "border,1,14,default"
+              "fade,1,10,default"
+              "workspaces,1,8.8,overshot,slide"
+              "border,1,14,default"
             ];
           };
           dwindle = {
@@ -531,16 +591,16 @@
           };
           bind = [
             "ALT, RETURN, exec, alacritty --fly_is_alacritty"
-             "$mainMod, RETURN, exec, alacritty" 
-             "$mainModShift, Q, exit"
+            "$mainMod, RETURN, exec, alacritty" 
+            "$mainModShift, Q, exit"
           ];
           bindm = [
             "$mainMod, mouse:272, movewindow"
-             "$mainMod, mouse:273, resizewindow"
+            "$mainMod, mouse:273, resizewindow"
           ];
           windowrule = [
             "float,title:^(fly_is_alacritty)$"
-             "tile,title:^(alacritty)$"
+            "tile,title:^(alacritty)$"
           ];
         };
       };
