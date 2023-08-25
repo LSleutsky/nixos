@@ -2,20 +2,19 @@
 
 {
   imports = [
-    <nixos-hardware/framework/12th-gen-intel>
 		./hardware-configuration.nix
 		<home-manager/nixos>
+    <nixos-hardware/framework/12th-gen-intel>
   ];
 
-  nixpkgs.config.allowUnfree = true;
-  time.timeZone = "US/Eastern";
   i18n.defaultLocale = "en_US.UTF-8";
-  sound.enable = true;
+  security.rtkit.enable = true;
+  time.timeZone = "US/Eastern";
 
   nix = {
     gc = {
       automatic = true;
-      dates = "weekly";
+      dates = "daily";
       options = "--delete-old";
     };
     settings = {
@@ -85,7 +84,12 @@
     stateVersion = "23.05";
   };
 
+  hardware = {
+    brillo.enable = true;
+  };
+
   services = {
+    dbus.enable = true;
     fwupd.enable = true;
     openssh.enable = true;
     printing.enable = true;
@@ -102,9 +106,14 @@
   };
 
   programs = {
+    _1password.enable = true;
     autojump.enable = true;
     hyprland.enable = true;
     zsh.enable = true;
+    _1password-gui = {
+      enable = true;
+      polkitPolicyOwners = [ "lush" ];
+    };
     neovim = {
       enable = true;
       defaultEditor = true;
@@ -114,27 +123,47 @@
     };
   };
 
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+    xdgOpenUsePortal = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  };
+
+  nixpkgs = {
+    config.allowUnfree = true;
+    overlays = [
+      (import (builtins.fetchTarball {
+        url = https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz;
+      }))
+    ];
+  };
+
   environment = {
     systemPackages = with pkgs; [
       bibata-cursors
       cava
       cargo
+      cmatrix
       coreutils
       curl
       fd
       feh
       figlet
       fortune
-      fwupd
       gcc
       git
       gping
+      ipfetch
       lolcat
-      lynx
       neo-cowsay
       neofetch
+      neovim-nightly
       networkmanager
       nodejs
+      onefetch
+      pavucontrol
+      pipes
       sl
       tree
       tty-clock
@@ -144,15 +173,11 @@
       zip
     ];
     variables = {
-      EDITOR = "nvim";
+      NIXOS_OZONE_WL = "1";
       NIXPKGS_ALLOW_UNFREE = "1";
       PAGER = "less";
       SUDO_EDITOR = "nvim";
       SYSTEMD_EDITOR = "nvim";
-      XDG_CACHE_HOME = "$HOME/.cache";
-      XDG_CONFIG_HOME = "$HOME/.config";
-      XDG_DATA_HOME = "$HOME/.local/share";
-      XDG_STATE_HOME = "$HOME/.local/state";
     };
     pathsToLink = [ "/share/zsh" ];
   };
@@ -177,8 +202,33 @@
   };
 
   home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
     users.lush = { pkgs, ... }: {
       home.stateVersion = "23.05";
+      gtk = {
+        enable = true;
+        cursorTheme.name = "Bibata-Modern-Classic";
+        font.name = "ComicShannsMono Nerd Font 12";
+        iconTheme = {
+          name = "Papirus-Dark";
+          package = pkgs.catppuccin-papirus-folders;
+        };
+        theme = {
+          name = "Catppuccin-Mocha-Standard-Blue-dark";
+          package = pkgs.catppuccin-gtk.override { variant="mocha"; };
+        };
+        gtk3 = {
+          extraConfig = {
+            Settings = "gtk-application-prefer-dark-theme=1";
+          };
+        };
+        gtk4 = {
+          extraConfig = {
+            Settings = "gtk-application-prefer-dark-theme=1";
+          };
+        };
+      };
       programs = {
         alacritty = {
           enable = true;
@@ -282,6 +332,98 @@
           userEmail = "LushSleutsky@gmail.com";
           userName = "LSleutsky";
         };
+        helix = {
+          enable = true;
+          languages = {
+            language = [
+              {
+                name = "javascript";
+                formatter = {
+                  command = "prettier";
+                };
+                language-server = {
+                  command = "typescript-language-server";
+                };
+                auto-format = true;
+              }
+              {
+                name = "typescript";
+                formatter = {
+                  command = "prettier";
+                };
+                language-server = {
+                  command = "typescript-language-server";
+                };
+                auto-format = true;
+              }
+              {
+                name = "css";
+                language-server = {
+                  command = "vscode-css-language-server";
+                };
+                auto-format = true;
+              }
+            ];
+          };
+          settings = {
+            theme = "catppuccin_mocha";
+            editor = {
+              auto-completion = true;
+              auto-format = true;
+              auto-pairs = true;
+              auto-save = true;
+              bufferline = "always";
+              color-modes = true;
+              cursorline = true;
+              gutters = [ "diff" "diagnostics" "line-numbers" "spacer" ];
+              line-number = "relative";
+              middle-click-paste = true;
+              mouse = true;
+              rulers = [ 100 ];
+              shell = [ "zsh" "-c" ];
+              true-color = true;
+              cursor-shape = {
+                insert = "bar";
+                normal = "block";
+                select = "underline";
+              };
+              indent-guides = {
+                character = "|";
+                render = true;
+              };
+              lsp = {
+                enable = true;
+                display-messages = true;
+                display-inlay-hints = true;
+              };
+              statusline = {
+                left = [ "mode" "spacer" "file-name" "separator" "spacer" "version-control" ];
+                right = [ "spinner" "spacer" "workspace-diagnostics" "separator" "diagnostics" "position" "file-encoding" "file-type" ];
+                mode = {
+                  insert = "INSERT";
+                  normal = "NORMAL";
+                  select = "SELECT";
+                };
+              };
+            };
+            keys = {
+              normal = {
+                q = ":buffer-close";
+                D = "kill_to_line_end";
+                G = "goto_last_line";
+                esc = [ "collapse_selection" "keep_primary_selection" ];
+                tab = ":bn";
+                S-tab = ":bp";
+                space = {
+                  c = "toggle_comments";
+                  o = ":config-open";
+                  r = ":config-reload";
+                  w = ":w";
+                };
+              };
+            };
+          };
+        };
         kitty = {
           enable = true;
           theme = "Catppuccin-Mocha";
@@ -302,7 +444,6 @@
           };
         };
         neovim = {
-          enable = true;
           vimdiffAlias = true;
           withNodeJs = true;
         };
@@ -405,6 +546,108 @@
         };
         waybar = {
           enable = true;
+          systemd.enable = true;
+          package = pkgs.waybar.overrideAttrs (oldAttrs: {
+            mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+          });
+          settings = {
+            mainBar = {
+              position = "top";
+              layer = "top";
+              fixed-center = true;
+              modules-left = [
+                "temperature"
+                "cpu"
+                "memory"
+              ];
+              modules-center = [ "wlr/workspaces" ];
+              modules-right = [
+                "bluetooth"
+                "network"
+                "backlight"
+                "pulseaudio"
+                "battery"
+                "clock"
+                "idle_inhibitor"
+              ];
+            };
+          };
+        };
+        wezterm = {
+          enable = true;
+          enableZshIntegration = true;
+          extraConfig = ''
+            return {
+              automatically_reload_config = true,
+              bold_brightens_ansi_colors = true,
+              color_scheme = "Catppuccin Mocha",
+              default_cursor_style = "BlinkingBar",
+              enable_tab_bar = true,
+              enable_wayland = true,
+              font = wezterm.font("ComicShannsMono Nerd Font"),
+              font_size = 12.0,
+              front_end = "OpenGL",
+              hide_tab_bar_if_only_one_tab = true,
+              scrollback_lines = 5000,
+              show_tab_index_in_tab_bar = true,
+              tab_max_width = 30,
+              warn_about_missing_glyphs = false,
+              window_close_confirmation = "NeverPrompt",
+              keys = {
+                {
+                  key = "n",
+                  mods = "CTRL",
+                  action = wezterm.action({
+                    SplitHorizontal = { domain = "CurrentPaneDomain" }
+                  })
+                },
+                {
+                  key = "n",
+                  mods = "CTRL|SHIFT",
+                  action = wezterm.action({
+                    SplitVertical = { domain = "CurrentPaneDomain" }
+                  })
+                },
+                {
+                  key = "t",
+                  mods = "CTRL",
+                  action = wezterm.action({ SpawnTab = "CurrentPaneDomain" })
+                },
+                {
+                  key = "w",
+                  mods = "CTRL|SHIFT",
+                  action = wezterm.action({
+                    CloseCurrentPane = { confirm = false }
+                  })
+                },
+                {
+                  key = "x",
+                  mods = "CTRL",
+                  action = wezterm.action.ActivateCopyMode
+                }, 
+                {
+                  key = "v",
+                  mods = "CTRL|SHIFT",
+                  action = wezterm.action({ PasteFrom = "Clipboard" })
+                },
+                {
+                  key = "c",
+                  mods = "CTRL|SHIFT",
+                  action = wezterm.action({ CopyTo = "ClipboardAndPrimarySelection" })
+                },
+                {
+                  key = "LeftArrow",
+                  mods = "CTRL",
+                  action = wezterm.action({ SendString = "\x1bb" })
+                },
+                {
+                  key = "RightArrow",
+                  mods = "CTRL",
+                  action = wezterm.action({ SendString = "\x1bf" })
+                }
+              }
+            }
+          '';
         };
         zsh = {
           enable = true;
@@ -494,11 +737,11 @@
             bindkey "^[[A" up-line-or-beginning-search
             bindkey "^[[B" down-line-or-beginning-search
             bindkey '^w' zsh-backward-kill-word
-           '';
+          '';
           initExtraBeforeCompInit = ''
             autoload -U up-line-or-beginning-search
             autoload -U down-line-or-beginning-search
-           '';
+          '';
           initExtraFirst = ''
             zsh-backward-kill-word () {
               local WORDCHARS=""
@@ -508,7 +751,13 @@
           '';
         };
       };
+      qt = {
+        enable = true;
+        platformTheme = "gtk";
+        style.name = "gtk2";
+      };
       services = {
+        playerctld.enable = true;
         dunst = {
           enable = true;
         };
@@ -524,7 +773,6 @@
           ];
           exec-once = [
             "hyprctl setcursor Bibata-Modern-Classic 24"
-            "waybar"
           ];
           input = {
             repeat_rate = 50;
@@ -590,8 +838,13 @@
             hide_cursor_on_touch = true;
           };
           bind = [
-            "ALT, RETURN, exec, alacritty --fly_is_alacritty"
-            "$mainMod, RETURN, exec, alacritty" 
+            "$mainMod, B, exec, firefox"
+            "$mainMod, F, fullscreen, 1"
+            "$mainMod, P, pseudo"
+            "$mainMod, Q, killactive"
+            "$mainMod, T, togglefloating"
+            "$mainMod, RETURN, exec, wezterm" 
+            "$mainModShift, F, fullscreen, 0"
             "$mainModShift, Q, exit"
           ];
           bindm = [
@@ -599,10 +852,13 @@
             "$mainMod, mouse:273, resizewindow"
           ];
           windowrule = [
-            "float,title:^(fly_is_alacritty)$"
-            "tile,title:^(alacritty)$"
+            "tile,title:^(wezterm)$"
           ];
         };
+      };
+      xdg = {
+        enable = true;
+        userDirs.enable = true;
       };
     };
   };
