@@ -334,6 +334,7 @@
         };
         helix = {
           enable = true;
+          defaultEditor = true;
           languages = {
             language = [
               {
@@ -375,7 +376,12 @@
               bufferline = "always";
               color-modes = true;
               cursorline = true;
-              gutters = [ "diff" "diagnostics" "line-numbers" "spacer" ];
+              gutters = [
+                "diff"
+                "diagnostics"
+                "line-numbers"
+                "spacer"
+              ];
               line-number = "relative";
               middle-click-paste = true;
               mouse = true;
@@ -397,8 +403,32 @@
                 display-inlay-hints = true;
               };
               statusline = {
-                left = [ "mode" "spacer" "file-name" "separator" "spacer" "version-control" ];
-                right = [ "spinner" "spacer" "workspace-diagnostics" "separator" "diagnostics" "position" "file-encoding" "file-type" ];
+                left = [
+                  "mode"
+                  "spacer"
+                  "file-name"
+                  "separator"
+                  "spacer"
+                  "version-control"
+                ];
+                right = [
+                  "spinner"
+                  "spacer"
+                  "separator"
+                  "position"
+                  "separator"
+                  "spacer"
+                  "position-percentage"
+                  "spacer"
+                  "separator"
+                  "file-encoding"
+                  "file-type"
+                ];
+                center = [
+                  "workspace-diagnostics"    
+                  "spacer"  
+                  "diagnostics"
+                ];
                 mode = {
                   insert = "INSERT";
                   normal = "NORMAL";
@@ -411,11 +441,11 @@
                 q = ":buffer-close";
                 D = "kill_to_line_end";
                 G = "goto_last_line";
+                Q = ":quit!";
                 esc = [ "collapse_selection" "keep_primary_selection" ];
                 tab = ":bn";
                 S-tab = ":bp";
                 space = {
-                  c = "toggle_comments";
                   o = ":config-open";
                   r = ":config-reload";
                   w = ":w";
@@ -444,6 +474,7 @@
           };
         };
         neovim = {
+          defaultEditor = true;
           vimdiffAlias = true;
           withNodeJs = true;
         };
@@ -679,10 +710,9 @@
             lsblk = "lsblk -f";
             man = "batman";
             mkdir = "mkdir -p";
-            n = "nvim";
             pow = "sudo shutdown now";
             reb = "sudo reboot now";
-            sn = "sudo nvim";
+            sn = "sudo -Es nvim";
             switch = "sudo nixos-rebuild switch";
             tree = "tree -ad --gitignore -C -L 2";
             update = "sudo nix-channel --update";
