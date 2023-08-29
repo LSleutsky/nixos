@@ -210,8 +210,7 @@
     useUserPackages = true;
     users.lush = { pkgs, ... }: {
       imports = [
-        ../hyprland
-        ../programs
+        ../home
       ];
       home.stateVersion = "23.05";
       gtk = {
