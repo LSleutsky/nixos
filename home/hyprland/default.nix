@@ -85,6 +85,10 @@
         "$mainMod, RETURN, exec, wezterm" 
         "$mainModShift, F, fullscreen, 0"
         "$mainModShift, Q, exit"
+        ", XF86AudioPlay, exec, playerctl play-pause"
+        ", XF86AudioStop, exec, playerctl stop"
+        ", XF86AudioNext, exec, playerctl next"
+        ", XF86AudioPrev, exec, playerctl previous"
       ];
       bindm = [
         "$mainMod, mouse:272, movewindow"
