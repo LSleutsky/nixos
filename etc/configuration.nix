@@ -222,7 +222,7 @@
           package = pkgs.catppuccin-papirus-folders;
         };
         theme = {
-          name = "Catppuccin-Mocha-Standard-Blue-dark";
+          name = "Catppuccin-Mocha-Standard-Mauve-dark";
           package = pkgs.catppuccin-gtk.override { variant="mocha"; };
         };
         gtk3 = {
