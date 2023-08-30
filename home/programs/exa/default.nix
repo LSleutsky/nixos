@@ -8,9 +8,9 @@
     icons = true;
     extraOptions = [
       "--all"
-        "--binary"
-        "--group-directories-first"
-        "--long"
+      "--binary"
+      "--group-directories-first"
+      "--long"
     ];
   };
 }

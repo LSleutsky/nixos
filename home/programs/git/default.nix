@@ -14,11 +14,11 @@
     };
     ignores = [
       ".DS_Store"
-        "*.log"
-        "node_modules"
-        ".npm"
-        "Thumbs.db"
-        ".yarn"
+      "*.log"
+      "node_modules"
+      ".npm"
+      "Thumbs.db"
+      ".yarn"
     ];
     extraConfig = {
       safe = {
