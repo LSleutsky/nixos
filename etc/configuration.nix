@@ -148,6 +148,7 @@
       cmatrix
       coreutils
       curl
+      discord
       fd
       feh
       figlet
