@@ -145,20 +145,19 @@
       bibata-cursors
       cava
       cargo
+      cbonsai
       cmatrix
       coreutils
       curl
       discord
       fd
-      feh
       figlet
       fortune
       gcc
       git
       gping
+      grim
       lolcat
-      lua
-      lua-language-server
       neo-cowsay
       neofetch
       neovim-nightly
@@ -169,6 +168,7 @@
       pipes
       playerctl
       sl
+      slurp
       tree
       tty-clock
       unzip
@@ -209,9 +209,7 @@
     useGlobalPkgs = true;
     useUserPackages = true;
     users.lush = { pkgs, ... }: {
-      imports = [
-        ../home
-      ];
+      imports = [ ../home ];
       home.stateVersion = "23.05";
       gtk = {
         enable = true;
@@ -239,7 +237,7 @@
       qt = {
         enable = true;
         platformTheme = "gtk";
-        style.name = "gtk2";
+        style.name = "gtk3";
       };
       xdg = {
         enable = true;

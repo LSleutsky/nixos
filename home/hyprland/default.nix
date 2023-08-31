@@ -94,6 +94,10 @@
         "$mainMod, mouse:272, movewindow"
         "$mainMod, mouse:273, resizewindow"
       ];
+      bindle = [
+        ", XF86MonBrightnessUp, exec, brightness up"
+        ", XF86MonBrightnessDown, exec, brightness down"
+      ];
       windowrule = [
         "tile,title:^(wezterm)$"
       ];

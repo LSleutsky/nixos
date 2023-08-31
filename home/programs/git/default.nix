@@ -22,7 +22,7 @@
     ];
     extraConfig = {
       safe = {
-        directory = "/home/lush/.local/share/nvim/lazy/base46";
+        directory = "/home/lush/.local/share/nvim/lazy/*";
       };
     };
     userEmail = "LushSleutsky@gmail.com";
