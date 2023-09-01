@@ -167,6 +167,7 @@
       pavucontrol
       pipes
       playerctl
+      pulsemixer
       sl
       slurp
       tree

@@ -89,12 +89,15 @@
         ", XF86AudioStop, exec, playerctl stop"
         ", XF86AudioNext, exec, playerctl next"
         ", XF86AudioPrev, exec, playerctl previous"
+        ", XF86AudioMute, exec, volume mute"
       ];
       bindm = [
         "$mainMod, mouse:272, movewindow"
         "$mainMod, mouse:273, resizewindow"
       ];
       bindle = [
+        ", XF86AudioLowerVolume, exec, volume down"
+        ", XF86AudioRaiseVolume, exec, volume up"
         ", XF86MonBrightnessUp, exec, brightness up"
         ", XF86MonBrightnessDown, exec, brightness down"
       ];
