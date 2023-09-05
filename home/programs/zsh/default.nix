@@ -22,7 +22,28 @@
       config = "sudo -Es nvim /etc/nixos/configuration.nix";
       df = "df -h";
       free = "free -mth";
+      gaa = "git add --all";
+      gac = "git add --all && git commit -m";
       garbage = "nix-collect-garbage --delete-old && sudo nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot";
+      gb = "git branch --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)(%(committerdate:relative)) [%(authorname)]' --sort=-committerdate";
+      gbd = "git branch -D";
+      gbD = "git push origin --delete";
+      gcam = "git add --all && git commit --amend";
+      gcb = "git checkout -b";
+      gco = "git checkout";
+      gcod = "git checkout $(git_develop_branch)";
+      gcof = "git checkout --";
+      gcom = "git checkout $(git_main_branch)";
+      gd = "git diff";
+      gdn = "git diff --name-only";
+      gfp = "git fetch --all --prune && git pull --rebase origin $(git symbolic-ref --short HEAD)";
+      ggf = "git push --force origin $(git symbolic-ref --short HEAD)";
+      ggp = "git push origin $(git symbolic-ref --short HEAD)";
+      glo = "git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit";
+      gpp = "git pull --rebase origin $(git symbolic-ref --short HEAD) && git push origin $(git symbolic-ref --short HEAD)";
+      grb = "git rebase";
+      grba = "git rebase --abort";
+      grbc = "git rebase --continue";
       gsb = "git status -sb";
       grep = "grep --color=auto";
       history = "history -i";
@@ -93,6 +114,30 @@
       autoload -U down-line-or-beginning-search
     '';
     initExtraFirst = ''
+      git_develop_branch() {
+        command git rev-parse --git-dir &>/dev/null || return
+        local branch
+        for branch in dev devel development; do
+          if command git show-ref -q --verify refs/heads/$branch; then
+            echo $branch
+            return
+          fi
+        done
+        echo develop
+      }
+
+      git_main_branch() {
+        command git rev-parse --git-dir &>/dev/null || return
+        local ref
+        for ref in refs/{heads,remotes/{origin,upstream}}/{main,trunk,mainline,default}; do
+          if command git show-ref -q --verify $ref; then
+            echo ${ref:t}
+            return
+          fi
+        done
+        echo master
+      }
+
       zsh-backward-kill-word () {
         local WORDCHARS=""
         zle -f kill

@@ -3,17 +3,20 @@
 {
   programs.neovim = {
     defaultEditor = true;
+    vimAlias = true;
     vimdiffAlias = true;
     withNodeJs = true;
+    withPython3 = true;
+    withRuby = true;
     extraPackages = with pkgs; [
       lua-language-server
-      nodePackages.dockerfile-language-server-nodejs
-      nodePackages.eslint
-      nodePackages.prettier
-      nodePackages.typescript
-      nodePackages.typescript-language-server
-      nodePackages.vim-language-server
-      nodePackages.yaml-language-server
+      nodePackages_latest.dockerfile-language-server-nodejs
+      nodePackages_latest.eslint
+      nodePackages_latest.prettier
+      nodePackages_latest.typescript
+      nodePackages_latest.typescript-language-server
+      nodePackages_latest.vim-language-server
+      nodePackages_latest.yaml-language-server
       rnix-lsp
       stylua
     ];

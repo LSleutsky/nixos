@@ -2,6 +2,7 @@
   imports = [
     ./autojump
     ./bat
+    ./btop
     ./exa
     ./feh
     ./firefox

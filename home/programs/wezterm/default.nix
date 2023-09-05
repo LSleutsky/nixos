@@ -8,7 +8,7 @@
       return {
         automatically_reload_config = true,
         bold_brightens_ansi_colors = true,
-        color_scheme = "Dark Pastel",
+        color_scheme = "Catppuccin Mocha",
         default_cursor_style = "BlinkingBar",
         enable_tab_bar = true,
         enable_wayland = true,

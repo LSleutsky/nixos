@@ -1,6 +1,6 @@
 {
   imports = [
-    ./playerctld
     ./dunst
+    ./playerctld
   ];
 }
