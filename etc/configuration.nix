@@ -8,8 +8,16 @@
   ];
 
   i18n.defaultLocale = "en_US.UTF-8";
-  security.rtkit.enable = true;
   time.timeZone = "US/Eastern";
+
+  security = {
+    rtkit.enable = true;
+    pam.services.swaylock = {
+      text = ''
+        auth include login
+      '';
+    };
+  };
 
   nix = {
     gc = {
@@ -170,6 +178,7 @@
       pulsemixer
       sl
       slurp
+      swayidle
       tree
       tty-clock
       unzip

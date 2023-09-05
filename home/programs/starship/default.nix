@@ -40,7 +40,7 @@
       git_status = {
         format = "([$all_status$ahead_behind]($style) )";
         style = "bg:none fg:#f38ba8";
-        stashed = "\$";
+        stashed = "$";
         ahead = "⇡";
         behind = "⇣";
         up_to_date = "";

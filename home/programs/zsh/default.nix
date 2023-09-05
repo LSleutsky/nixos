@@ -7,6 +7,14 @@
     enableAutosuggestions = true;
     enableCompletion = true;
     syntaxHighlighting.enable = true;
+    history = {
+      extended = true;
+      ignoreAllDups = true;
+      ignoreDups = true;
+      ignoreSpace = true;
+      share = true;
+      size = 20000;
+    };
     shellAliases = {
       ".." = "cd ../";
       "..." = "cd ../../";
@@ -65,10 +73,7 @@
       setopt auto_menu
       setopt auto_pushd
       setopt complete_in_word
-      setopt extended_history
       setopt hist_find_no_dups
-      setopt hist_ignore_dups
-      setopt hist_ignore_all_dups
       setopt hist_reduce_blanks
       setopt hist_save_no_dups
       setopt inc_append_history
@@ -114,7 +119,7 @@
       autoload -U down-line-or-beginning-search
     '';
     initExtraFirst = ''
-      git_develop_branch() {
+      git_develop_branch () {
         command git rev-parse --git-dir &>/dev/null || return
         local branch
         for branch in dev devel development; do
@@ -126,7 +131,7 @@
         echo develop
       }
 
-      git_main_branch() {
+      git_main_branch () {
         command git rev-parse --git-dir &>/dev/null || return
         local ref
         for ref in refs/{heads,remotes/{origin,upstream}}/{main,trunk,mainline,default}; do

@@ -13,6 +13,7 @@
     ./neovim
     ./ripgrep
     ./starship
+    ./swaylock
     ./waybar
     ./wezterm
     ./zsh

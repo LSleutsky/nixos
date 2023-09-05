@@ -12,6 +12,8 @@
       ];
       exec-once = [
         "hyprctl setcursor Bibata-Modern-Classic 24"
+        "swayidle -w timeout 900 'swaylock' timeout 930 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on' before-sleep 'swaylock' after-resume 'sleep .2; systemctl --user restart waybar'"
+        "swayidle -w timeout 10 'if pgrep -x swaylock; then hyprctl dispatch dpms off; fi' resume 'hyprctl dispatch dpms on'"
       ];
       input = {
         repeat_rate = 50;
@@ -83,6 +85,7 @@
         "$mainMod, P, pseudo"
         "$mainMod, Q, killactive"
         "$mainMod, T, togglefloating"
+        "$mainMod, X, exec, swaylock"
         "$mainMod, RETURN, exec, wezterm" 
         "$mainMod, h, movefocus, l"
         "$mainMod, l, movefocus, r"
