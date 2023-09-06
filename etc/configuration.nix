@@ -165,6 +165,7 @@
       git
       gping
       grim
+      hyprpicker
       inxi
       lolcat
       neo-cowsay
