@@ -115,10 +115,10 @@
   };
 
   programs = {
-    _1password.enable = true;
     autojump.enable = true;
     hyprland.enable = true;
     zsh.enable = true;
+    _1password.enable = true;
     _1password-gui = {
       enable = true;
       polkitPolicyOwners = [ "lush" ];
@@ -165,6 +165,7 @@
       git
       gping
       grim
+      inxi
       lolcat
       neo-cowsay
       neofetch
@@ -189,6 +190,7 @@
     variables = {
       NIXOS_OZONE_WL = "1";
       NIXPKGS_ALLOW_UNFREE = "1";
+      NODE_PATH = "$HOME/.npm-packages/lib/node_modules/";
       PAGER = "less";
       SUDO_EDITOR = "nvim";
       SYSTEMD_EDITOR = "nvim";
@@ -198,11 +200,13 @@
 
   fonts = {
     packages = with pkgs; [
-      fira-code
+      fira-code-nerdfont
       fira-code-symbols
       noto-fonts
       noto-fonts-emoji
-      (nerdfonts.override { fonts = [ "ComicShannsMono" ]; })
+      (nerdfonts.override {
+        fonts = [ "ComicShannsMono" "JetBrainsMono" ];
+      })
     ];
   };
 
@@ -220,10 +224,27 @@
     useUserPackages = true;
     users.lush = { pkgs, ... }: {
       imports = [ ../home ];
-      home.stateVersion = "23.05";
+      home = {
+        stateVersion = "23.05";
+        file = {
+          ".npmrc" = {
+            enable = true;
+            text = ''
+              prefix = ''${HOME}/.npm-packages
+            '';
+          };
+        };
+        sessionPath = [
+          "$HOME/.npm-packages/bin"
+          "$HOME/.npm-packages/lib/node_modules/"
+        ];
+      };
       gtk = {
         enable = true;
-        cursorTheme.name = "Bibata-Modern-Classic";
+        cursorTheme = {
+          name = "Bibata-Modern-Classic";
+          size = 24;
+        };
         font.name = "ComicShannsMono Nerd Font 12";
         iconTheme = {
           name = "Papirus-Dark";
@@ -231,16 +252,16 @@
         };
         theme = {
           name = "Catppuccin-Mocha-Standard-Mauve-dark";
-          package = pkgs.catppuccin-gtk.override { variant="mocha"; };
+          package = pkgs.catppuccin-gtk.override { variant = "mocha"; };
         };
         gtk3 = {
           extraConfig = {
-            Settings = "gtk-application-prefer-dark-theme=1";
+            gtk-application-prefer-dark-theme = true;
           };
         };
         gtk4 = {
           extraConfig = {
-            Settings = "gtk-application-prefer-dark-theme=1";
+            gtk-application-prefer-dark-theme = true;
           };
         };
       };

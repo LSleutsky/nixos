@@ -7,13 +7,29 @@
     enableAutosuggestions = true;
     enableCompletion = true;
     syntaxHighlighting.enable = true;
+    dirHashes = {
+      cfg = "$HOME/.config";
+      dl = "$HOME/Downloads";
+      docs = "$HOME/Documents";
+      nv = "$HOME/.config/nvim/lua/custom";
+      nx = "$HOME/nixos";
+      pics = "$HOME/Pictures";
+      repos = "$HOME/repos";
+      vids = "$HOME/Videos";
+    };
     history = {
+      expireDuplicatesFirst = true;
       extended = true;
       ignoreAllDups = true;
       ignoreDups = true;
       ignoreSpace = true;
       share = true;
       size = 20000;
+    };
+    historySubstringSearch = {
+      enable = true;
+      searchDownKey = [ "^j" ];
+      searchUpKey = [ "^k" ];
     };
     shellAliases = {
       ".." = "cd ../";
@@ -111,15 +127,17 @@
       bindkey "^[[1;5C" forward-word
       bindkey "^[[1;5D" backward-word
       bindkey "^[[A" up-line-or-beginning-search
+      bindkey "^[OA" up-line-or-beginning-search
       bindkey "^[[B" down-line-or-beginning-search
+      bindkey "^[OB" down-line-or-beginning-search
       bindkey '^w' zsh-backward-kill-word
     '';
     initExtraBeforeCompInit = ''
-      autoload -U up-line-or-beginning-search
-      autoload -U down-line-or-beginning-search
+      autoload -Uz up-line-or-beginning-search
+      autoload -Uz down-line-or-beginning-search
     '';
     initExtraFirst = ''
-      git_develop_branch () {
+      git_develop_branch() {
         command git rev-parse --git-dir &>/dev/null || return
         local branch
         for branch in dev devel development; do
@@ -131,7 +149,7 @@
         echo develop
       }
 
-      git_main_branch () {
+      git_main_branch() {
         command git rev-parse --git-dir &>/dev/null || return
         local ref
         for ref in refs/{heads,remotes/{origin,upstream}}/{main,trunk,mainline,default}; do
@@ -143,7 +161,7 @@
         echo master
       }
 
-      zsh-backward-kill-word () {
+      zsh-backward-kill-word() {
         local WORDCHARS=""
         zle -f kill
         zle backward-kill-word

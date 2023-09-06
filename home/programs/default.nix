@@ -16,6 +16,7 @@
     ./swaylock
     ./waybar
     ./wezterm
+    ./wlogout
     ./zsh
   ];
 }

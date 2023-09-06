@@ -7,6 +7,7 @@
     settings = {
       "$mainMod" = "SUPER";
       "$mainModShift" = "SUPERSHIFT";
+      blurls = "gtk-layer-shell";
       monitor = [
         "eDP-1,2250x1504@60,0x0,1"
       ];
@@ -110,6 +111,7 @@
         "$mainModShift, F, fullscreen, 0"
         "$mainModShift, Q, exit"
         "$mainModShift, S, exec, screenshot_area"
+        "$mainModShift, X, exec, wlogout --protocol layer-shell -b 5 -T 600 -B 600"
         "$mainModShift, h, movewindow, l"
         "$mainModShift, l, movewindow, r"
         "$mainModShift, j, movewindow, d"
