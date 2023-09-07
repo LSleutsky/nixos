@@ -66,43 +66,43 @@
       }
 
       #lock {
-        background-image: url("~/nixos/home/programs/wlogout/assets/lock.png");
+        background-image: url("/home/lush/nixos/home/programs/wlogout/assets/lock.png");
       }
 
       #lock:focus {
-        background-image: url("~/nixos/home/programs/wlogout/assets/lock-hover.png");
+        background-image: url("/home/lush/nixos/home/programs/wlogout/assets/lock-hover.png");
       }
 
       #logout {
-        background-image: url("~/nixos/home/programs/wlogout/assets/logout.png");
+        background-image: url("/home/lush/nixos/home/programs/wlogout/assets/logout.png");
       }
 
       #logout:focus {
-        background-image: url("~/nixos/home/programs/wlogout/assets/logout-hover.png");
+        background-image: url("/home/lush/nixos/home/programs/wlogout/assets/logout-hover.png");
       }
 
       #suspend {
-        background-image: url("~/nixos/home/programs/wlogout/assets/suspend.png");
+        background-image: url("/home/lush/nixos/home/programs/wlogout/assets/suspend.png");
       }
 
       #suspend:focus {
-        background-image: url("~/nixos/home/programs/wlogout/assets/suspend-hover.png");
+        background-image: url("/home/lush/nixos/home/programs/wlogout/assets/suspend-hover.png");
       }
 
       #shutdown {
-        background-image: url("~/nixos/home/programs/wlogout/assets/shutdown.png");
+        background-image: url("/home/lush/nixos/home/programs/wlogout/assets/shutdown.png");
       }
 
       #shutdown:focus {
-        background-image: url("~/nixos/home/programs/wlogout/assets/shutdown-hover.png");
+        background-image: url("/home/lush/nixos/home/programs/wlogout/assets/shutdown-hover.png");
       }
 
       #reboot {
-        background-image: url("~/nixos/home/programs/wlogout/assets/reboot.png");
+        background-image: url("/home/lush/nixos/home/programs/wlogout/assets/reboot.png");
       }
 
       #reboot:focus {
-        background-image: url("~/nixos/home/programs/wlogout/assets/reboot-hover.png");
+        background-image: url("/home/lush/nixos/home/programs/wlogout/assets/reboot-hover.png");
       }
     '';
   };

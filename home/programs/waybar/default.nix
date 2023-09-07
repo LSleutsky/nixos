@@ -11,6 +11,8 @@
       mainBar = {
         position = "top";
         layer = "top";
+        height = 35;
+        margin = "0";
         fixed-center = true;
         modules-left = [
           "temperature"
