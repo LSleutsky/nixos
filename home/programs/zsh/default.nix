@@ -42,7 +42,7 @@
       "........." = "cd ../../../../../../../../";
       ".........." = "cd ../../../../../../../../../";
       batt = "bat /sys/class/power_supply/BAT1/capacity";
-      clock = "tty-clock -bcsC4 -f %a,\\ %b\\ %d";
+      clock = "tty-clock -bcsC4 -f %a,\\ %d\\ %b\\ %Y";
       config = "sudo -Es nvim /etc/nixos/configuration.nix";
       df = "df -h";
       free = "free -mth";

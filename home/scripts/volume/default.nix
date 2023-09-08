@@ -25,7 +25,7 @@ let
         dunstify -a "VOLUME" "UNMUTED" -i ~/nixos/home/scripts/volume/assets/volume_up.png -r 2593 -u normal
       else 
         pulsemixer --toggle-mute
-        dunstify -a "VOLUME" "MUTED" -i ~/nixos/home/scripts/volume/assets/volume_muted.svg -r 2593 -u normal
+        dunstify -a "VOLUME" "MUTED" -i ~/nixos/home/scripts/volume/assets/volume_muted.png -r 2593 -u normal
       fi
     }
 

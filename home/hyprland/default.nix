@@ -13,7 +13,7 @@
       ];
       exec-once = [
         "hyprctl setcursor Bibata-Modern-Classic 24"
-        "swayidle -w timeout 900 'swaylock' timeout 930 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on' before-sleep 'swaylock'"
+        "swayidle -w timeout 1200 'swaylock' timeout 1230 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on' before-sleep 'swaylock'"
         "swayidle -w timeout 10 'if pgrep -x swaylock; then hyprctl dispatch dpms off; fi' resume 'hyprctl dispatch dpms on'"
       ];
       input = {

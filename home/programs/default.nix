@@ -11,6 +11,7 @@
     ./gitui
     ./helix
     ./neovim
+    ./nnn
     ./ripgrep
     ./starship
     ./swaylock
