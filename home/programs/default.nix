@@ -13,7 +13,6 @@
     ./neovim
     ./nnn
     ./pyenv
-    ./pywal
     ./ripgrep
     ./starship
     ./swaylock
