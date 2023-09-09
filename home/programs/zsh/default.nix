@@ -13,6 +13,8 @@
       docs = "$HOME/Documents";
       nv = "$HOME/.config/nvim/lua/custom";
       nx = "$HOME/nixos";
+      nxp = "$HOME/nixos/programs";
+      nxs = "$HOME/nixos/services";
       pics = "$HOME/Pictures";
       repos = "$HOME/repos";
       vids = "$HOME/Videos";

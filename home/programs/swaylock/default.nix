@@ -11,7 +11,7 @@
       hide-keyboard-layout = true;
       clock = true;
       timestr = "%T";
-      datestr = "%a, %d %b %y";
+      datestr = "%a, %d %b %Y";
       indicator = true;
       indicator-radius = 220;
       indicator-thickness = 7;

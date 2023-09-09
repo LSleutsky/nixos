@@ -13,6 +13,7 @@
       nodePackages_latest.dockerfile-language-server-nodejs
       nodePackages_latest.eslint
       nodePackages_latest.prettier
+      nodePackages_latest.tailwindcss
       nodePackages_latest.typescript
       nodePackages_latest.typescript-language-server
       nodePackages_latest.vim-language-server

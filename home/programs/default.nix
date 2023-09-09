@@ -12,6 +12,8 @@
     ./helix
     ./neovim
     ./nnn
+    ./pyenv
+    ./pywal
     ./ripgrep
     ./starship
     ./swaylock
