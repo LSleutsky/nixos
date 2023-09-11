@@ -3,7 +3,6 @@
     ./autojump
     ./bat
     ./btop
-    ./exa
     ./feh
     ./firefox
     ./gh
@@ -14,6 +13,7 @@
     ./nnn
     ./pyenv
     ./ripgrep
+    ./rofi
     ./starship
     ./swaylock
     ./waybar

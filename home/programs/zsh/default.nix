@@ -73,6 +73,7 @@
       gsb = "git status -sb";
       grep = "grep --color=auto";
       history = "history -i";
+      ls = "eza --all --binary --git --group-directories-first --icons --long";
       lsblk = "lsblk -f";
       man = "batman";
       mkdir = "mkdir -p";

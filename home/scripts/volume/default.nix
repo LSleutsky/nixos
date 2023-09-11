@@ -3,28 +3,27 @@
 let
   volume = pkgs.writeShellScriptBin "volume" ''
     down() {
-	    [[ `pulsemixer --get-mute` == 1 ]] && pulsemixer --unmute
-	    pulsemixer --max-volume 100 --change-volume -2
-      volume=$(pulsemixer --get-volume | cut -d' ' -f1)
-      [$volume -gt 0 ] && volume=`expr $volume`  
+      [[ `wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep MUTED` ]] && wpctl set-mute @DEFAULT_AUDIO_SINK@ 0
+      wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-
+      volume=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | sed 's/Volume: //')
+      volume=$(echo $volume | awk -v volume=$volume "{ print(volume * 100) }")
       dunstify -a "VOLUME" "$volume%" -h int:value:"$volume" -i ~/nixos/home/scripts/volume/assets/volume_down.png -r 2593 -u normal
     }
 
     up() {
-	    [[ `pulsemixer --get-mute` == 1 ]] && pulsemixer --unmute
-	    pulsemixer --max-volume 100 --change-volume +2
-      volume=$(pulsemixer --get-volume | cut -d' ' -f1)
-      [ $volume -lt 1000 ] && volume=`expr $volume`  
+      [[ `wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep MUTED` ]] && wpctl set-mute @DEFAULT_AUDIO_SINK@ 0
+      wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%+
+      volume=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | sed 's/Volume: //')
+      volume=$(echo $volume | awk -v volume=$volume "{ print(volume * 100) }")
       dunstify -a "VOLUME" "$volume%" -h int:value:"$volume" -i ~/nixos/home/scripts/volume/assets/volume_up.png -r 2593 -u normal
     }
 
-    
     mute() {
-	    if [[ `pulsemixer --get-mute` == 1 ]]; then
-        pulsemixer --toggle-mute
+      if [[ `wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep MUTED` ]]; then
+        wpctl set-mute @DEFAULT_AUDIO_SINK@ 0
         dunstify -a "VOLUME" "UNMUTED" -i ~/nixos/home/scripts/volume/assets/volume_up.png -r 2593 -u normal
-      else 
-        pulsemixer --toggle-mute
+      else
+        wpctl set-mute @DEFAULT_AUDIO_SINK@ 1
         dunstify -a "VOLUME" "MUTED" -i ~/nixos/home/scripts/volume/assets/volume_muted.png -r 2593 -u normal
       fi
     }

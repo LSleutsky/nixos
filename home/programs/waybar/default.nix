@@ -24,7 +24,7 @@
           "bluetooth"
           "network"
           "backlight"
-          "pulseaudio"
+          "wireplumber"
           "battery"
           "clock"
           "idle_inhibitor"

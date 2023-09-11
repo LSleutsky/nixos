@@ -158,6 +158,7 @@
       coreutils
       curl
       discord
+      eza
       fd
       figlet
       fortune
@@ -165,6 +166,7 @@
       git
       gping
       grim
+      gtk-engine-murrine
       hyprpicker
       inxi
       lolcat
@@ -172,12 +174,13 @@
       neofetch
       neovim-nightly
       networkmanager
+      nitch
       nodejs
       onefetch
+      papirus-icon-theme
       pavucontrol
       pipes
       playerctl
-      pulsemixer
       sl
       slurp
       swayidle
