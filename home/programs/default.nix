@@ -9,6 +9,7 @@
     ./git
     ./gitui
     ./helix
+    ./ncmpcpp
     ./neovim
     ./nnn
     ./pyenv
@@ -19,6 +20,7 @@
     ./waybar
     ./wezterm
     ./wlogout
+    ./zathura
     ./zsh
   ];
 }

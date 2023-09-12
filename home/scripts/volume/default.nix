@@ -4,7 +4,7 @@ let
   volume = pkgs.writeShellScriptBin "volume" ''
     down() {
       [[ `wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep MUTED` ]] && wpctl set-mute @DEFAULT_AUDIO_SINK@ 0
-      wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-
+      wpctl set-volume --limit 1.0 @DEFAULT_AUDIO_SINK@ 2%- --limit 1.0
       volume=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | sed 's/Volume: //')
       volume=$(echo $volume | awk -v volume=$volume "{ print(volume * 100) }")
       dunstify -a "VOLUME" "$volume%" -h int:value:"$volume" -i ~/nixos/home/scripts/volume/assets/volume_down.png -r 2593 -u normal
@@ -12,7 +12,7 @@ let
 
     up() {
       [[ `wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep MUTED` ]] && wpctl set-mute @DEFAULT_AUDIO_SINK@ 0
-      wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%+
+      wpctl set-volume --limit 1.0 @DEFAULT_AUDIO_SINK@ 2%+
       volume=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | sed 's/Volume: //')
       volume=$(echo $volume | awk -v volume=$volume "{ print(volume * 100) }")
       dunstify -a "VOLUME" "$volume%" -h int:value:"$volume" -i ~/nixos/home/scripts/volume/assets/volume_up.png -r 2593 -u normal

@@ -116,6 +116,7 @@
 
   programs = {
     autojump.enable = true;
+    evince.enable = true;
     hyprland.enable = true;
     zsh.enable = true;
     _1password.enable = true;
@@ -165,6 +166,7 @@
       gcc
       git
       gping
+      gradience
       grim
       gtk-engine-murrine
       hyprpicker
