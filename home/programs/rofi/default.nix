@@ -76,7 +76,7 @@
       }
       button selected {
         background-color: @foreground;
-        text-color: @foreground;
+        text-color: @background;
       }
 
       // -- Lists
