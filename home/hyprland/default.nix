@@ -14,7 +14,7 @@
       exec-once = [
         "hyprctl setcursor Bibata-Modern-Classic 24"
         "swayidle -w timeout 1200 'swaylock' timeout 1230 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on' before-sleep 'swaylock'"
-        "swayidle -w timeout 10 'if pgrep -x swaylock; then hyprctl dispatch dpms off; fi' resume 'hyprctl dispatch dpms on'"
+        "swayidle -w timeout 15 'if pgrep -x swaylock; then hyprctl dispatch dpms off; fi' resume 'hyprctl dispatch dpms on'"
       ];
       input = {
         repeat_rate = 50;
@@ -34,11 +34,15 @@
       general = {
         layout = "dwindle";
         sensitivity = 2;
-        gaps_in = 11.8;
-        gaps_out = 15.5;
-        border_size = 4;
-        "col.active_border" = "0xff313244";
-        "col.inactive_border" = "0x66333333";
+        gaps_in = 6;
+        gaps_out = 10;
+        border_size = 2;
+        "col.active_border" = "rgba(bb9af7ff) rgba(b4f9f8ff) 45deg";
+        "col.inactive_border" = "rgba(565f89cc) rgba(9aa5cecc) 45deg";
+        "col.group_border_active" = "rgba(bb9af7ff) rgba(b4f9f8ff) 45deg";
+        "col.group_border" = "rgba(565f89cc) rgba(9aa5cecc) 45deg";
+        "col.group_border_locked_active" = "rgba(bb9af7ff) rgba(b4f9f8ff) 45deg";
+        "col.group_border_locked" = "rgba(565f89cc) rgba(9aa5cecc) 45deg";
         apply_sens_to_raw = 0;
       };
       decoration = {

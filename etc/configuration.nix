@@ -155,6 +155,7 @@
       cava
       cargo
       cbonsai
+      cliphist
       cmatrix
       coreutils
       curl
@@ -164,12 +165,13 @@
       figlet
       fortune
       gcc
+      gimp
       git
       gping
-      gradience
       grim
       gtk-engine-murrine
       hyprpicker
+      imagemagick
       inxi
       lolcat
       neo-cowsay
@@ -180,12 +182,13 @@
       nodejs
       onefetch
       papirus-icon-theme
-      pavucontrol
       pipes
       playerctl
       sl
       slurp
+      swappy
       swayidle
+      tokyo-night-gtk
       tree
       tty-clock
       unzip
@@ -194,12 +197,14 @@
       zip
     ];
     variables = {
+      BROWSER = "firefox";
       NIXOS_OZONE_WL = "1";
       NIXPKGS_ALLOW_UNFREE = "1";
       NODE_PATH = "$HOME/.npm-packages/lib/node_modules/";
       PAGER = "less";
       SUDO_EDITOR = "nvim";
       SYSTEMD_EDITOR = "nvim";
+      TERM = "wezterm";
     };
     pathsToLink = [ "/share/zsh" ];
   };
@@ -247,18 +252,12 @@
       };
       gtk = {
         enable = true;
+        font.name = "ComicShannsMono Nerd Font 12";
+        iconTheme.name = "Tokyonight-Dark";
+        theme.name = "Tokyonight-Dark-B";
         cursorTheme = {
           name = "Bibata-Modern-Classic";
           size = 24;
-        };
-        font.name = "ComicShannsMono Nerd Font 12";
-        iconTheme = {
-          name = "Papirus-Dark";
-          package = pkgs.catppuccin-papirus-folders;
-        };
-        theme = {
-          name = "Catppuccin-Mocha-Standard-Mauve-dark";
-          package = pkgs.catppuccin-gtk.override { variant = "mocha"; };
         };
         gtk3 = {
           extraConfig = {

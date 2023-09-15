@@ -1,0 +1,23 @@
+// -- Global
+* {
+  foreground: #c0caf5ff;
+  normal-foreground: @foreground;
+  selected-normal-foreground: #414868ff;
+  selected-normal-background: #7aa2f7ff;
+  selected-active-foreground: #565f89ff;
+  selected-active-background: #bb9af7cc;
+  active-foreground: #b4f9f8cc;
+  active-background: #73dacacc;
+  background: #24283be6;
+  normal-background: @background;
+  urgent-background: #7dcfffcc;
+  alternate-normal-background: #bb9af7ff;
+  separatorcolor: transparent;
+  border-color: transparent;
+  border-radius: 0px;
+  border: 0px;
+  spacing: 0px;
+  padding: 0px;
+}
+
+

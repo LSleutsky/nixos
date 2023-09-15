@@ -17,6 +17,7 @@
     ./rofi
     ./starship
     ./swaylock
+    ./swww
     ./waybar
     ./wezterm
     ./wlogout
