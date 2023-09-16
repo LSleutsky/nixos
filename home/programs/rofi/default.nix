@@ -6,14 +6,13 @@
     file.".config/rofi/config.rasi".text = ''
       // -- Config
       configuration {
-        modi: "drun,filebrowser,window,run";
+        modi: "drun,filebrowser,run";
         show-icons: true;
         display-drun: " ";
         display-run: " ";
         display-filebrowser: " ";
-        display-window: " ";
         drun-display-format: "{name}";
-        window-format: "{w}{t}";
+        window-format: "{w} • {c} • {t}";
         font: "ComicShannsMono Nerd Font";
         icon-theme: "Tokyonight-Dark";
       }
@@ -34,7 +33,7 @@
         border-radius: 40px;
         border-color: @alternate-normal-background;
         background-color: transparent;
-        background-image: url("~/nixos/home/programs/swww/wallpapers/glowing-black-hole.png", height);
+        background-image: url("~/nixos/home/programs/swww/wallpapers/blue-black-hole-burp.png", height);
       }
       mainbox {
         enabled: true;
@@ -42,7 +41,7 @@
         orientation: horizontal;
         children: [ "inputbar", "listbox" ];
         background-color: transparent;
-        background-image: url("~/nixos/home/programs/swww/wallpapers/glowing-black-hole.png", height);
+        background-image: url("~/nixos/home/programs/swww/wallpapers/blue-black-hole-burp.png", height);
       }
 
       // -- Inputs
@@ -51,7 +50,7 @@
         width: 25%;
         children: [ "mode-switcher", "entry" ];
         background-color: transparent;
-        background-image: url("~/nixos/home/programs/swww/wallpapers/glowing-black-hole.png", height);
+        background-image: url("~/nixos/home/programs/swww/wallpapers/blue-black-hole-burp.png", height);
       }
       entry {
         enabled: false;
@@ -66,7 +65,7 @@
         padding: 160px 10px;
         spacing: 25px;
         background-color: transparent;
-        background-image: url("~/nixos/home/programs/swww/wallpapers/glowing-black-hole.png", height);
+        background-image: url("~/nixos/home/programs/swww/wallpapers/blue-black-hole-burp.png", height);
       }
       button {
         cursor: pointer;

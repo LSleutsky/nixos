@@ -84,6 +84,7 @@
         hide_cursor_on_touch = true;
       };
       bind = [
+        "$mainMod, A, exec, rofi -show drun"
         "$mainMod, B, exec, firefox"
         "$mainMod, D, exec, discord"
         "$mainMod, F, fullscreen, 1"

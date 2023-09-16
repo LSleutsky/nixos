@@ -116,7 +116,6 @@
 
   programs = {
     autojump.enable = true;
-    evince.enable = true;
     hyprland.enable = true;
     zsh.enable = true;
     _1password.enable = true;
@@ -225,7 +224,7 @@
     defaultUserShell = pkgs.zsh;
     users.lush = {
       isNormalUser = true;
-      extraGroups = [ "wheel" "networkmanager" "video" "docker" ];
+      extraGroups = [ "wheel" "networkmanager" "video" "docker" "vboxusers" ];
       home = "/home/lush";
     };
   };
