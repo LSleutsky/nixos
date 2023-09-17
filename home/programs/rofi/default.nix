@@ -6,14 +6,15 @@
     file.".config/rofi/config.rasi".text = ''
       // -- Config
       configuration {
-        modi: "drun,filebrowser,run";
+        modi: "drun,filebrowser,run,window";
         show-icons: true;
         display-drun: " ";
-        display-run: " ";
         display-filebrowser: " ";
+        display-run: "";
+        display-window: " ";
         drun-display-format: "{name}";
-        window-format: "{w} • {c} • {t}";
-        font: "ComicShannsMono Nerd Font";
+        window-format: "{w}{t}";
+        font: "ComicShannsMono Nerd Font 12";
         icon-theme: "Tokyonight-Dark";
       }
 
@@ -33,7 +34,7 @@
         border-radius: 40px;
         border-color: @alternate-normal-background;
         background-color: transparent;
-        background-image: url("~/nixos/home/programs/swww/wallpapers/blue-black-hole-burp.png", height);
+        background-image: url("~/nixos/home/programs/swww/wallpapers/tokyo-night.png", height);
       }
       mainbox {
         enabled: true;
@@ -41,7 +42,7 @@
         orientation: horizontal;
         children: [ "inputbar", "listbox" ];
         background-color: transparent;
-        background-image: url("~/nixos/home/programs/swww/wallpapers/blue-black-hole-burp.png", height);
+        background-image: url("~/nixos/home/programs/swww/wallpapers/tokyo-night.png", height);
       }
 
       // -- Inputs
@@ -50,7 +51,7 @@
         width: 25%;
         children: [ "mode-switcher", "entry" ];
         background-color: transparent;
-        background-image: url("~/nixos/home/programs/swww/wallpapers/blue-black-hole-burp.png", height);
+        background-image: url("~/nixos/home/programs/swww/wallpapers/tokyo-night.png", height);
       }
       entry {
         enabled: false;
@@ -65,7 +66,7 @@
         padding: 160px 10px;
         spacing: 25px;
         background-color: transparent;
-        background-image: url("~/nixos/home/programs/swww/wallpapers/blue-black-hole-burp.png", height);
+        background-image: url("~/nixos/home/programs/swww/wallpapers/tokyo-night.png", height);
       }
       button {
         cursor: pointer;
