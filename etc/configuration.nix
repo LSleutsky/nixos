@@ -183,6 +183,7 @@
       papirus-icon-theme
       pipes
       playerctl
+      pngquant
       sl
       slurp
       swappy
