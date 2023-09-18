@@ -1,0 +1,64 @@
+Hyprland PID: 2106
+===== SYSTEM INFO: =====
+System name: Linux
+Node name: hyprnova
+Release: 6.5.2
+Version: #1-NixOS SMP PREEMPT_DYNAMIC Wed Sep  6 20:22:26 UTC 2023
+
+
+GPU information:
+00:02.0 VGA compatible controller [0300]: Intel Corporation Alder Lake-P Integrated Graphics Controller [8086:46a6] (rev 0c) (prog-if 00 [VGA controller])
+
+
+os-release:
+BUG_REPORT_URL="https://github.com/NixOS/nixpkgs/issues"
+BUILD_ID="23.11pre525972.ace5093e36ab"
+DOCUMENTATION_URL="https://nixos.org/learn.html"
+HOME_URL="https://nixos.org/"
+ID=nixos
+LOGO="nix-snowflake"
+NAME=NixOS
+PRETTY_NAME="NixOS 23.11 (Tapir)"
+SUPPORT_URL="https://nixos.org/community.html"
+VERSION="23.11 (Tapir)"
+VERSION_CODENAME=tapir
+VERSION_ID="23.11"
+
+========================
+
+
+
+If you are crashing, or encounter any bugs, please consult https://wiki.hyprland.org/Crashes-and-Bugs/
+
+
+
+Current splash: Woo, animations!
+
+
+Creating the HookSystem!
+Creating the KeybindManager!
+Creating the AnimationManager!
+Created a bezier curve, baked 255 points, mem usage: 4.08kB, time to bake: 28.38탎. Estimated average calc time: 0.10탎.
+Creating the ConfigManager!
+Creating the CHyprError!
+ [hookSystem] New hook event registered: focusedMon
+ [hookSystem] New hook event registered: preRender
+Creating the LayoutManager!
+Reloading the config!
+Created a bezier curve, baked 255 points, mem usage: 4.08kB, time to bake: 12.58탎. Estimated average calc time: 0.05탎.
+Using config: /home/lush/.config/hypr/hyprland.conf
+Registered dynamic var "$mainMod" -> SUPER
+Registered dynamic var "$mainModShift" -> SUPERSHIFT
+Created a bezier curve, baked 255 points, mem usage: 4.08kB, time to bake: 12.96탎. Estimated average calc time: 0.10탎.
+00:00:00.010 [libseat] [libseat/libseat.c:62] Seat opened with backend 'logind'
+00:00:00.010 [backend/session/session.c:109] Successfully loaded libseat session
+00:00:00.013 [backend/backend.c:220] Found 1 GPUs
+00:00:00.013 [backend/drm/backend.c:202] Initializing DRM backend for /dev/dri/card0 (i915)
+00:00:00.013 [backend/drm/drm.c:249] Found 4 DRM CRTCs
+00:00:00.013 [backend/drm/drm.c:207] Found 24 DRM planes
+00:00:00.021 [render/egl.c:206] Supported EGL client extensions: EGL_EXT_device_base EGL_EXT_device_enumeration EGL_EXT_device_query EGL_EXT_platform_base EGL_KHR_client_get_all_proc_addresses EGL_EXT_clie
+nt_extensions EGL_KHR_debug EGL_EXT_platform_device EGL_EXT_platform_wayland EGL_KHR_platform_wayland EGL_EXT_platform_x11 EGL_KHR_platform_x11 EGL_EXT_platform_xcb EGL_MESA_platform_gbm EGL_KHR_platform_g
+bm EGL_MESA_platform_surfaceless
+00:00:00.186 [render/egl.c:355] Using EGL 1.5
+00:00:00.186 [render/egl.c:356] Supported EGL display extensions: EGL_ANDROID_blob_cache EGL_ANDROID_native_fence_sync EGL_EXT_create_context_robustness EGL_EXT_image_dma_buf_import EGL_EXT_image_dma_buf_i
+zsh: IOT instruction (core dumped)  Hyprland[Line 1116] Display doesn't support idle protocol[Line 1116] Display doesn't support idle protocolatives GL_EXT_demote_to_helper_invocation GL_EXT_depth_clamp GL

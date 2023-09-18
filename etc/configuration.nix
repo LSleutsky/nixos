@@ -22,7 +22,7 @@
   nix = {
     gc = {
       automatic = true;
-      dates = "daily";
+      dates = "weekly";
       options = "--delete-old";
     };
     settings = {
@@ -90,7 +90,7 @@
   system = {
     autoUpgrade.enable = true;
     copySystemConfiguration = true;
-    stateVersion = "23.05";
+    stateVersion = "23.11";
   };
 
   hardware = {
@@ -198,6 +198,7 @@
     ];
     variables = {
       BROWSER = "firefox";
+      LIBSEAT_BACKEND = "logind";
       NIXOS_OZONE_WL = "1";
       NIXPKGS_ALLOW_UNFREE = "1";
       NODE_PATH = "$HOME/.npm-packages/lib/node_modules/";
@@ -236,7 +237,7 @@
     users.lush = { pkgs, ... }: {
       imports = [ ../home ];
       home = {
-        stateVersion = "23.05";
+        stateVersion = "23.11";
         file = {
           ".npmrc" = {
             enable = true;
