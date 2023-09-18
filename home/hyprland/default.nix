@@ -9,7 +9,7 @@
       "$mainModShift" = "SUPERSHIFT";
       blurls = "gtk-layer-shell";
       monitor = [
-        "eDP-1,2250x1504@60,0x0,1"
+        "eDP-1,2256x1504@60,0x0,1"
       ];
       exec-once = [
         "hyprctl setcursor Bibata-Modern-Classic 24"
