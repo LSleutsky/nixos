@@ -3,6 +3,7 @@
     ./autojump
     ./bat
     ./btop
+    ./eza
     ./feh
     ./firefox
     ./gh

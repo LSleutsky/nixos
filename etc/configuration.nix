@@ -159,7 +159,6 @@
       coreutils
       curl
       discord
-      eza
       fd
       figlet
       fortune
@@ -186,6 +185,7 @@
       pngquant
       sl
       slurp
+      starfetch
       swappy
       swayidle
       tokyo-night-gtk

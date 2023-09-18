@@ -73,11 +73,11 @@
       gsb = "git status -sb";
       grep = "grep --color=auto";
       history = "history -i";
-      ls = "eza --all --binary --git --group-directories-first --icons --long";
       lsblk = "lsblk -f";
       man = "batman";
       mkdir = "mkdir -p";
       n = "nvim";
+      snu = "sudo -Es nvim +NvChadUpdate";
       pow = "sudo shutdown now";
       reb = "sudo reboot now";
       sn = "sudo -Es nvim";
