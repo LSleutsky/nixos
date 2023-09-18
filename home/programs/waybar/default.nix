@@ -19,7 +19,7 @@
           "cpu"
           "memory"
         ];
-        modules-center = [ "wlr/workspaces" ];
+        modules-center = [ "hyprland/workspaces" ];
         modules-right = [
           "bluetooth"
           "network"
