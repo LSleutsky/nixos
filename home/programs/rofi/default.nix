@@ -9,6 +9,11 @@ in {
     font = "ComicShannsMono Nerd Font 12";
     location = "center";
     terminal = "${pkgs.wezterm}/bin/wezterm";
+    plugins = with pkgs; [
+      rofi-bluetooth
+      rofi-calc
+      rofi-emoji
+    ];
     extraConfig = {
       modi = "drun,run,filebrowser";
       show-icons = true;
