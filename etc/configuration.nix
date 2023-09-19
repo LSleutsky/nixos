@@ -192,6 +192,7 @@
       tree
       tty-clock
       unzip
+      wf-recorder
       wget
       wl-clipboard
       zip

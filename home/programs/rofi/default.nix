@@ -10,12 +10,11 @@ in {
     location = "center";
     terminal = "${pkgs.wezterm}/bin/wezterm";
     extraConfig = {
-      modi = "drun,run,filebrowser,window";
+      modi = "drun,run,filebrowser";
       show-icons = true;
       display-drun = " ";
       display-run = " ";
       display-filebrowser = " ";
-      display-window = " ";
       drun-display-format = "{name}";
       window-format = "{w} • {c} • {t}";
     };
@@ -33,7 +32,8 @@ in {
         location = mkLiteral "center";
         anchor = mkLiteral "center";
         fullscreen = false;
-        width = mkLiteral "1000px";
+        height = mkLiteral "500px";
+        width = mkLiteral "1100px";
         x-offset = mkLiteral "0px";
         y-offset = mkLiteral "0px";
         enabled = true;
