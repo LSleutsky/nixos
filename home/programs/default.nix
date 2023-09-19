@@ -10,6 +10,7 @@
     ./git
     ./gitui
     ./helix
+    ./hyprpaper
     ./ncmpcpp
     ./neovim
     ./nnn
@@ -18,7 +19,6 @@
     ./rofi
     ./starship
     ./swaylock
-    ./swww
     ./waybar
     ./wezterm
     ./wlogout
