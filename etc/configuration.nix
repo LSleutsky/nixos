@@ -199,14 +199,12 @@
     ];
     variables = {
       BROWSER = "firefox";
-      LIBSEAT_BACKEND = "logind";
       NIXOS_OZONE_WL = "1";
       NIXPKGS_ALLOW_UNFREE = "1";
       NODE_PATH = "$HOME/.npm-packages/lib/node_modules/";
       PAGER = "less";
       SUDO_EDITOR = "nvim";
       SYSTEMD_EDITOR = "nvim";
-      TERM = "wezterm";
     };
     pathsToLink = [ "/share/zsh" ];
   };
