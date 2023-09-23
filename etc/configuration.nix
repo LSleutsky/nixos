@@ -10,16 +10,14 @@
   i18n.defaultLocale = "en_US.UTF-8";
   time.timeZone = "US/Eastern";
 
-  nix = {
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-old";
-    };
-    settings = {
-      auto-optimise-store = true;
-      experimental-features = [ "nix-command" "flakes" ];
-    };
+  hardware = {
+    brillo.enable = true;
+  };
+
+  fileSystems = {
+    "/".options = [ "compress=zstd" ];
+    "/home".options = [ "compress=zstd" ];
+    "/nix".options = [ "compress=zstd" "noatime" ];
   };
 
   zramSwap = {
@@ -61,25 +59,39 @@
     keyMap = "us";
   };
 
-  systemd = {
-    services = {
-      fprintd = {
-        wantedBy = [ "multi-user.target" ];
-        serviceConfig.Type = "simple";
-      };
-      NetworkManager-wait-online.enable = false;
-    };
-  };
-
   networking = {
     hostName = "hyprnova";
     networkmanager.enable = true;
   };
 
-  fileSystems = {
-    "/".options = [ "compress=zstd" ];
-    "/home".options = [ "compress=zstd" ];
-    "/nix".options = [ "compress=zstd" "noatime" ];
+  security = {
+    rtkit.enable = true;
+    pam.services.swaylock = {
+      text = ''
+        auth include login
+      '';
+    };
+  };
+
+  nix = {
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-old";
+    };
+    settings = {
+      auto-optimise-store = true;
+      experimental-features = [ "nix-command" "flakes" ];
+    };
+  };
+
+  nixpkgs = {
+    config.allowUnfree = true;
+    overlays = [
+      (import (builtins.fetchTarball {
+        url = https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz;
+      }))
+    ];
   };
 
   system = {
@@ -88,8 +100,14 @@
     stateVersion = "23.11";
   };
 
-  hardware = {
-    brillo.enable = true;
+  systemd = {
+    services = {
+      fprintd = {
+        wantedBy = [ "multi-user.target" ];
+        serviceConfig.Type = "simple";
+      };
+      NetworkManager-wait-online.enable = false;
+    };
   };
 
   services = {
@@ -107,15 +125,6 @@
         support32Bit = true;
       };
       pulse.enable = true;
-    };
-  };
-
-  security = {
-    rtkit.enable = true;
-    pam.services.swaylock = {
-      text = ''
-        auth include login
-      '';
     };
   };
 
@@ -137,20 +146,23 @@
     };
   };
 
+  fonts = {
+    packages = with pkgs; [
+      fira-code-nerdfont
+      fira-code-symbols
+      noto-fonts
+      noto-fonts-emoji
+      (nerdfonts.override {
+        fonts = [ "ComicShannsMono" "JetBrainsMono" ];
+      })
+    ];
+  };
+
   xdg.portal = {
     enable = true;
     wlr.enable = true;
     xdgOpenUsePortal = true;
     extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-  };
-
-  nixpkgs = {
-    config.allowUnfree = true;
-    overlays = [
-      (import (builtins.fetchTarball {
-        url = https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz;
-      }))
-    ];
   };
 
   environment = {
@@ -215,18 +227,6 @@
       SYSTEMD_EDITOR = "nvim";
     };
     pathsToLink = [ "/share/zsh" ];
-  };
-
-  fonts = {
-    packages = with pkgs; [
-      fira-code-nerdfont
-      fira-code-symbols
-      noto-fonts
-      noto-fonts-emoji
-      (nerdfonts.override {
-        fonts = [ "ComicShannsMono" "JetBrainsMono" ];
-      })
-    ];
   };
 
   users = {
