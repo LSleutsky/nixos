@@ -10,15 +10,6 @@
   i18n.defaultLocale = "en_US.UTF-8";
   time.timeZone = "US/Eastern";
 
-  security = {
-    rtkit.enable = true;
-    pam.services.swaylock = {
-      text = ''
-        auth include login
-      '';
-    };
-  };
-
   nix = {
     gc = {
       automatic = true;
@@ -72,6 +63,10 @@
 
   systemd = {
     services = {
+      fprintd = {
+        wantedBy = [ "multi-user.target" ];
+        serviceConfig.Type = "simple";
+      };
       NetworkManager-wait-online.enable = false;
     };
   };
@@ -99,6 +94,7 @@
 
   services = {
     dbus.enable = true;
+    fprintd.enable = true;
     fwupd.enable = true;
     openssh.enable = true;
     printing.enable = true;
@@ -111,6 +107,15 @@
         support32Bit = true;
       };
       pulse.enable = true;
+    };
+  };
+
+  security = {
+    rtkit.enable = true;
+    pam.services.swaylock = {
+      text = ''
+        auth include login
+      '';
     };
   };
 
@@ -165,6 +170,7 @@
       gcc
       gimp
       git
+      gnumake
       gping
       grim
       gtk-engine-murrine
@@ -172,6 +178,7 @@
       imagemagick
       inxi
       lolcat
+      lshw
       neo-cowsay
       neofetch
       neovim-nightly
@@ -191,6 +198,7 @@
       tokyo-night-gtk
       tree
       tty-clock
+      usbutils
       unzip
       wf-recorder
       wget
@@ -225,7 +233,7 @@
     defaultUserShell = pkgs.zsh;
     users.lush = {
       isNormalUser = true;
-      extraGroups = [ "wheel" "networkmanager" "video" "docker" "vboxusers" ];
+      extraGroups = [ "wheel" "networkmanager" "video" "input" "docker" "vboxusers" ];
       home = "/home/lush";
     };
   };

@@ -50,7 +50,6 @@
       free = "free -mth";
       gaa = "git add --all";
       gac = "git add --all && git commit -m";
-      garbage = "nix-collect-garbage --delete-old && sudo nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot";
       gb = "git branch --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)(%(committerdate:relative)) [%(authorname)]' --sort=-committerdate";
       gbd = "git branch -D";
       gbD = "git push origin --delete";
@@ -71,19 +70,19 @@
       grba = "git rebase --abort";
       grbc = "git rebase --continue";
       gsb = "git status -sb";
+      gc = "nix-collect-garbage --delete-old && sudo nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot";
       grep = "grep --color=auto";
       history = "history -i";
       lsblk = "lsblk -f";
       man = "batman";
       mkdir = "mkdir -p";
       n = "nvim";
-      snu = "sudo -Es nvim +NvChadUpdate";
       pow = "sudo shutdown now";
       reb = "sudo reboot now";
+      rebuild = "sudo nixos-rebuild switch --upgrade";
       sn = "sudo -Es nvim";
-      switch = "sudo nixos-rebuild switch";
+      snu = "sudo -Es nvim +NvChadUpdate";
       tree = "tree -ad --gitignore -C -L 2";
-      update = "sudo nix-channel --update";
     };
     initExtra = ''
       setopt always_to_end
