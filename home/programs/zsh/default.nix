@@ -55,6 +55,7 @@
       gbD = "git push origin --delete";
       gcam = "git add --all && git commit --amend";
       gcb = "git checkout -b";
+      gcm = "git commit -m";
       gco = "git checkout";
       gcod = "git checkout $(git_develop_branch)";
       gcof = "git checkout --";
@@ -79,7 +80,7 @@
       n = "nvim";
       pow = "sudo shutdown now";
       reb = "sudo reboot now";
-      rebuild = "sudo nixos-rebuild switch --flake .#hyprnova";
+      rebuild = "sudo nixos-rebuild switch --flake '/home/lush/nixos#hyprnova'";
       sn = "sudo -Es nvim";
       snu = "sudo -Es nvim +NvChadUpdate";
       tree = "tree -ad --gitignore -C -L 2";

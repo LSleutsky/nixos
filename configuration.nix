@@ -87,11 +87,18 @@
   };
 
   nixpkgs = {
-    config.allowUnfree = true;
+    config = {
+      allowUnfree = true;
+      allowUnfreePredicate = _: true;
+    };
   };
 
   system = {
-    autoUpgrade.enable = true;
+    autoUpgrade = {
+      enable = true;
+      flake = "/etc/nixos#hyprnova";
+      flags = [ "--update-input" "nixpkgs" ];
+    };
     stateVersion = "23.11";
   };
 
