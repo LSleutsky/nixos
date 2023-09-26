@@ -3,8 +3,6 @@
 {
   imports = [
 		./hardware-configuration.nix
-		<home-manager/nixos>
-    <nixos-hardware/framework/12th-gen-intel>
   ];
 
   i18n.defaultLocale = "en_US.UTF-8";
@@ -90,16 +88,15 @@
 
   nixpkgs = {
     config.allowUnfree = true;
-    overlays = [
-      (import (builtins.fetchTarball {
-        url = https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz;
-      }))
-    ];
+    # overlays = [
+    #   (import (builtins.fetchTarball {
+    #     url = https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz;
+    #   }))
+    # ];
   };
 
   system = {
     autoUpgrade.enable = true;
-    copySystemConfiguration = true;
     stateVersion = "23.11";
   };
 
