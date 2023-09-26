@@ -19,6 +19,7 @@
       hyprnova = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
+          ./configuration.nix
           nixos-hardware.nixosModules.framework-12th-gen-intel
           home-manager.nixosModules.home-manager
           {
