@@ -47,8 +47,11 @@
     ];
     loader = {
       systemd-boot.enable = true;
-      efi.canTouchEfiVariables = true;
       timeout = 0;
+      efi = {
+        canTouchEfiVariables = true;
+        efiSysMountPoint = "/boot";
+      };
     };
   };
 
@@ -235,58 +238,6 @@
       isNormalUser = true;
       extraGroups = [ "wheel" "networkmanager" "video" "input" "docker" "vboxusers" ];
       home = "/home/lush";
-    };
-  };
-
-  home-manager = {
-    useGlobalPkgs = true;
-    useUserPackages = true;
-    users.lush = { pkgs, ... }: {
-      imports = [ ../home ];
-      home = {
-        stateVersion = "23.11";
-        file = {
-          ".npmrc" = {
-            enable = true;
-            text = ''
-              prefix = ''${HOME}/.npm-packages
-            '';
-          };
-        };
-        sessionPath = [
-          "$HOME/.npm-packages/bin"
-          "$HOME/.npm-packages/lib/node_modules/"
-        ];
-      };
-      gtk = {
-        enable = true;
-        font.name = "ComicShannsMono Nerd Font 12";
-        iconTheme.name = "Tokyonight-Dark";
-        theme.name = "Tokyonight-Dark-B";
-        cursorTheme = {
-          name = "Bibata-Modern-Classic";
-          size = 24;
-        };
-        gtk3 = {
-          extraConfig = {
-            gtk-application-prefer-dark-theme = 1;
-          };
-        };
-        gtk4 = {
-          extraConfig = {
-            gtk-application-prefer-dark-theme = 1;
-          };
-        };
-      };
-      qt = {
-        enable = true;
-        platformTheme = "gtk";
-        style.name = "gtk3";
-      };
-      xdg = {
-        enable = true;
-        userDirs.enable = true;
-      };
     };
   };
 }
