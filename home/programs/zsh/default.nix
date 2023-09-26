@@ -47,6 +47,7 @@
       clock = "tty-clock -bcsC4 -f %a,\\ %d\\ %b\\ %Y";
       config = "nvim ~/nixos/configuration.nix";
       df = "df -h";
+      flake = "nvim ~/nixos/flake.nix";
       free = "free -mth";
       gaa = "git add --all";
       gac = "git add --all && git commit -m";
