@@ -79,7 +79,7 @@
       n = "nvim";
       pow = "sudo shutdown now";
       reb = "sudo reboot now";
-      rebuild = "sudo nixos-rebuild switch --upgrade";
+      rebuild = "sudo nixos-rebuild switch --flake .#hyprnova";
       sn = "sudo -Es nvim";
       snu = "sudo -Es nvim +NvChadUpdate";
       tree = "tree -ad --gitignore -C -L 2";
