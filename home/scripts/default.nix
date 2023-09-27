@@ -1,7 +1,7 @@
 {
   imports = [
     ./brightness
-    ./screen
+    ./screenshot
     ./volume
   ];
 }
