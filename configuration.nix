@@ -25,10 +25,7 @@
 
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
-    blacklistedKernelModules = [
-      "iTCO_wdt"
-      "sp5100_tco"
-    ];
+    blacklistedKernelModules = [ "iTCO_wdt" "sp5100_tco" ];
     initrd = {
       kernelModules = [ "i915" ];
     };
@@ -98,8 +95,14 @@
   system = {
     autoUpgrade = {
       enable = true;
-      flake = "/etc/nixos#hyprnova";
-      flags = [ "--update-input" "nixpkgs" ];
+      flake = inputs.self.outPath;
+      flags = [
+        "--update-input"
+        "nixpkgs"
+        "--no-write-lock-file"
+        "-L"
+      ];
+      dates = "daily";
     };
     stateVersion = "23.11";
   };
@@ -240,7 +243,14 @@
     defaultUserShell = pkgs.zsh;
     users.lush = {
       isNormalUser = true;
-      extraGroups = [ "wheel" "networkmanager" "video" "input" "docker" "vboxusers" ];
+      extraGroups = [
+        "wheel"
+        "networkmanager"
+        "video"
+        "input"
+        "docker"
+        "vboxusers"
+      ];
       home = "/home/lush";
     };
   };

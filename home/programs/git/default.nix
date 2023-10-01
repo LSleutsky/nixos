@@ -21,6 +21,9 @@
       ".yarn"
     ];
     extraConfig = {
+      init = {
+        defaultBranch = "main";
+      };
       safe = {
         directory = "/home/lush/.local/share/nvim/lazy/*";
       };
