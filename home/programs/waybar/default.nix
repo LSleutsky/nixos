@@ -244,6 +244,7 @@
 
       #cpu {
         color: #b4befe;
+        background: #11111b;
         border-top: 4px solid #313244;
         border-bottom: 4px solid #313244;
       }
@@ -355,6 +356,7 @@
 
       #workspaces button.active:last-child {
         padding-left: 7px;
+        padding-right: 16px;
       }
 
       #bluetooth {
