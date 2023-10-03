@@ -9,6 +9,7 @@
   time.timeZone = "US/Eastern";
 
   hardware = {
+    bluetooth.enable = true;
     brillo.enable = true;
   };
 
