@@ -35,6 +35,7 @@
         temperature = {
           critical-threshold = 100;
           format = "<span rise='4pt' letter_spacing='10000'></span><span rise='2pt'>{temperatureC}°C</span>";
+          hwmon-path = "/sys/class/hwmon/hwmon3/temp1_input";
           tooltip-format = "{temperatureF}°F";
         };
         cpu = {
