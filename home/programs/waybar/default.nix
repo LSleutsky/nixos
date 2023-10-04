@@ -46,8 +46,8 @@
         };
         memory = {
           interval = 30;
-          format = "<span font='22' rise='-4pt'>󰍛 </span><span font='16' rise='-4pt'>{}%</span>";
-          format-alt = "<span font='22' rise='-6.5pt'>󰍛 </span><span font='16' rise='-6.5pt'>{used:0.1f}GB</span>";
+          format = "<span font='22' rise='-4pt' letter_spacing='-4400'>󰍛 </span><span font='16' rise='-4pt'>{}%</span>";
+          format-alt = "<span font='22' rise='-6.5pt' letter_spacing='-4400'>󰍛 </span><span font='16' rise='-6.5pt'>{used:0.1f}GB</span>";
           tooltip-format = "{used:0.1f}GB/{total:0.1f}GB";
         };
         tray = {
@@ -347,17 +347,17 @@
       }
 
       #workspaces button.active:first-child {
-        padding-right: 15px;
+        padding-right: 14px;
       }
 
       #workspaces button.active:not(:first-child) {
-        padding-right: 8px;
+        padding-right: 9px;
         padding-left: 4px;
       }
 
       #workspaces button.active:last-child {
         padding-left: 7px;
-        padding-right: 16px;
+        padding-right: 15px;
       }
 
       #bluetooth {
