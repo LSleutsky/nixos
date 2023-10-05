@@ -333,11 +333,11 @@
         transition: all .5s cubic-bezier(.55, -.68, .48, 1.68);
         color: #89b4fa;
         border: 0;
+        box-shadow: none;
       }
 
       #workspaces button:hover {
         border: 0;
-        background: transparent;
         box-shadow: none;
       }
 
