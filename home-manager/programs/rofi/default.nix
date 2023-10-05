@@ -56,7 +56,7 @@ in {
       "imagebox" = {
         padding = mkLiteral "20px";
         background-color = mkLiteral "transparent";
-        background-image = mkLiteral "url(\"~/nixos/home/programs/hyprpaper/wallpapers/purple-telescope.png\", height)";
+        background-image = mkLiteral "url(\"~/nixos/home-manager/programs/hyprpaper/wallpapers/purple-telescope.png\", height)";
         orientation = mkLiteral "vertical";
         children = map mkLiteral [ "inputbar" "dummy" "mode-switcher" ];
       };

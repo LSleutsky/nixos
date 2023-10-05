@@ -3,6 +3,7 @@
 {
   imports = [
 		./hardware-configuration.nix
+    ./scripts
   ];
 
   i18n.defaultLocale = "en_US.UTF-8";

@@ -9,7 +9,7 @@ let
     grim ~/Pictures/Screenshots/$(date '+%F+%T-screenshot-full').png
   '';
 in {
-  home.packages = with pkgs; [
+  environment.systemPackages = with pkgs; [
     screenshot_area
     screenshot_full
   ];

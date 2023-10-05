@@ -34,7 +34,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.extraSpecialArgs = { inherit inputs; };
-            home-manager.users.lush = import ./home;
+            home-manager.users.lush = import ./home-manager;
             nixpkgs.overlays = overlays;
           }
         ];
