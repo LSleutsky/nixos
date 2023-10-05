@@ -460,7 +460,7 @@
       }
 
       #idle_inhibitor.activated {
-        padding: 4px 14px 4px 12px;
+        padding: 4px 16px 4px 12px;
         color: #f9e2af;
       }
 
