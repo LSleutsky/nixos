@@ -412,6 +412,10 @@
         border-radius: 12px;
       }
 
+      #wireplumber.muted {
+        color: #f38ba8;
+      }
+
       #battery {
         margin-right: 11px;
         padding: 4px 15px 4px 16px;
