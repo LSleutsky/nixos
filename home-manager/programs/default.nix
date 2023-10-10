@@ -1,5 +1,6 @@
 {
   imports = [
+    ./ags
     ./autojump
     ./bat
     ./btop
