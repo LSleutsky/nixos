@@ -126,7 +126,6 @@
     openssh.enable = true;
     printing.enable = true;
     thermald.enable = true;
-    tlp.enable = true;
     pipewire = {
       enable = true;
       alsa = {
@@ -134,6 +133,12 @@
         support32Bit = true;
       };
       pulse.enable = true;
+    };
+    tlp = {
+      enable = true;
+      settings = {
+        RESTORE_DEVICE_STATE_ON_STARTUP = 1;
+      };
     };
   };
 
@@ -195,6 +200,7 @@
       gimp
       git
       gnumake
+      google-chrome
       gping
       grim
       gtk-engine-murrine

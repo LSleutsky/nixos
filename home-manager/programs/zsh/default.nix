@@ -44,6 +44,7 @@
       "........." = "cd ../../../../../../../../";
       ".........." = "cd ../../../../../../../../../";
       batt = "bat /sys/class/power_supply/BAT1/capacity";
+      chrome = "google-chrome-unstable";
       clock = "tty-clock -bcsC4 -f %a,\\ %d\\ %b\\ %Y";
       config = "nvim ~/nixos/configuration.nix";
       df = "df -h";
