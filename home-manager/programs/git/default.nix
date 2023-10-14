@@ -25,7 +25,7 @@
         defaultBranch = "main";
       };
       safe = {
-        directory = "/home/lush/.local/share/nvim/lazy/*";
+        directory = "$HOME/.local/share/nvim/lazy/*";
       };
     };
     userEmail = "LushSleutsky@gmail.com";
