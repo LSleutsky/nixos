@@ -1,6 +1,8 @@
 { config, lib, pkgs, ... }:
 
-{
+let
+  home = "/home/lush/nixos/home-manager/programs/wlogout/assets";
+in {
   programs.wlogout = {
     enable = true;
     layout = [
@@ -66,43 +68,43 @@
       }
 
       #lock {
-        background-image: url("/home/lush/nixos/home-manager/programs/wlogout/assets/lock.png");
+        background-image: url("${home}/lock.png");
       }
 
       #lock:focus {
-        background-image: url("/home/lush/nixos/home-manager/programs/wlogout/assets/lock-hover.png");
+        background-image: url("${home}/lock-hover.png");
       }
 
       #logout {
-        background-image: url("/home/lush/nixos/home-manager/programs/wlogout/assets/logout.png");
+        background-image: url("${home}/logout.png");
       }
 
       #logout:focus {
-        background-image: url("/home/lush/nixos/home-manager/programs/wlogout/assets/logout-hover.png");
+        background-image: url("${home}/logout-hover.png");
       }
 
       #suspend {
-        background-image: url("/home/lush/nixos/home-manager/programs/wlogout/assets/suspend.png");
+        background-image: url("${home}/suspend.png");
       }
 
       #suspend:focus {
-        background-image: url("/home/lush/nixos/home-manager/programs/wlogout/assets/suspend-hover.png");
+        background-image: url("${home}/suspend-hover.png");
       }
 
       #shutdown {
-        background-image: url("/home/lush/nixos/home-manager/programs/wlogout/assets/shutdown.png");
+        background-image: url("${home}/shutdown.png");
       }
 
       #shutdown:focus {
-        background-image: url("/home/lush/nixos/home-manager/programs/wlogout/assets/shutdown-hover.png");
+        background-image: url("${home}/shutdown-hover.png");
       }
 
       #reboot {
-        background-image: url("/home/lush/nixos/home-manager/programs/wlogout/assets/reboot.png");
+        background-image: url("${home}/reboot.png");
       }
 
       #reboot:focus {
-        background-image: url("/home/lush/nixos/home-manager/programs/wlogout/assets/reboot-hover.png");
+        background-image: url("${home}/reboot-hover.png");
       }
     '';
   };
