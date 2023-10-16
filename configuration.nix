@@ -191,6 +191,7 @@
       cliphist
       cmatrix
       coreutils
+      cpufetch
       curl
       discord
       fd
@@ -220,6 +221,8 @@
       pipes
       playerctl
       pngquant
+      python3
+      ramfetch
       sl
       slurp
       starfetch
