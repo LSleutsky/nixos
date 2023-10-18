@@ -164,15 +164,9 @@
           align = 0;
           rotate = 0;
           format = "<span font='19' rise='-1.5pt' letter_spacing='30000'></span><span font='16' rise='-2.5pt'>{:%R}</span>";
-          tooltip-format = "<span size='18pt'>{calendar}</span>";
+          format-alt = "<span font='18' rise='-1.5pt' letter_spacing='30000'></span><span font='16' rise='-2.5pt'>{:%b %d}</span>";
           tooltip = false;
-          calendar = {
-            format = {
-              months = "<b>{}</b>";
-              weekdays = "<span color='#89b4fa'><b>{}</b></span>";
-              today = "<span color='#89b4fa'><b>{}</b></span>";
-            };
-          };
+          on-click = "";
         };
         idle_inhibitor = {
           format = "<span font='21'>{icon}</span>";
