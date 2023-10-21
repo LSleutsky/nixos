@@ -134,6 +134,7 @@
           };
           reverse-scrolling = 1;
           max-volume = 100.0;
+          tooltip = false;
           on-click-right = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
         };
         battery = {

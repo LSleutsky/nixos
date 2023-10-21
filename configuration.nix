@@ -205,6 +205,7 @@
       gping
       grim
       gtk-engine-murrine
+      hugo
       hyprpicker
       imagemagick
       inxi
