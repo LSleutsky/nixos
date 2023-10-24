@@ -23,7 +23,7 @@
     };
     sessionPath = [
       "$HOME/.npm-packages/bin"
-        "$HOME/.npm-packages/lib/node_modules/"
+      "$HOME/.npm-packages/lib/node_modules/"
     ];
   };
   gtk = {

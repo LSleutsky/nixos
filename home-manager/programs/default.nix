@@ -3,6 +3,7 @@
     ./autojump
     ./bat
     ./btop
+    ./cava
     ./eww
     ./eza
     ./feh
@@ -12,6 +13,7 @@
     ./gitui
     ./helix
     ./hyprpaper
+    ./kitty
     ./ncmpcpp
     ./neovim
     ./nnn
