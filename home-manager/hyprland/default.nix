@@ -90,7 +90,7 @@
         "$mainMod, Q, killactive"
         "$mainMod, T, togglefloating"
         "$mainMod, X, exec, swaylock"
-        "$mainMod, RETURN, exec, wezterm" 
+        "$mainMod, RETURN, exec, kitty" 
         "$mainMod, h, movefocus, l"
         "$mainMod, l, movefocus, r"
         "$mainMod, j, movefocus, d"
@@ -144,7 +144,7 @@
         ", XF86MonBrightnessDown, exec, brightness down"
       ];
       windowrule = [
-        "tile,title:^(wezterm)$"
+        "tile,title:^(kitty)$"
       ];
     };
   };

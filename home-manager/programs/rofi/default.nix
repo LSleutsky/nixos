@@ -8,7 +8,7 @@ in {
     cycle = true;
     font = "ComicShannsMono Nerd Font 12";
     location = "center";
-    terminal = "${pkgs.wezterm}/bin/wezterm";
+    terminal = "${pkgs.kitty}/bin/kitty";
     plugins = with pkgs; [
       rofi-bluetooth
       rofi-calc

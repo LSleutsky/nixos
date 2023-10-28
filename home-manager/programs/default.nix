@@ -4,7 +4,6 @@
     ./bat
     ./btop
     ./cava
-    ./eww
     ./eza
     ./feh
     ./firefox
