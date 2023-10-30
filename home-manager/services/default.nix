@@ -1,7 +1,7 @@
 {
   imports = [
     ./dunst
-    ./mpd
+    ./mopidy
     ./playerctld
   ];
 }

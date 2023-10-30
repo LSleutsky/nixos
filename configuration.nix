@@ -213,7 +213,7 @@
       lshw
       neo-cowsay
       neofetch
-      neovim-nightly
+      # neovim-nightly
       networkmanager
       nitch
       nodejs
@@ -237,6 +237,7 @@
       wf-recorder
       wget
       wl-clipboard
+      youtube-music
       zip
     ];
     variables = {
