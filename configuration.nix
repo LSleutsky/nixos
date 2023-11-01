@@ -213,7 +213,7 @@
       lshw
       neo-cowsay
       neofetch
-      # neovim-nightly
+      neovim-nightly
       networkmanager
       nitch
       nodejs

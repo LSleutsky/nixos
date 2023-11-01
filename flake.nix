@@ -5,7 +5,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:nixos/nixos-hardware/master";
     hyprland.url = "github:hyprwm/Hyprland";
-    # neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -16,7 +16,7 @@
 
   let
     system = "x86_64-linux";
-    # overlays = [ inputs.neovim-nightly-overlay.overlay ];
+    overlays = [ inputs.neovim-nightly-overlay.overlay ];
     pkgs = import nixpkgs {
       inherit system;
       config.allowUnfree = true;
@@ -35,7 +35,7 @@
             home-manager.useUserPackages = true;
             home-manager.extraSpecialArgs = { inherit inputs; };
             home-manager.users.lush = import ./home-manager;
-            # nixpkgs.overlays = overlays;
+            nixpkgs.overlays = overlays;
           }
         ];
       };                                                                                 
