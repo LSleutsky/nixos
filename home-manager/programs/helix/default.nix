@@ -6,37 +6,28 @@
     defaultEditor = true;
     languages = {
       language = [
-      {
-        name = "javascript";
-        formatter = {
-          command = "prettier";
-        };
-        language-server = {
-          command = "typescript-language-server";
-        };
-        auto-format = true;
-      }
-      {
-        name = "typescript";
-        formatter = {
-          command = "prettier";
-        };
-        language-server = {
-          command = "typescript-language-server";
-        };
-        auto-format = true;
-      }
-      {
-        name = "css";
-        language-server = {
-          command = "vscode-css-language-server";
-        };
-        auto-format = true;
-      }
+        {
+          name = "javascript";
+          formatter = {
+            command = "prettier";
+          };
+          auto-format = true;
+        }
+        {
+          name = "typescript";
+          formatter = {
+            command = "prettier";
+          };
+          auto-format = true;
+        }
+        {
+          name = "css";
+          auto-format = true;
+        }
       ];
     };
     settings = {
-      theme = "catppuccin_mocha";
+      theme = "tokyonight";
       editor = {
         auto-completion = true;
         auto-format = true;
