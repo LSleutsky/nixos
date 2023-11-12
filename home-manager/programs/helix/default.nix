@@ -104,6 +104,7 @@
           Q = ":quit!";
           esc = [ "collapse_selection" "keep_primary_selection" ];
           tab = ":bn";
+          C-s = ":w";
           S-tab = ":bp";
           space = {
             o = ":config-open";
