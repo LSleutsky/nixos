@@ -74,7 +74,6 @@
           right = [
             "spinner"
             "spacer"
-            "separator"
             "position"
             "separator"
             "spacer"
