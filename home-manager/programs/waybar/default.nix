@@ -19,7 +19,6 @@
           "cpu"
           "memory"
           "tray"
-          "custom/spotify"
           "mpd"
         ];
         modules-center = [ "hyprland/workspaces" ];
@@ -55,15 +54,7 @@
           spacing = 14;
           icon-size = 23;
         };
-        "custom/spotify" = {
-          interval = 1;
-          return-type = "json";
-          exec = "spotify-exec";
-          exec-if = "pgrep spotify";
-          escape = true;
-          max-length = 35;
-        };
-        mpd = {
+       mpd = {
           format = "<span font='18' letter_spacing='10000'>{stateIcon}</span> <span font='17' rise='-0.75pt'>{title}</span>";
           format-disconnected = "<span font='18'>󰎊</span>";
           format-stopped = "";
@@ -135,7 +126,6 @@
           reverse-scrolling = 1;
           max-volume = 100.0;
           tooltip = false;
-          on-click-right = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
         };
         battery = {
           interval = 30;
@@ -211,7 +201,6 @@
       #custom-weather,
       #tray,
       #taskbar,
-      #custom-spotify,
       #mpd,
       #workspaces,
       #bluetooth,
@@ -285,20 +274,6 @@
         -gtk-icon-effect: highlight;
       }
 
-      #custom-spotify {
-        margin-right: 11px;
-        padding: 4px 17px 4px 12px;
-        font-size: 23px;
-        color: #a6e3a1;
-        background: #11111b;
-        border: 4px solid #313244;
-        border-radius: 10px;
-      }
-
-      #custom-spotify.playing {
-        padding: 4px 12px 4px 14px;
-      }
-
       #mpd {
         margin-right: 11px;
         padding: 4px 12px;
@@ -314,10 +289,6 @@
 
       #mpd.paused {
         color: #9399b2;
-      }
-
-      .modules-left > widget:last-child > #custom-spotify {
-        padding-right: 20px;
       }
 
       #workspaces {
