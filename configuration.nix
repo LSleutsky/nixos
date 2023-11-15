@@ -2,7 +2,7 @@
 
 {
   imports = [
-		./hardware-configuration.nix
+    ./hardware-configuration.nix
     ./scripts
   ];
 
@@ -153,7 +153,6 @@
     };
     neovim = {
       enable = true;
-      defaultEditor = true;
       viAlias = true;
       vimAlias = true;
       withNodeJs = true;

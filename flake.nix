@@ -16,7 +16,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixos-hardware, home-manager, ... }@inputs:
+  outputs = { self, nixpkgs, nixos-hardware, home-manager, nixvim, ... }@inputs:
 
   let
     system = "x86_64-linux";
@@ -41,6 +41,8 @@
             home-manager.users.lush = import ./home-manager;
             nixpkgs.overlays = overlays;
           }
+          nixvim.nixosModules.nixvim
+					./nixvim
         ];
       };                                                                                 
     };

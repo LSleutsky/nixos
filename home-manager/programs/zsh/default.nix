@@ -11,11 +11,11 @@
       cfg = "$HOME/.config";
       dl = "$HOME/Downloads";
       docs = "$HOME/Documents";
-      nv = "$HOME/.config/nvim/lua/custom";
+      nv = "$HOME/nixos/nixvim";
       nx = "$HOME/nixos";
       nxh = "$HOME/nixos/home-manager";
-      nxp = "$HOME/nixos/programs";
-      nxs = "$HOME/nixos/services";
+      nxp = "$HOME/nixos/home-manager/programs";
+      nxs = "$HOME/nixos/home-manager/services";
       nxx = "$HOME/nixos/scripts";
       pics = "$HOME/Pictures";
       repos = "$HOME/repos";
