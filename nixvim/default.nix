@@ -29,11 +29,6 @@
 				action = ":w<CR>";
 			}
 			{
-				mode = "n";
-				key = "<C-S-s>";
-				action = ":wa<CR>";
-			}
-			{
 				mode = [ "n" "v" ];
 				key = "-";
 				action = ":qa!<CR>";
