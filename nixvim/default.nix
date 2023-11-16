@@ -11,15 +11,22 @@
       style = "night";
     };
     options = {
+			incsearch = true;
+      number = true;
+      numberwidth = 2;
+      relativenumber = true;
+      ignorecase = true;
+      smartcase = true;
+      expandtab = true;
       autoindent = true;
       preserveindent = true;
 			smartindent = true;
-			incsearch = true;
-      number = true;
-      relativenumber = true;
       shiftwidth = 2;
       softtabstop = 2;
       tabstop = 2;
+      signcolumn = "yes";
+      termguicolors = true;
+      mouse = "a";
       swapfile = false;
     };
 		keymaps = [
@@ -56,5 +63,39 @@
 				action = "<esc>:w<CR>";
 			}
 		];
+		plugins = {
+			cursorline.enable = true;
+			illuminate.enable = true;
+			indent-blankline.enable = true;
+			nix.enable = true;
+			nix-develop.enable = true;
+			surround.enable = true;
+			navic = {
+				enable = true;
+				highlight = true;
+			};
+			nvim-colorizer = {
+				enable = true;
+				userDefaultOptions = {
+					css = true;
+					css_fn = true;
+					hsl_fn = true;
+					names = true;
+					rgb_fn = true;
+					tailwind = true;
+				};
+			};
+			vim-matchup = {
+				enable = true;
+				enableSurround = true;
+				textObj.enable = true;
+				treesitterIntegration.enable = true;
+				matchParen = {
+					enable = true;
+					deffered.enable = true;
+					hiSurroundAlways = true;
+				};
+			};
+		};
   };
 }
