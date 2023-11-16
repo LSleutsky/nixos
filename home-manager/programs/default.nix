@@ -21,6 +21,7 @@
     ./starship
     ./swaylock
     ./swww
+		./watson
     ./waybar
     ./wezterm
     ./wlogout

@@ -87,6 +87,7 @@
         "$mainMod, B, exec, firefox"
         "$mainMod, D, exec, discord"
         "$mainMod, F, fullscreen, 1"
+				"$mainMod, G, exec, gimp"
         "$mainMod, P, pseudo"
         "$mainMod, Q, killactive"
         "$mainMod, T, togglefloating"

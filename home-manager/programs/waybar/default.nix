@@ -29,6 +29,7 @@
           "wireplumber"
           "battery"
           "clock"
+					"clock#date"
           "idle_inhibitor"
         ];
         temperature = {
@@ -155,7 +156,14 @@
           align = 0;
           rotate = 0;
           format = "<span font='19' rise='-1.5pt' letter_spacing='30000'></span><span font='16' rise='-2.5pt'>{:%R}</span>";
-          format-alt = "<span font='16' rise='-1.5pt' letter_spacing='3000'> </span><span font='16' rise='-3.5pt'>{:%b %d}</span>";
+          tooltip = false;
+          on-click = "";
+        };
+        "clock#date" = {
+          interval = 30;
+          align = 0;
+          rotate = 0;
+          format = "<span font='16' rise='-1.5pt' letter_spacing='3000'> </span><span font='16' rise='-3.5pt'>{:%b %d}</span>";
           tooltip = false;
           on-click = "";
         };
@@ -208,6 +216,7 @@
       #wireplumber,
       #battery,
       #clock,
+      #clock#date,
       #idle_inhibitor {
         padding: 0 10px;
         font-size: 20px;
@@ -215,53 +224,43 @@
 
       #temperature {
         padding-left: 13px;
-        color: #fab387;
-        background: #11111b;
-        border-top: 4px solid #313244;
-        border-bottom: 4px solid #313244;
-        border-left: 4px solid #313244;
+        color: #ff9e64;
+        background: #1f2335;
+        border-top: 4px solid #414868;
+        border-bottom: 4px solid #414868;
+        border-left: 4px solid #414868;
         border-top-left-radius: 12px;
         border-bottom-left-radius: 12px;
       }
 
       #temperature.critical {
-        color: #f38ba8;
+        color: #f7768e;
       }
 
       #cpu {
-        color: #b4befe;
-        background: #11111b;
-        border-top: 4px solid #313244;
-        border-bottom: 4px solid #313244;
+        color: #7aa2f7;
+        background: #1f2335;
+        border-top: 4px solid #414868;
+        border-bottom: 4px solid #414868;
       }
 
       #memory {
         margin-right: 11px;
         padding-left: 14px;
-        color: #eba0ac;
-        background: #11111b;
-        border-top: 4px solid #313244;
-        border-right: 4px solid #313244;
-        border-bottom: 4px solid #313244;
+        color: #bb9af7;
+        background: #1f2335;
+        border-top: 4px solid #414868;
+        border-right: 4px solid #414868;
+        border-bottom: 4px solid #414868;
         border-top-right-radius: 12px;
         border-bottom-right-radius: 12px;
-      }
-
-      #custom-weather {
-        margin-right: 11px;
-        padding-right: 11px;
-        color: #cdd6f4;
-        font-family: ComicShannsMono Nerd Font;
-        background: #11111b;
-        border: 4px solid #313244;
-        border-radius: 12px;
       }
 
       #tray {
         margin-right: 11px;
         padding: 0 8px;
-        background: #11111b;
-        border: 4px solid #313244;
+        background: #1f2335;
+        border: 4px solid #414868;
         border-radius: 12px;
       }
 
@@ -277,28 +276,28 @@
       #mpd {
         margin-right: 11px;
         padding: 4px 12px;
-        background: #11111b;
-        border: 4px solid #313244;
+        background: #1f2335;
+        border: 4px solid #414868;
         border-radius: 12px;
       }
 
       #mpd.playing {
         padding: 4px 12px;
-        color: #89b4fa;
+        color: #7aaf27;
       }
 
       #mpd.paused {
-        color: #9399b2;
+        color: #3b4261;
       }
 
       #workspaces {
-        border: 4px solid #313244;
+        border: 4px solid #414868;
         border-radius: 12px;
       }
 
       #workspaces button {
         transition: all .5s cubic-bezier(.55, -.68, .48, 1.68);
-        color: #89b4fa;
+        color: #7dcfff;
         border: 0;
         box-shadow: none;
       }
@@ -310,7 +309,7 @@
 
       #workspaces button.active {
         transition: all .5s cubic-bezier(.55, -.68, .48, 1.68);
-        color: #f9e2af;
+        color: #e0af68;
       }
 
       #workspaces button.active:first-child {
@@ -329,66 +328,66 @@
 
       #bluetooth {
         padding-left: 12px;
-        color: #45475a;
-        background: #11111b;
-        border-top: 4px solid #313244;
-        border-left: 4px solid #313244;
-        border-bottom: 4px solid #313244;
+        color: #3b4261;
+        background: #1f2335;
+        border-top: 4px solid #414868;
+        border-left: 4px solid #414868;
+        border-bottom: 4px solid #414868;
         border-top-left-radius: 12px;
         border-bottom-left-radius: 12px;
       }
 
       #bluetooth.on,
       #bluetooth.connected {
-        color: #89b4fa;
+        color: #7dcfff;
       }
 
       #network {
         margin-right: 11px;
         padding-right: 23px;
         padding-left: 3px;
-        color: #fab387;
-        background: #11111b;
-        border-top: 4px solid #313244;
-        border-right: 4px solid #313244;
-        border-bottom: 4px solid #313244;
+        color: #ff9e64;
+        background: #1f2335;
+        border-top: 4px solid #414868;
+        border-right: 4px solid #414868;
+        border-bottom: 4px solid #414868;
         border-top-right-radius: 12px;
         border-bottom-right-radius: 12px;
       }
 
       #network.disconnected {
-        color: #f38ba8;
+        color: #db4b4b;
       }
 
       #backlight {
         margin-right: 11px;
         padding: 4px 18px 4px 16px;
-        color: #cba6f7;
-        background: #11111b;
-        border: 4px solid #313244;
+        color: #9d7cd8;
+        background: #1f2335;
+        border: 4px solid #414868;
         border-radius: 12px;
       }
 
       #wireplumber {
         margin-right: 11px;
         padding: 4px 16px;
-        color: #89b4fa;
-        background: #11111b;
-        border: 4px solid #313244;
+        color: #7aa2f7;
+        background: #1f2335;
+        border: 4px solid #414868;
         border-radius: 12px;
       }
 
       #wireplumber.muted {
-        color: #f38ba8;
+        color: #ff768e;
       }
 
       #battery {
         margin-right: 11px;
         padding: 4px 15px 4px 16px;
-        color: #a6e3a1;
+        color: #9ece6a;
         font-size: 20px;
-        background: #11111b;
-        border: 4px solid #313244;
+        background: #1f2335;
+        border: 4px solid #414868;
         border-radius: 12px;
       }
 
@@ -398,47 +397,52 @@
 
       #battery.full,
       #battery.discharging {
-        color: #a6e3a1;
+        color: #9ece6a;
       }
 
       #battery.charging:not(.full) {
         padding-right: 15px;
-        color: #a6e3a1;
+        color: #9ece6a;
       }
 
       #battery.critical:not(.charging) {
-        color: #f38ba8;
+        color: #f7768e;
       }
 
-      #clock {
+      #clock,
+			#clock.date {
         margin-right: 10px;
         padding: 4px 14px;
-        color: #f5c2e7;
+        color: #a9b1d6;
         font-size: 21px;
         font-weight: bold;
-        background: #11111b;
-        border: 4px solid #313244;
+        background: #1f2335;
+        border: 4px solid #414868;
         border-radius: 12px;
       }
 
+			#clock.date {
+				color: #1abc9c;
+			}
+
       #idle_inhibitor {
         padding: 4px 13px;
-        color: #6c7086;
+        color: #545c7e;
         font-size: 22px;
-        background: #11111b;
-        border: 4px solid #313244;
+        background: #1f2335;
+        border: 4px solid #414868;
         border-radius: 12px;
       }
 
       #idle_inhibitor.activated {
         padding: 4px 16px 4px 12px;
-        color: #f9e2af;
+        color: #e0af68;
       }
 
       tooltip {
         padding: 15px;
         border-radius: 15px;
-        background-color: #11111b;
+        background-color: #1f2335;
         font-family: ComicShannsMono Nerd Font;
         font-size: 18px;
       }
@@ -449,7 +453,7 @@
       }
 
       label:focus {
-        background-color: #11111b;
+        background-color: #1f2335;
       }
     '';
   };
