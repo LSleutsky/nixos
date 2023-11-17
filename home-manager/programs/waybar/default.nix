@@ -225,7 +225,7 @@
       #temperature {
         padding-left: 13px;
         color: #ff9e64;
-        background: #1f2335;
+        background: #1e2030;
         border-top: 4px solid #414868;
         border-bottom: 4px solid #414868;
         border-left: 4px solid #414868;
@@ -238,8 +238,8 @@
       }
 
       #cpu {
-        color: #7aa2f7;
-        background: #1f2335;
+        color: #ff9e64;
+        background: #1e2030;
         border-top: 4px solid #414868;
         border-bottom: 4px solid #414868;
       }
@@ -247,8 +247,8 @@
       #memory {
         margin-right: 11px;
         padding-left: 14px;
-        color: #bb9af7;
-        background: #1f2335;
+        color: #ff9e64;
+        background: #1e2030;
         border-top: 4px solid #414868;
         border-right: 4px solid #414868;
         border-bottom: 4px solid #414868;
@@ -259,7 +259,7 @@
       #tray {
         margin-right: 11px;
         padding: 0 8px;
-        background: #1f2335;
+        background: #1e2030;
         border: 4px solid #414868;
         border-radius: 12px;
       }
@@ -276,7 +276,7 @@
       #mpd {
         margin-right: 11px;
         padding: 4px 12px;
-        background: #1f2335;
+        background: #1e2030;
         border: 4px solid #414868;
         border-radius: 12px;
       }
@@ -291,6 +291,7 @@
       }
 
       #workspaces {
+        background: #1e2030;
         border: 4px solid #414868;
         border-radius: 12px;
       }
@@ -329,7 +330,7 @@
       #bluetooth {
         padding-left: 12px;
         color: #3b4261;
-        background: #1f2335;
+        background: #1e2030;
         border-top: 4px solid #414868;
         border-left: 4px solid #414868;
         border-bottom: 4px solid #414868;
@@ -347,7 +348,7 @@
         padding-right: 23px;
         padding-left: 3px;
         color: #ff9e64;
-        background: #1f2335;
+        background: #1e2030;
         border-top: 4px solid #414868;
         border-right: 4px solid #414868;
         border-bottom: 4px solid #414868;
@@ -363,7 +364,7 @@
         margin-right: 11px;
         padding: 4px 18px 4px 16px;
         color: #9d7cd8;
-        background: #1f2335;
+        background: #1e2030;
         border: 4px solid #414868;
         border-radius: 12px;
       }
@@ -372,7 +373,7 @@
         margin-right: 11px;
         padding: 4px 16px;
         color: #7aa2f7;
-        background: #1f2335;
+        background: #1e2030;
         border: 4px solid #414868;
         border-radius: 12px;
       }
@@ -386,7 +387,7 @@
         padding: 4px 15px 4px 16px;
         color: #9ece6a;
         font-size: 20px;
-        background: #1f2335;
+        background: #1e2030;
         border: 4px solid #414868;
         border-radius: 12px;
       }
@@ -416,7 +417,7 @@
         color: #a9b1d6;
         font-size: 21px;
         font-weight: bold;
-        background: #1f2335;
+        background: #1e2030;
         border: 4px solid #414868;
         border-radius: 12px;
       }
@@ -429,7 +430,7 @@
         padding: 4px 13px;
         color: #545c7e;
         font-size: 22px;
-        background: #1f2335;
+        background: #1e2030;
         border: 4px solid #414868;
         border-radius: 12px;
       }
@@ -442,7 +443,7 @@
       tooltip {
         padding: 15px;
         border-radius: 15px;
-        background-color: #1f2335;
+        background-color: #1e2030;
         font-family: ComicShannsMono Nerd Font;
         font-size: 18px;
       }
@@ -453,7 +454,7 @@
       }
 
       label:focus {
-        background-color: #1f2335;
+        background-color: #1e2030;
       }
     '';
   };
