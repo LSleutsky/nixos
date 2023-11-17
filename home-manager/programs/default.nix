@@ -13,7 +13,6 @@
     ./helix
     ./kitty
     ./ncmpcpp
-    ./neovim
     ./nnn
     ./pyenv
     ./ripgrep

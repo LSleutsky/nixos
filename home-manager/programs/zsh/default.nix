@@ -48,7 +48,7 @@
       batt = "bat /sys/class/power_supply/BAT1/capacity";
       chrome = "google-chrome-unstable";
       clock = "tty-clock -bcsC4 -f %a,\\ %d\\ %b\\ %Y";
-      config = "nvim ~/nixos/configuration.nix";
+      cfg = "nvim ~/nixos/configuration.nix";
       df = "df -h";
       flake = "nix flake update";
       free = "free -mth";
@@ -82,11 +82,11 @@
       man = "batman";
       mkdir = "mkdir -p";
       n = "nvim";
+      nxv = "nvim ~/nixos/nixvim/default.nix";
       pow = "sudo shutdown now";
       reb = "sudo reboot now";
       rebuild = "sudo nixos-rebuild switch --flake '.#hyprnova' --upgrade";
       sn = "sudo -Es nvim";
-      snu = "sudo -Es nvim +NvChadUpdate";
       tree = "tree -ad --gitignore -C -L 2";
     };
     initExtra = ''

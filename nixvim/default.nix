@@ -36,7 +36,7 @@
 				action = ":w<CR>";
 			}
 			{
-				mode = [ "n" "v" ];
+				mode = "n";
 				key = "-";
 				action = ":qa!<CR>";
 			}
