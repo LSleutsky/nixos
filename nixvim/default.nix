@@ -5,10 +5,14 @@
     enable = true;
 		enableMan = true;
 		vimAlias = true;
-    colorschemes.tokyonight = {
+    colorschemes.catppuccin = {
       enable = true;
-      lualineBold = true;
-      style = "night";
+      flavour = "mocha";
+      integrations = {
+        gitsigns = true;
+        illuminate = true;
+        navic.enabled = true;
+      };
     };
     options = {
 			incsearch = true;
@@ -70,9 +74,23 @@
 			nix.enable = true;
 			nix-develop.enable = true;
 			surround.enable = true;
+      lualine = {
+        enable = true;
+        iconsEnabled = true;
+        theme = "tokyonight";
+        sections = {
+          lualine_a = [ "mode" ];
+          lualine_b = [ "branch" "diff" "diagnostics" ];
+          lualine_c = [ "filename" ];
+          lualine_x = [ "fileformat" "filetype" ];
+          lualine_y = [ "progress" ];
+          lualine_z = [ "location" ];
+        };
+      };
 			navic = {
 				enable = true;
 				highlight = true;
+        lsp.autoAttach =  true;
 			};
 			nvim-colorizer = {
 				enable = true;
