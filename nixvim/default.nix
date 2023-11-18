@@ -1,4 +1,5 @@
 { config, lib, pkgs, ... }:
+
 {
   programs.nixvim = {
     enable = true;
@@ -97,7 +98,6 @@
 			nix.enable = true;
 			nix-develop.enable = true;
 			surround.enable = true;
-      treesitter-context.enable = true;
       ts-autotag.enable = true;
       lualine = {
         enable = true;
