@@ -1,5 +1,4 @@
 { config, lib, pkgs, ... }:
-
 {
   programs.nixvim = {
     enable = true;
@@ -7,11 +6,35 @@
 		vimAlias = true;
     colorschemes.catppuccin = {
       enable = true;
+      background.dark = "mocha";
       flavour = "mocha";
+      terminalColors = true;
       integrations = {
         gitsigns = true;
-        illuminate = true;
+        native_lsp.enabled = true;
         navic.enabled = true;
+        nvimtree = true;
+        telescope.enabled = true;
+        treesitter = true;
+        treesitter_context = true;
+        ts_rainbow2 = true;
+        illuminate = {
+          enabled = true;
+          lsp = true;
+        };
+        indent_blankline = {
+          enabled = true;
+          colored_indent_levels = true;
+        };
+      };
+      styles = {
+        booleans = ["bold" "italic"];
+        conditionals = ["bold"];
+        functions = ["bold"];
+        keywords = ["italic"];
+        loops = ["bold"];
+        operators = ["bold"];
+        properties = ["italic"];
       };
     };
     options = {
@@ -74,17 +97,19 @@
 			nix.enable = true;
 			nix-develop.enable = true;
 			surround.enable = true;
+      treesitter-context.enable = true;
+      ts-autotag.enable = true;
       lualine = {
         enable = true;
         iconsEnabled = true;
-        theme = "tokyonight";
+        theme = "catppuccin";
         sections = {
-          lualine_a = [ "mode" ];
-          lualine_b = [ "branch" "diff" "diagnostics" ];
-          lualine_c = [ "filename" ];
-          lualine_x = [ "fileformat" "filetype" ];
-          lualine_y = [ "progress" ];
-          lualine_z = [ "location" ];
+          lualine_a = ["mode"];
+          lualine_b = ["branch" "diff" "diagnostics"];
+          lualine_c = ["filename"];
+          lualine_x = ["fileformat" "filetype"];
+          lualine_y = ["progress"];
+          lualine_z = ["location"];
         };
       };
 			navic = {
@@ -92,6 +117,13 @@
 				highlight = true;
         lsp.autoAttach =  true;
 			};
+      nvim-autopairs = {
+        enable = true;
+        enableAfterQuote = true;
+        enableBracketInQuote = true;
+        enableCheckBracketLine = false;
+        enableMoveright = true;
+      };
 			nvim-colorizer = {
 				enable = true;
 				userDefaultOptions = {
@@ -103,6 +135,13 @@
 					tailwind = true;
 				};
 			};
+      treesitter = {
+        enable = true;
+        incrementalSelection.enable = true;
+        indent = true;
+        nixGrammars = true;
+        nixvimInjections = true;
+      };
 			vim-matchup = {
 				enable = true;
 				enableSurround = true;
