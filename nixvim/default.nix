@@ -87,6 +87,10 @@
         command = "tabdo wincmd =";
       }
     ];
+    clipboard = {
+      register = "unnamedplus";
+      providers.wl-copy.enable = true;
+    };
 		keymaps = [
 			{
         mode = "n";
