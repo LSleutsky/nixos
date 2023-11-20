@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 
 {
   imports = [
@@ -21,6 +21,9 @@
           '';
       };
     };
+    packages = [
+      inputs.dipc.packages.${pkgs.system}.default
+    ];
     sessionPath = [
       "$HOME/.npm-packages/bin"
       "$HOME/.npm-packages/lib/node_modules/"

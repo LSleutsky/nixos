@@ -10,8 +10,8 @@
   time.timeZone = "US/Eastern";
 
   hardware = {
-    bluetooth.enable = true;
     brillo.enable = true;
+    bluetooth.enable = true;
   };
 
   fileSystems = {
@@ -128,6 +128,7 @@
     thermald.enable = true;
     pipewire = {
       enable = true;
+      audio.enable = true;
       alsa = {
         enable = true;
         support32Bit = true;
@@ -215,6 +216,7 @@
       pipes
       playerctl
       pngquant
+      pulsemixer
       python3
       ramfetch
       sl

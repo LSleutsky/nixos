@@ -323,6 +323,14 @@
 			}
 		];
 		plugins = {
+      cmp-fuzzy-buffer.enable = true;
+      cmp-fuzzy-path.enable = true;
+      cmp-git.enable = true;
+      cmp_luasnip.enable = true;
+      cmp-path.enable = true;
+      cmp-rg.enable = true;
+      cmp-treesitter.enable = true;
+      cmp-zsh.enable = true;
 			cursorline.enable = true;
 			illuminate.enable = true;
 			indent-blankline.enable = true;
@@ -356,7 +364,7 @@
         sections = {
           lualine_a = ["mode"];
           lualine_b = ["branch" "diff" "diagnostics"];
-          lualine_c = ["filename"];
+          lualine_c = ["filename" "navic.get_location"];
           lualine_x = ["filetype"];
           lualine_y = ["progress"];
           lualine_z = ["location"];
