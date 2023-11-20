@@ -330,6 +330,9 @@
 			nix-develop.enable = true;
 			surround.enable = true;
       ts-autotag.enable = true;
+      auto-session = {
+        enable = true;
+      };
       barbar = {
         enable = true;
         autoHide = false;
@@ -341,6 +344,10 @@
             pinned.filetype.enable = true;
           };
         };
+      };
+      comment-nvim = {
+        enable = true;
+        padding = true;
       };
       lualine = {
         enable = true;
@@ -355,6 +362,13 @@
           lualine_z = ["location"];
         };
       };
+      luasnip = {
+        enable = true;
+        extraConfig = {
+          enable_autosnippets = true;
+          store_selection_keys = "<Tab>";
+        };
+      };
 			navic = {
 				enable = true;
 				highlight = true;
@@ -367,6 +381,11 @@
         enableCheckBracketLine = false;
         enableMoveright = true;
       };
+      nvim-cmp = {
+        enable = true;
+        autoEnableSources = true;
+        snippet.expand = "luasnip";
+      };
 			nvim-colorizer = {
 				enable = true;
 				userDefaultOptions = {
@@ -378,6 +397,40 @@
 					tailwind = true;
 				};
 			};
+      nvim-tree = {
+        enable = true;
+        git = {
+          enable = true;
+          showOnDirs = true;
+          showOnOpenDirs = true;
+        };
+        modified = {
+          enable = true;
+          showOnDirs = true;
+          showOnOpenDirs = true;
+        };
+        renderer = {
+          highlightGit = true;
+          icons = {
+            show = {
+              file = true;
+              folder = true;
+              folderArrow = true;
+              git = true;
+              modified = true;
+            };
+          };
+          indentMarkers = {
+            enable = true;
+            inlineArrows = true;
+          };
+        };
+        view = {
+          cursorline = true;
+          side = "left";
+          signcolumn = "yes";
+        };
+      };
       treesitter = {
         enable = true;
         incrementalSelection.enable = true;

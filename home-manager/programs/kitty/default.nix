@@ -3,7 +3,7 @@
 {
   programs.kitty = {
     enable = true;
-    theme = "Tokyo Night";
+    theme = "Catppuccin-Mocha";
     shellIntegration = {
       enableBashIntegration = true;
       enableZshIntegration = true;
