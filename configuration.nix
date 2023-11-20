@@ -229,6 +229,7 @@
       tty-clock
       usbutils
       unzip
+      wdisplays
       wf-recorder
       wget
       wl-clipboard
