@@ -210,7 +210,7 @@
       neovim-nightly
       networkmanager
       nitch
-      nodejs
+      nodejs_latest
       onefetch
       papirus-icon-theme
       pipes

@@ -114,6 +114,7 @@
         "$mainMod, up, resizeactive, 0 -40"
         "$mainMod, down, resizeactive, 0 40"
         "$mainMod, F11, exec, screenshot_full"
+        "$mainModShift, B, exec, bluetooth toggle"
         "$mainModShift, C, exec, hyprpicker --autocopy"
         "$mainModShift, F, fullscreen, 0"
         "$mainModShift, Q, exit"
