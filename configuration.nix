@@ -238,6 +238,7 @@
     ];
     variables = {
       BROWSER = "firefox";
+      EDITOR = "nvim";
       NIXOS_OZONE_WL = "1";
       NIXPKGS_ALLOW_UNFREE = "1";
       NODE_PATH = "$HOME/.npm-packages/lib/node_modules/";
