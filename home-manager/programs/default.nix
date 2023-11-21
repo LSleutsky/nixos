@@ -15,7 +15,6 @@
     ./ncmpcpp
     ./nnn
     ./pyenv
-    ./pywal
     ./ripgrep
     ./rofi
     ./starship

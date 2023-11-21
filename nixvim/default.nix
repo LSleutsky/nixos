@@ -175,6 +175,15 @@
       }
       {
         mode = "n";
+        key = "<C-n>";
+        action = ":NvimTreeToggle<CR>";
+        options = {
+          desc = "Toggle file explorer";
+          silent = true;
+        };
+      }
+      {
+        mode = "n";
         key = "<C-x>";
         action = "<C-w>c";
         options = {
@@ -364,7 +373,7 @@
         sections = {
           lualine_a = ["mode"];
           lualine_b = ["branch" "diff" "diagnostics"];
-          lualine_c = ["filename" "navic.get_location"];
+          lualine_c = ["filename"];
           lualine_x = ["filetype"];
           lualine_y = ["progress"];
           lualine_z = ["location"];
