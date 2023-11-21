@@ -197,6 +197,7 @@
       gcc
       gimp
       git
+      glow
       gnumake
       google-chrome
       gping

@@ -155,7 +155,7 @@
           interval = 30;
           align = 0;
           rotate = 0;
-          format = "<span font='19' rise='-1.5pt' letter_spacing='30000'></span><span font='16' rise='-2.5pt'>{:%R}</span>";
+          format = "<span font='19' rise='-1.5pt' letter_spacing='30000'></span><span font='16' rise='-2.5pt'>{:%I:%M %p}</span>";
           tooltip = false;
           on-click = "";
         };

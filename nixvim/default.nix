@@ -336,12 +336,15 @@
       cmp-fuzzy-path.enable = true;
       cmp-git.enable = true;
       cmp_luasnip.enable = true;
+      cmp-nvim-lsp.enable = true;
+      cmp-nvim-lua.enable = true;
       cmp-path.enable = true;
       cmp-rg.enable = true;
       cmp-treesitter.enable = true;
       cmp-zsh.enable = true;
 			cursorline.enable = true;
 			illuminate.enable = true;
+      inc-rename.enable = true;
 			indent-blankline.enable = true;
 			nix.enable = true;
 			nix-develop.enable = true;
@@ -366,6 +369,20 @@
         enable = true;
         padding = true;
       };
+      diffview = {
+        enable = true;
+        useIcons = true;
+      };
+      gitsigns = {
+        enable = true;
+        currentLineBlame = true;
+        signcolumn = true;
+        trouble = true;
+        currentLineBlameFormatter = {
+          nonCommitted = " <author>, <author_time>";
+          normal = " <author>, <author_time:%Y-%m-%d> at <author_time:%I:%M %p> - <summary>";
+        };
+      };
       lualine = {
         enable = true;
         iconsEnabled = true;
@@ -373,7 +390,7 @@
         sections = {
           lualine_a = ["mode"];
           lualine_b = ["branch" "diff" "diagnostics"];
-          lualine_c = ["filename" "navic"];
+          lualine_c = [ "vim.fn.expand('%:~:.')" "navic" ];
           lualine_x = ["filetype"];
           lualine_y = ["progress"];
           lualine_z = ["location"];
