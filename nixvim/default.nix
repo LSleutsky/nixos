@@ -373,7 +373,7 @@
         sections = {
           lualine_a = ["mode"];
           lualine_b = ["branch" "diff" "diagnostics"];
-          lualine_c = ["filename"];
+          lualine_c = ["filename" "navic"];
           lualine_x = ["filetype"];
           lualine_y = ["progress"];
           lualine_z = ["location"];
@@ -384,6 +384,17 @@
         extraConfig = {
           enable_autosnippets = true;
           store_selection_keys = "<Tab>";
+        };
+      };
+      lsp = {
+        enable = true;
+        servers = {
+          nixd = {
+            enable = true;
+          };
+          tsserver = {
+            enable = true;
+          };
         };
       };
 			navic = {

@@ -11,7 +11,10 @@
 
   hardware = {
     brillo.enable = true;
-    bluetooth.enable = true;
+    bluetooth = {
+      enable = true;
+      powerOnBoot = true;
+    };
   };
 
   fileSystems = {
