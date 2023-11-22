@@ -2,11 +2,11 @@
 
 let
   screenshot_area = pkgs.writeShellScriptBin "screenshot_area" ''
-    grim -g "$(slurp)" ~/Screenshots/$(date '+%F+%T-screenshot-area').png
+    grim -g "$(slurp)" ~/Pictures/Screenshots/$(date '+%F+%T-screenshot-area').png
   '';
 
   screenshot_full = pkgs.writeShellScriptBin "screenshot_full" ''
-    grim ~/Screenshots/$(date '+%F+%T-screenshot-full').png
+    grim ~/Pictures/Screenshots/$(date '+%F+%T-screenshot-full').png
   '';
 in {
   environment.systemPackages = with pkgs; [

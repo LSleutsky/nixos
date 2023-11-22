@@ -71,6 +71,21 @@
         };
       }
       {
+        event = "InsertLeave";
+        callback = {
+          __raw = ''
+            function()
+              if
+                require("luasnip").session.current_nodes[vim.api.nvim_get_current_buf()]
+                and not require("luasnip").session.jump_active
+              then
+                require("luasnip").unlink_current()
+              end
+            end
+          '';
+        };
+      }
+      {
         event = "TextYankPost";
         pattern = "*";
         callback = {
@@ -483,11 +498,21 @@
         nixGrammars = true;
         nixvimInjections = true;
       };
+      treesitter-refactor = {
+        enable = true;
+        highlightCurrentScope.enable = true;
+        highlightDefinitions.enable = true;
+        navigation = {
+          enable = true;
+          keymaps = {
+            gotoDefinition = "gd";
+          };
+        };
+      };
 			vim-matchup = {
 				enable = true;
 				enableSurround = true;
 				textObj.enable = true;
-				treesitterIntegration.enable = true;
 				matchParen = {
 					enable = true;
 					deffered.enable = true;
