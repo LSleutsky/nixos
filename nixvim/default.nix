@@ -267,10 +267,20 @@
       }
       {
         mode = ["n" "v"];
-        key = "x";
-        action = "\"_x";
+        key = "X";
+        action = "\"_X";
         options = {
           desc = "Don't yank deleted char";
+        };
+      }
+      {
+        mode = ["n" "v"];
+        key = "gl";
+        action = ''
+          :lua require("gitlinker").get_buf_range_url("n", {action_callback = require("gitlinker.actions").open_in_browser})
+        '';
+        options = {
+          silent = true;
         };
       }
 			{
@@ -500,7 +510,6 @@
       };
       treesitter-refactor = {
         enable = true;
-        highlightCurrentScope.enable = true;
         highlightDefinitions.enable = true;
         navigation = {
           enable = true;
@@ -520,5 +529,8 @@
 				};
 			};
 		};
+    extraPlugins = with pkgs.vimPlugins; [
+      gitlinker-nvim
+    ];
   };
 }
