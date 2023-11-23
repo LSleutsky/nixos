@@ -32,14 +32,14 @@
   gtk = {
     enable = true;
     font.name = "ComicShannsMono Nerd Font 12";
-    iconTheme.name = "Tokyonight-Dark";
+    iconTheme.name = "Catppuccin-Mocha";
     cursorTheme = {
       name = "Bibata-Modern-Classic";
       package = pkgs.bibata-cursors;
       size = 24;
     };
     theme = {
-      name = "Tokyonight-Dark-B";
+      name = "Catppuccin-Mocha-Standard-Blue-dark";
       package = pkgs.tokyo-night-gtk;
     };
     gtk3 = {

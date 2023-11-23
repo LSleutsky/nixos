@@ -182,6 +182,7 @@
   environment = {
     systemPackages = with pkgs; [
       bibata-cursors
+      catppuccin-gtk
       cava
       cargo
       cbonsai
@@ -223,14 +224,15 @@
       pulsemixer
       python3
       ramfetch
+      sassc
       sl
       slurp
       starfetch
       swappy
       swayidle
-      tokyo-night-gtk
       tree
       tty-clock
+      typescript
       usbutils
       unzip
       wdisplays
@@ -242,7 +244,9 @@
     ];
     variables = {
       BROWSER = "firefox";
+      DEFAULT_BROWSER = "${pkgs.firefox}/bin/firefox";
       EDITOR = "nvim";
+      GTK_THEME = "Catppuccin-Mocha-Standard-Blue-dark";
       NIXOS_OZONE_WL = "1";
       NIXPKGS_ALLOW_UNFREE = "1";
       NODE_PATH = "$HOME/.npm-packages/lib/node_modules/";
