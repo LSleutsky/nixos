@@ -39,8 +39,13 @@
       size = 24;
     };
     theme = {
-      name = "Catppuccin-Mocha-Standard-Blue-dark";
-      package = pkgs.tokyo-night-gtk;
+      name = "Catppuccin-Mocha-Standard-Blue-Dark";
+      package = pkgs.catppuccin-gtk.override {
+        accents = ["blue"];
+        size = "standard";
+        tweaks = ["rimless" "black"];
+        variant = "mocha";
+      };
     };
     gtk3 = {
       extraConfig = {

@@ -109,7 +109,7 @@
       ];
       dates = "daily";
     };
-    stateVersion = "23.11";
+    stateVersion = "24.05";
   };
 
   systemd = {
@@ -200,7 +200,6 @@
       git
       glow
       gnumake
-      google-chrome
       gping
       grim
       gtk-engine-murrine
@@ -246,7 +245,7 @@
       BROWSER = "firefox";
       DEFAULT_BROWSER = "${pkgs.firefox}/bin/firefox";
       EDITOR = "nvim";
-      GTK_THEME = "Catppuccin-Mocha-Standard-Blue-dark";
+      GTK_THEME = "Catppuccin-Mocha-Standard-Blue-Dark";
       NIXOS_OZONE_WL = "1";
       NIXPKGS_ALLOW_UNFREE = "1";
       NODE_PATH = "$HOME/.npm-packages/lib/node_modules/";
