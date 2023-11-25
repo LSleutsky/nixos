@@ -51,8 +51,8 @@
           tooltip-format = "{used:0.1f}GB/{total:0.1f}GB";
         };
         tray = {
-          spacing = 14;
-          icon-size = 26;
+          spacing = 12;
+          icon-size = 25;
         };
         mpd = {
           format = "<span font='18' letter_spacing='10000'>{stateIcon}</span> <span font='17' rise='-0.75pt'>{title}</span>";
@@ -246,7 +246,7 @@
 
       #tray {
         margin-right: 11px;
-        padding: 0 8px;
+        padding: 0 8px 0 11px;
         background: #1e2030;
         border: 4px solid #414868;
         border-radius: 12px;
