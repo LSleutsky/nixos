@@ -23,7 +23,6 @@
         ];
         modules-center = [ "hyprland/workspaces" ];
         modules-right = [
-          "bluetooth"
           "network"
           "backlight"
           "wireplumber"
@@ -53,9 +52,9 @@
         };
         tray = {
           spacing = 14;
-          icon-size = 23;
+          icon-size = 26;
         };
-       mpd = {
+        mpd = {
           format = "<span font='18' letter_spacing='10000'>{stateIcon}</span> <span font='17' rise='-0.75pt'>{title}</span>";
           format-disconnected = "<span font='18'>󰎊</span>";
           format-stopped = "";
@@ -86,18 +85,8 @@
             default = "";
           };
         };
-        bluetooth = {
-          format = "<span font='19'>󰂲</span>";
-          format-on = "<span font='18'></span>";
-          format-connected = "<span font='16'></span>";
-          tooltip-format = "{controller_alias}\t{controller_address}\n\n{num_connections} connected";
-          tooltip-format-connected = "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}";
-          tooltip-format-enumerate-connected = "{device_alias}\t{device_address}";
-          tooltip-format-enumerate-connected-battery = "{device_alias}\t{device_address}\t{device_battery_percentage}%";
-          on-click = "";
-        };
         network = {
-          format-wifi = "<span font='19'>{icon}</span>";
+          format-wifi = "<span font='19' letter_spacing='36000'>{icon}</span><span font='16'>{signalStrength}%</span>";
           format-ethernet = "󰈀";
           format-disconnected = "󰌙";
           format-disabled = "󱔑 ";
@@ -113,7 +102,7 @@
           tooltip = false;
         };
         wireplumber = {
-          format = "<span font='20' letter_spacing='30000'>{icon}</span><span font='16' rise='0.5pt'>{volume}%</span>";
+          format = "<span font='20' letter_spacing='30000'>{icon}</span><span font='16' rise='-1.5pt'>{volume}%</span>";
           format-muted = "<span font='21'> </span>";
           format-icons = {
             headphone = " ";
@@ -163,7 +152,7 @@
           interval = 30;
           align = 0;
           rotate = 0;
-          format = "<span font='16' rise='-1.5pt' letter_spacing='3000'> </span><span font='16' rise='-3.5pt'>{:%b %d}</span>";
+          format = "<span font='16' rise='-1.5pt' letter_spacing='3000'> </span><span font='16' rise='-3.5pt'>{:%a %b %d}</span>";
           tooltip = false;
           on-click = "";
         };
@@ -180,28 +169,28 @@
       };
     };
     style = ''
-      * {
-        font-family: ComicShannsMono Nerd Font, JetBrainsMono Nerd Font;
-      }
+    * {
+      font-family: ComicShannsMono Nerd Font, JetBrainsMono Nerd Font;
+    }
 
-      window#waybar {
-        background: transparent;
-      }
+    window#waybar {
+      background: transparent;
+    }
 
-      window > box {
-        margin: 7px 16px 0;
-        padding: 5px 0 3px;
-      }
+    window > box {
+      margin: 7px 16px 0;
+      padding: 5px 0 3px;
+    }
 
-      /* If workspaces is the leftmost module, omit left margin */
-      .modules-left > widget:first-child > #workspaces {
-        margin-left: 0;
-      }
+    /* If workspaces is the leftmost module, omit left margin */
+    .modules-left > widget:first-child > #workspaces {
+      margin-left: 0;
+    }
 
-      /* If workspaces is the rightmost module, omit right margin */
-      .modules-right > widget:last-child > #workspaces {
-        margin-right: 0;
-      }
+    /* If workspaces is the rightmost module, omit right margin */
+    .modules-right > widget:last-child > #workspaces {
+      margin-right: 0;
+    }
 
       #temperature,
       #cpu,
@@ -211,7 +200,6 @@
       #taskbar,
       #mpd,
       #workspaces,
-      #bluetooth,
       #network,
       #wireplumber,
       #battery,
@@ -327,33 +315,14 @@
         padding-right: 15px;
       }
 
-      #bluetooth {
-        padding-left: 12px;
-        color: #3b4261;
-        background: #1e2030;
-        border-top: 4px solid #414868;
-        border-left: 4px solid #414868;
-        border-bottom: 4px solid #414868;
-        border-top-left-radius: 12px;
-        border-bottom-left-radius: 12px;
-      }
-
-      #bluetooth.on,
-      #bluetooth.connected {
-        color: #7dcfff;
-      }
-
       #network {
         margin-right: 11px;
-        padding-right: 23px;
-        padding-left: 3px;
+        padding-right: 13px;
+        padding-left: 13px;
         color: #ff9e64;
         background: #1e2030;
-        border-top: 4px solid #414868;
-        border-right: 4px solid #414868;
-        border-bottom: 4px solid #414868;
-        border-top-right-radius: 12px;
-        border-bottom-right-radius: 12px;
+        border: 4px solid #414868;
+        border-radius: 12px;
       }
 
       #network.disconnected {
@@ -456,6 +425,6 @@
       label:focus {
         background-color: #1e2030;
       }
-    '';
-  };
-}
+      '';
+    };
+  }

@@ -123,6 +123,7 @@
   };
 
   services = {
+    blueman.enable = true;
     dbus.enable = true;
     fprintd.enable = true;
     fwupd.enable = true;
