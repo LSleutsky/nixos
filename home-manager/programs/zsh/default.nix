@@ -82,6 +82,7 @@
       man = "batman";
       mkdir = "mkdir -p";
       n = "nvim";
+      nxh = "nvim ~/nixos/home-manager/default.nix";
       nxv = "nvim ~/nixos/nixvim/default.nix";
       pow = "sudo shutdown now";
       reb = "sudo reboot now";

@@ -40,8 +40,8 @@
         };
         cpu = {
           interval = 5;
-          format = "<span font='21' rise='11pt'>󰓅 </span><span rise='11pt'>{usage}%</span>";
-          format-alt = "<span font='21' rise='11pt'>󰓅 </span><span rise='11pt'>{avg_frequency} GHz</span>";
+          format = "<span font='21' rise='11pt'>󰓅 </span><span font='17' rise='10pt'>{usage}%</span>";
+          format-alt = "<span font='21' rise='11pt'>󰓅 </span><span font='17' rise='10pt'>{avg_frequency} GHz</span>";
           on-click = "";
         };
         memory = {
