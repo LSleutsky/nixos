@@ -273,16 +273,6 @@
           desc = "Don't yank deleted char";
         };
       }
-      {
-        mode = ["n" "v"];
-        key = "gl";
-        action = ''
-          :lua require("gitlinker").get_buf_range_url("n", {action_callback = require("gitlinker.actions").open_in_browser})
-        '';
-        options = {
-          silent = true;
-        };
-      }
 			{
 				mode = "v";
 				key = ">gv";
@@ -397,6 +387,10 @@
       diffview = {
         enable = true;
         useIcons = true;
+      };
+      gitlinker = {
+        enable = true;
+        actionCallback = "open_in_browser";
       };
       gitsigns = {
         enable = true;
@@ -529,8 +523,5 @@
 				};
 			};
 		};
-    extraPlugins = with pkgs.vimPlugins; [
-      gitlinker-nvim
-    ];
   };
 }

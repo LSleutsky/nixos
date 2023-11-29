@@ -170,14 +170,24 @@
     ];
   };
 
-  xdg.portal = {
-    enable = true;
-    wlr.enable = true;
-    xdgOpenUsePortal = true;
-    extraPortals = with pkgs; [
-      xdg-desktop-portal-gtk
-      xdg-desktop-portal-hyprland
-    ];
+  xdg = {
+    mime = {
+      enable = true;
+      defaultApplications = {
+        "text/html" = "firefox.desktop";
+        "x-scheme-handler/http" = "firefox.desktop";
+        "x-scheme-handler/https" = "firefox.desktop";
+      };
+    };
+    portal = {
+      enable = true;
+      wlr.enable = true;
+      xdgOpenUsePortal = true;
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-gtk
+        xdg-desktop-portal-hyprland
+      ];
+    };
   };
 
   environment = {
@@ -239,7 +249,6 @@
       wf-recorder
       wget
       wl-clipboard
-      youtube-music
       zip
     ];
     variables = {
