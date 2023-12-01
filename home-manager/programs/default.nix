@@ -4,6 +4,7 @@
     ./bat
     ./btop
     ./cava
+    ./command-not-found
     ./eza
     ./feh
     ./firefox

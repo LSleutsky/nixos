@@ -154,7 +154,7 @@
     _1password.enable = true;
     _1password-gui = {
       enable = true;
-      polkitPolicyOwners = [ "lush" ];
+      polkitPolicyOwners = ["lush"];
     };
   };
 
@@ -165,15 +165,17 @@
       noto-fonts
       noto-fonts-emoji
       (nerdfonts.override {
-        fonts = [ "ComicShannsMono" "JetBrainsMono" ];
+        fonts = ["ComicShannsMono" "JetBrainsMono"];
       })
     ];
   };
 
   xdg = {
+    autostart.enable = true;
     mime = {
       enable = true;
       defaultApplications = {
+        "application/pdf" = ["zathura.desktop" "firefox.desktop"];
         "text/html" = "firefox.desktop";
         "x-scheme-handler/http" = "firefox.desktop";
         "x-scheme-handler/https" = "firefox.desktop";
@@ -211,6 +213,7 @@
       git
       glow
       gnumake
+      google-chrome
       gping
       grim
       gtk-engine-murrine
@@ -225,7 +228,7 @@
       neovim-nightly
       networkmanager
       nitch
-      nodejs_latest
+      nodePackages_latest.nodejs
       onefetch
       papirus-icon-theme
       pipes
