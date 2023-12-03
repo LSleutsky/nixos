@@ -88,7 +88,7 @@
       bind = [
         "$mainMod, SPACE, exec, rofi -show drun"
         "$mainMod, B, exec, firefox"
-        "$mainMod, C, exec, chrome"
+        "$mainMod, C, exec, google-chrome-stable"
         "$mainMod, D, exec, discord"
         "$mainMod, F, fullscreen, 1"
 				"$mainMod, G, exec, gimp"
