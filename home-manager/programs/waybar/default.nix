@@ -86,7 +86,7 @@
           };
         };
         network = {
-          format-wifi = "<span font='19' letter_spacing='36000'>{icon}</span><span font='16'>{signalStrength}%</span>";
+          format-wifi = "<span font='19' letter_spacing='36000'>{icon}</span><span font='16'>{essid} ({signalStrength}%)</span>";
           format-ethernet = "󰈀";
           format-disconnected = "󰌙";
           format-disabled = "󱔑 ";
