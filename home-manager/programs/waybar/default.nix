@@ -15,13 +15,13 @@
         margin = "0";
         fixed-center = true;
         modules-left = [
+          "hyprland/workspaces"
           "temperature"
           "cpu"
           "memory"
           "tray"
           "mpd"
         ];
-        modules-center = [ "hyprland/workspaces" ];
         modules-right = [
           "network"
           "backlight"
@@ -210,6 +210,53 @@
         font-size: 20px;
       }
 
+      #workspaces {
+        margin-right: 11px;
+        background: #1e2030;
+        border: 4px solid #414868;
+        border-radius: 12px;
+      }
+
+      #workspaces button {
+        padding: 0 4px;
+        transition: all .5s cubic-bezier(.55, -.68, .48, 1.68);
+        color: #7dcfff;
+        border: 0;
+        box-shadow: none;
+      }
+
+      #workspaces button:hover {
+        border: 0;
+        box-shadow: none;
+      }
+
+      #workspaces button:first-child:not(.active) {
+        padding-left: 0;
+      }
+
+      #workspaces button:last-child:not(.active) {
+        padding-right: 0;
+      }
+
+      #workspaces button.active {
+        transition: all .5s cubic-bezier(.55, -.68, .48, 1.68);
+        color: #e0af68;
+      }
+
+      #workspaces button.active:first-child {
+        padding-right: 12px;
+        padding-left: 0;
+      }
+
+      #workspaces button.active:not(:first-child) {
+        padding-right: 9px;
+        padding-left: 2px;
+      }
+
+      #workspaces button.active:last-child {
+        padding: 0 4px;
+      }
+
       #temperature {
         padding-left: 13px;
         color: #ff9e64;
@@ -276,43 +323,6 @@
 
       #mpd.paused {
         color: #3b4261;
-      }
-
-      #workspaces {
-        background: #1e2030;
-        border: 4px solid #414868;
-        border-radius: 12px;
-      }
-
-      #workspaces button {
-        transition: all .5s cubic-bezier(.55, -.68, .48, 1.68);
-        color: #7dcfff;
-        border: 0;
-        box-shadow: none;
-      }
-
-      #workspaces button:hover {
-        border: 0;
-        box-shadow: none;
-      }
-
-      #workspaces button.active {
-        transition: all .5s cubic-bezier(.55, -.68, .48, 1.68);
-        color: #e0af68;
-      }
-
-      #workspaces button.active:first-child {
-        padding-right: 14px;
-      }
-
-      #workspaces button.active:not(:first-child) {
-        padding-right: 9px;
-        padding-left: 4px;
-      }
-
-      #workspaces button.active:last-child {
-        padding-left: 7px;
-        padding-right: 15px;
       }
 
       #network {
