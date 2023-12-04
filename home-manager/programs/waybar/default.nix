@@ -248,6 +248,10 @@
         padding: 0 4px;
       }
 
+      #workspaces button:last-child:not(.active) {
+        padding-right: 0;
+      }
+
       #temperature {
         padding-left: 13px;
         color: #ff9e64;
