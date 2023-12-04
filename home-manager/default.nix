@@ -24,6 +24,12 @@
           prefix = ''${HOME}/.npm-packages
           '';
       };
+      ".zlogin" = {
+        enable = true;
+        text = ''
+          dbus-run-session Hyprland
+        '';
+      };
     };
     packages = [
       inputs.dipc.packages.${pkgs.system}.default
