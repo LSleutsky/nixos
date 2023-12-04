@@ -199,7 +199,6 @@
       #tray,
       #taskbar,
       #mpd,
-      #workspaces,
       #network,
       #wireplumber,
       #battery,
@@ -212,6 +211,7 @@
 
       #workspaces {
         margin-right: 11px;
+        padding: 0 10px 0 5px;
         background: #1e2030;
         border: 4px solid #414868;
         border-radius: 12px;
@@ -230,27 +230,18 @@
         box-shadow: none;
       }
 
-      #workspaces button:first-child:not(.active) {
-        padding-left: 0;
-      }
-
-      #workspaces button:last-child:not(.active) {
-        padding-right: 0;
-      }
-
       #workspaces button.active {
         transition: all .5s cubic-bezier(.55, -.68, .48, 1.68);
         color: #e0af68;
       }
 
-      #workspaces button.active:first-child {
-        padding-right: 12px;
-        padding-left: 0;
-      }
-
       #workspaces button.active:not(:first-child) {
         padding-right: 9px;
         padding-left: 2px;
+      }
+
+      #workspaces button.active:first-child {
+        padding-right: 11px;
       }
 
       #workspaces button.active:last-child {
