@@ -327,6 +327,7 @@
 
       #network.disconnected {
         color: #db4b4b;
+        padding-right: 20px;
       }
 
       #backlight {
