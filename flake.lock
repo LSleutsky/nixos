@@ -264,11 +264,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1701737536,
-        "narHash": "sha256-xSmfHhhCL9mAta5jKfcbJxYjCoD2MdLPBMjBUWvYAJI=",
+        "lastModified": 1701790877,
+        "narHash": "sha256-xNjSypJirandCE1/OLFwndGYhFdoSqcbjW77rVZ86uI=",
         "owner": "hyprwm",
         "repo": "Hyprland",
-        "rev": "3bb9c7c5cf4f2ee30bf821501499f2308d616f94",
+        "rev": "37d7a8c64dfabfe81330c819c24fd6b13b292194",
         "type": "github"
       },
       "original": {
@@ -469,11 +469,11 @@
         "pre-commit-hooks": "pre-commit-hooks"
       },
       "locked": {
-        "lastModified": 1701765087,
-        "narHash": "sha256-BiBwHOLeH7gSlkF6P23ZgIOJWuZ2fVi+MOp+3oU5Ww8=",
+        "lastModified": 1701772025,
+        "narHash": "sha256-Q8U9c39+aX9dsyMWFjRLLCav5m+M6IrE1V7X9AWfreM=",
         "owner": "nix-community",
         "repo": "nixvim",
-        "rev": "e159e3f75ef434359018c71517e58d637064b4b9",
+        "rev": "903e2a1ccb92f17ac5810bc1229f5dd0addd7ba6",
         "type": "github"
       },
       "original": {
