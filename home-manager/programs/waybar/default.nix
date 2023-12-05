@@ -7,430 +7,335 @@
     package = pkgs.waybar.overrideAttrs (oldAttrs: {
       mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
     });
-    settings = {
-      mainBar = {
-        position = "top";
-        layer = "top";
-        height = 35;
-        margin = "0";
-        fixed-center = true;
-        modules-left = [
-          "hyprland/workspaces"
-          "temperature"
-          "cpu"
-          "memory"
-          "tray"
-          "mpd"
+    settings.mainBar = {
+      position = "top";
+      layer = "top";
+      height = 35;
+      margin-top = 0;
+      margin-bottom = 0;
+      margin-left = 0;
+      margin-right = 0;
+      modules-left = [
+        "custom/launcher" 
+        "custom/playerctl#backward" 
+        "custom/playerctl#play" 
+        "custom/playerctl#foward" 
+        "custom/playerlabel"
+      ];
+      modules-center = [
+        "cava#left"
+        "hyprland/workspaces"
+        "cava#right"
+      ];
+      modules-right = [
+        "tray" 
+        "battery"
+        "wireplumber" 
+        "network"
+        "clock" 
+      ];
+      clock = {
+        format = " {:%a, %d %b, %I:%M %p}";
+        tooltip = "true";
+        tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
+        format-alt = " {:%d/%m}";
+      };
+      "hyprland/workspaces" = {
+        active-only = false;
+        all-outputs = false;
+        disable-scroll = false;
+        on-scroll-up = "hyprctl dispatch workspace e-1";
+        on-scroll-down = "hyprctl dispatch workspace e+1";
+        format = "{name}";
+        on-click= "activate";
+        format-icons = {
+          urgent = "";
+          active = "";
+          default = "";
+          sort-by-number = true;
+        };
+      };
+      "cava#left" = {
+        framerate = 60;
+        autosens = 1;
+        bars = 18;
+        lower_cutoff_freq = 50;
+        higher_cutoff_freq = 10000;
+        method = "pipewire";
+        source = "auto";
+        stereo = true;
+        reverse = false;
+        bar_delimiter = 0;
+        monstercat = false;
+        waves = false;
+        input_delay = 2;
+        format-icons = [ 
+          "<span foreground='#cba6f7'>▁</span>" 
+          "<span foreground='#cba6f7'>▂</span>" 
+          "<span foreground='#cba6f7'>▃</span>" 
+          "<span foreground='#cba6f7'>▄</span>" 
+          "<span foreground='#89b4fa'>▅</span>" 
+          "<span foreground='#89b4fa'>▆</span>" 
+          "<span foreground='#89b4fa'>▇</span>" 
+          "<span foreground='#89b4fa'>█</span>" 
         ];
-        modules-right = [
-          "network"
-          "backlight"
-          "wireplumber"
-          "battery"
-          "clock"
-					"clock#date"
-          "idle_inhibitor"
+      };
+      "cava#right" = {
+        framerate = 60;
+        autosens = 1;
+        bars = 18;
+        lower_cutoff_freq = 50;
+        higher_cutoff_freq = 10000;
+        method = "pipewire";
+        source = "auto";
+        stereo = true;
+        reverse = false;
+        bar_delimiter = 0;
+        monstercat = false;
+        waves = false;
+        input_delay = 2;
+        format-icons = [ 
+          "<span foreground='#cba6f7'>▁</span>" 
+          "<span foreground='#cba6f7'>▂</span>" 
+          "<span foreground='#cba6f7'>▃</span>" 
+          "<span foreground='#cba6f7'>▄</span>" 
+          "<span foreground='#89b4fa'>▅</span>" 
+          "<span foreground='#89b4fa'>▆</span>" 
+          "<span foreground='#89b4fa'>▇</span>" 
+          "<span foreground='#89b4fa'>█</span>" 
         ];
-        temperature = {
-          critical-threshold = 100;
-          format = "<span rise='4pt' letter_spacing='10000'></span><span rise='2pt'>{temperatureC}°C</span>";
-          format-alt = "<span rise='4pt' letter_spacing='10000'></span><span rise='2pt'>{temperatureF}°F</span>";
-          hwmon-path = "/sys/class/hwmon/hwmon3/temp1_input";
-          tooltip = false;
+      };
+      "custom/playerctl#backward" = {
+        format = "󰙣 ";
+        on-click = "playerctl previous";
+        on-scroll-up = "playerctl volume .05+";
+        on-scroll-down = "playerctl volume .05-";
+      };
+      "custom/playerctl#play" = {
+        format = "{icon}";
+        return-type = "json";
+        exec = "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F";
+        on-click = "playerctl play-pause";
+        on-scroll-up = "playerctl volume .05+";
+        on-scroll-down = "playerctl volume .05-";
+        format-icons = {
+          Playing = "<span>󰏥 </span>";
+          Paused = "<span> </span>";
+          Stopped = "<span> </span>";
         };
-        cpu = {
-          interval = 5;
-          format = "<span font='21' rise='11pt'>󰓅 </span><span font='17' rise='10pt'>{usage}%</span>";
-          format-alt = "<span font='21' rise='11pt'>󰓅 </span><span font='17' rise='10pt'>{avg_frequency} GHz</span>";
-          on-click = "";
+      };
+      "custom/playerctl#foward" = {
+        format = "󰙡 ";
+        on-click = "playerctl next";
+        on-scroll-up = "playerctl volume .05+";
+        on-scroll-down = "playerctl volume .05-";
+      };
+      "custom/playerlabel" = {
+        format = "<span>󰎈 {} 󰎈</span>";
+        return-type = "json";
+        max-length = 40;
+        exec = "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F";
+        on-click = "";
+      };
+      battery = {
+        states = {
+          good = 95;
+          warning = 30;
+          critical = 15;
         };
-        memory = {
-          interval = 30;
-          format = "<span font='22' rise='-4pt' letter_spacing='-4400'>󰍛 </span><span font='16' rise='-4pt'>{}%</span>";
-          format-alt = "<span font='22' rise='-6.5pt' letter_spacing='-4400'>󰍛 </span><span font='16' rise='-6.5pt'>{used:0.1f}GB</span>";
-          tooltip-format = "{used:0.1f}GB/{total:0.1f}GB";
+        format ="{icon}  {capacity}%";
+        format-charging = "  {capacity}%";
+        format-plugged = " {capacity}% ";
+        format-alt = "{icon} {time}";
+        format-icons = ["" "" "" "" ""];
+      };
+
+      memory = {
+        format = "󰍛 {}%";
+        format-alt = "󰍛 {used}/{total} GiB";
+        interval = 5;
+      };
+      cpu = {
+        format = "󰻠 {usage}%";
+        format-alt = "󰻠 {avg_frequency} GHz";
+        interval = 5;
+      };
+      network = {
+        format-wifi = "  {signalStrength}%";
+        format-ethernet = "󰈀 100% ";
+        tooltip-format = "Connected to {essid} {ifname} via {gwaddr}";
+        format-linked = "{ifname} (No IP)";
+        format-disconnected = "󰖪 0% ";
+      };
+      tray = {
+        icon-size = 20;
+        spacing = 8;
+      };
+      wireplumber = {
+        format = "<span font='16'>{icon}</span> {volume}%";
+        format-muted = "<span font='16'> </span>";
+        format-icons = {
+          headphone = " ";
+          hands-free = "󰦢";
+          headset = "󰋎";
+          phone = "";
+          portable = " ";
+          car = " ";
+          default= ["󰕿" "󰖀" "󰕾"];
         };
-        tray = {
-          spacing = 12;
-          icon-size = 25;
-        };
-        mpd = {
-          format = "<span font='18' letter_spacing='10000'>{stateIcon}</span> <span font='17' rise='-0.75pt'>{title}</span>";
-          format-disconnected = "<span font='18'>󰎊</span>";
-          format-stopped = "";
-          tooltip-format = "{artist} | {album}, {elapsedTime:%M:%S}/{totalTime:%M:%S}, Vol: {volume} %, Opts: {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}";
-          on-click = "mpc toggle";
-          state-icons = {
-            paused = "";
-            playing = "";
-          };
-          consume-icons = {
-            on = "";
-          };
-          random-icons = {
-            on = " ";
-          };
-          repeat-icons = {
-            on = "";
-          };
-          single-icons = {
-            on = "1";
-          };
-        };
-        "hyprland/workspaces" = {
-          format = "<span font='18'>{icon}</span>";
-          on-click = "activate";
-          format-icons = {
-            active = "";
-            default = "";
-          };
-        };
-        network = {
-          format-wifi = "<span font='19' letter_spacing='36000'>{icon}</span><span font='16'>{essid} ({signalStrength}%)</span>";
-          format-ethernet = "󰈀";
-          format-disconnected = "󰌙";
-          format-disabled = "󱔑 ";
-          format-linked = "{ifname} (No IP)";
-          format-icons = ["󰤯" "󰤟" "󰤢" "󰤥" "󰤨"];
-          tooltip-format = "{essid} ({signalStrength}%)";
-        };
-        backlight = {
-          format = "<span font='19'>{icon}</span><span font='17' rise='-2.5pt'>{percent}%</span>";
-          format-icons = ["󱩎 " "󱩏 " "󱩐 " "󱩑 " "󱩒 " "󱩓 " "󱩔 " "󱩕 " "󱩖 " "󰛨 "];
-          reverse-scrolling = true;
-          reverse-mouse-scrolling = true;
-          tooltip = false;
-        };
-        wireplumber = {
-          format = "<span font='20' letter_spacing='30000'>{icon}</span><span font='16' rise='-1.5pt'>{volume}%</span>";
-          format-muted = "<span font='21'> </span>";
-          format-icons = {
-            headphone = " ";
-            hands-free = "󰦢";
-            headset = "󰋎";
-            phone = "";
-            portable = " ";
-            car = " ";
-            default = "";
-          };
-          reverse-scrolling = 1;
-          max-volume = 100.0;
-          tooltip = false;
-        };
-        battery = {
-          interval = 30;
-          rotate = 0;
-          full-at = 100;
-          design-capacity = false;
-          states = {
-            full = 100;
-            discharging = 99;
-            warning = 35;
-            critical = 15;
-          };
-          format = "<span font='19' letter_spacing='-6000'>{icon}</span> <span font='16' rise='0.5pt'>{capacity}%</span>";
-          format-charging = "<span font='19'>{icon}</span><span font='16' rise='-1.2pt'>{capacity}%</span>";
-          format-discharging = "<span font='19' rise='3pt' letter_spacing='-11000'>{icon}</span> <span font='16' rise='2pt'>{capacity}%</span>";
-          format-plugged-full = "<span font='19' rise='4pt' letter_spacing='12000'>{icon}</span><span font='16' rise='3pt'>{capacity}%</span>";
-          format-full = "<span font='19' letter_spacing='12000'>{icon}</span><span font='16' rise='-0.25pt'>{capacity}%</span>";
-          format-icons = {
-            default = ["󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
-            charging = ["󰢜 " "󰂆 " "󰂇 " "󰂈 " "󰢝 " "󰂉 " "󰢞 " "󰂊 " "󰂋 " "󰂅 "];
-          };
-          format-time = "{H}h {m}m";
-          tooltip-format = "{time}";
-        };
-        clock = {
-          interval = 30;
-          align = 0;
-          rotate = 0;
-          format = "<span font='19' rise='-1.5pt' letter_spacing='30000'></span><span font='16' rise='-2.5pt'>{:%I:%M %p}</span>";
-          tooltip = false;
-          on-click = "";
-        };
-        "clock#date" = {
-          interval = 30;
-          align = 0;
-          rotate = 0;
-          format = "<span font='16' rise='-1.5pt' letter_spacing='3000'> </span><span font='16' rise='-3.5pt'>{:%a %b %d}</span>";
-          tooltip = false;
-          on-click = "";
-        };
-        idle_inhibitor = {
-          format = "<span font='21'>{icon}</span>";
-          format-icons = {
-            activated = "󰖙";
-            deactivated = "󰤄";
-          };
-          start-activated = false;
-          timeout = false;
-          tooltip = false;
-        };
+        reverse-scrolling = 1;
+        max-volume = 100.0;
+        tooltip = false;
+      };
+      "custom/launcher" = {
+        format = "";
+        # on-click= "bash $HOME/.config/rofi/launcher.sh";
+        # on-click-right= "bash $HOME/.config/rofi/run.sh"; 
+        tooltip = "false";
       };
     };
     style = ''
-    * {
-      font-family: ComicShannsMono Nerd Font, JetBrainsMono Nerd Font;
-    }
+      * {
+        border: none;
+        border-radius: 0px;
+        font-family: ComicShannsMono Nerd Font;
+        font-size: 14px;
+        min-height: 0;
+      }
 
-    window#waybar {
-      background: transparent;
-    }
+      window#waybar {
+        background: rgba(17, 17, 27, 1);
+      }
 
-    window > box {
-      margin: 7px 16px 0;
-      padding: 5px 0 3px;
-    }
+      #cava.left, #cava.right {
+        background: #25253a;
+        margin: 5px; 
+        padding: 8px 16px;
+        color: #cba6f7;
+      }
 
-    /* If workspaces is the leftmost module, omit left margin */
-    .modules-left > widget:first-child > #workspaces {
-      margin-left: 0;
-    }
+      #cava.left {
+        border-radius: 24px 10px 24px 10px;
+      }
 
-    /* If workspaces is the rightmost module, omit right margin */
-    .modules-right > widget:last-child > #workspaces {
-      margin-right: 0;
-    }
-
-      #temperature,
-      #cpu,
-      #memory,
-      #custom-weather,
-      #tray,
-      #taskbar,
-      #mpd,
-      #network,
-      #wireplumber,
-      #battery,
-      #clock,
-      #clock#date,
-      #idle_inhibitor {
-        padding: 0 10px;
-        font-size: 20px;
+      #cava.right {
+        border-radius: 10px 24px 10px 24px;
       }
 
       #workspaces {
-        margin-right: 11px;
-        padding: 0 10px 0 5px;
-        background: #1e2030;
-        border: 4px solid #414868;
-        border-radius: 12px;
+        background: #25253a;
+        margin: 5px 5px;
+        padding: 8px 5px;
+        border-radius: 16px;
+        color: #cba6f7;
       }
 
       #workspaces button {
-        padding: 0 4px;
-        transition: all .5s cubic-bezier(.55, -.68, .48, 1.68);
-        color: #7dcfff;
-        border: 0;
-        box-shadow: none;
-      }
-
-      #workspaces button:hover {
-        border: 0;
-        box-shadow: none;
+        padding: 0px 5px;
+        margin: 0px 3px;
+        border-radius: 16px;
+        color: transparent;
+        background: rgba(17, 17, 27, 1);
+        transition: all 0.3s ease-in-out;
       }
 
       #workspaces button.active {
-        transition: all .5s cubic-bezier(.55, -.68, .48, 1.68);
-        color: #e0af68;
+        background-color: #89b4fa;
+        color: #11111b;
+        border-radius: 16px;
+        min-width: 50px;
+        background-size: 400% 400%;
+        transition: all 0.3s ease-in-out;
       }
 
-      #workspaces button.active:not(:first-child) {
-        padding-right: 9px;
-        padding-left: 2px;
+      #workspaces button:hover {
+        background-color: #f5f5f5;
+        color: #11111b;
+        border-radius: 16px;
+        min-width: 50px;
+        background-size: 400% 400%;
       }
 
-      #workspaces button.active:first-child {
-        padding-right: 11px;
-      }
-
-      #workspaces button.active:last-child {
-        padding: 0 4px;
-      }
-
-      #workspaces button:last-child:not(.active) {
-        padding-right: 0;
-      }
-
-      #temperature {
-        padding-left: 13px;
-        color: #ff9e64;
-        background: #1e2030;
-        border-top: 4px solid #414868;
-        border-bottom: 4px solid #414868;
-        border-left: 4px solid #414868;
-        border-top-left-radius: 12px;
-        border-bottom-left-radius: 12px;
-      }
-
-      #temperature.critical {
-        color: #f7768e;
-      }
-
-      #cpu {
-        color: #ff9e64;
-        background: #1e2030;
-        border-top: 4px solid #414868;
-        border-bottom: 4px solid #414868;
-      }
-
-      #memory {
-        margin-right: 11px;
-        padding-left: 14px;
-        color: #ff9e64;
-        background: #1e2030;
-        border-top: 4px solid #414868;
-        border-right: 4px solid #414868;
-        border-bottom: 4px solid #414868;
-        border-top-right-radius: 12px;
-        border-bottom-right-radius: 12px;
-      }
-
-      #tray {
-        margin-right: 11px;
-        padding: 0 8px 0 11px;
-        background: #1e2030;
-        border: 4px solid #414868;
-        border-radius: 12px;
-      }
-
-      #tray > .passive {
-        -gtk-icon-effect: dim;
-      }
-
-      #tray > .needs-attention {
-        background-color: #f38ba8;
-        -gtk-icon-effect: highlight;
-      }
-
-      #mpd {
-        margin-right: 11px;
-        padding: 4px 12px;
-        background: #1e2030;
-        border: 4px solid #414868;
-        border-radius: 12px;
-      }
-
-      #mpd.playing {
-        padding: 4px 12px;
-        color: #7aaf27;
-      }
-
-      #mpd.paused {
-        color: #3b4261;
-      }
-
-      #network {
-        margin-right: 11px;
-        padding-right: 13px;
-        padding-left: 13px;
-        color: #ff9e64;
-        background: #1e2030;
-        border: 4px solid #414868;
-        border-radius: 12px;
-      }
-
-      #network.disconnected {
-        color: #db4b4b;
-        padding-right: 20px;
-      }
-
-      #backlight {
-        margin-right: 11px;
-        padding: 4px 18px 4px 16px;
-        color: #9d7cd8;
-        background: #1e2030;
-        border: 4px solid #414868;
-        border-radius: 12px;
-      }
-
-      #wireplumber {
-        margin-right: 11px;
-        padding: 4px 16px;
-        color: #7aa2f7;
-        background: #1e2030;
-        border: 4px solid #414868;
-        border-radius: 12px;
-      }
-
-      #wireplumber.muted {
-        color: #ff768e;
-      }
-
-      #battery {
-        margin-right: 11px;
-        padding: 4px 15px 4px 16px;
-        color: #9ece6a;
-        font-size: 20px;
-        background: #1e2030;
-        border: 4px solid #414868;
-        border-radius: 12px;
-      }
-
-      #battery.full {
-        padding-right: 13px;
-      }
-
-      #battery.full,
-      #battery.discharging {
-        color: #9ece6a;
-      }
-
-      #battery.charging:not(.full) {
-        padding-right: 15px;
-        color: #9ece6a;
-      }
-
-      #battery.critical:not(.charging) {
-        color: #f7768e;
-      }
-
-      #clock,
-			#clock.date {
-        margin-right: 10px;
-        padding: 4px 14px;
-        color: #a9b1d6;
-        font-size: 21px;
+      #tray, #wireplumber, #network, #battery,
+      #custom-playerctl.backward, #custom-playerctl.play, #custom-playerctl.foward {
+        background: #25253a;
         font-weight: bold;
-        background: #1e2030;
-        border: 4px solid #414868;
-        border-radius: 12px;
+        margin: 5px 0px;
       }
 
-			#clock.date {
-				color: #1abc9c;
-			}
+      #tray, #wireplumber, #network, #battery {
+        color: #f5f5f5;
+        border-radius: 10px 24px 10px 24px;
+        padding: 0 20px;
+        margin-left: 7px;
+      }
 
-      #idle_inhibitor {
-        padding: 4px 13px;
-        color: #545c7e;
+      #clock {
+        color: #f5f5f5;
+        background: #25253a;
+        border-radius: 0px 0px 0px 40px;
+        padding: 10px 10px 15px 25px;
+        margin-left: 7px;
+        font-weight: bold;
+        font-size: 16px;
+      }
+
+      #custom-launcher {
+        color: #89b4fa;
+        background: #25253a;
+        border-radius: 0px 0px 40px 0px;
+        margin: 0px;
+        padding: 0px 35px 0px 15px;
+        font-size: 28px;
+      }
+
+      #custom-playerctl.backward, #custom-playerctl.play, #custom-playerctl.foward {
+        background: #25253a;
         font-size: 22px;
-        background: #1e2030;
-        border: 4px solid #414868;
-        border-radius: 12px;
       }
 
-      #idle_inhibitor.activated {
-        padding: 4px 16px 4px 12px;
-        color: #e0af68;
+      #custom-playerctl.backward:hover, #custom-playerctl.play:hover, #custom-playerctl.foward:hover {
+        color: #f5f5f5;
       }
 
-      tooltip {
-        padding: 15px;
-        border-radius: 15px;
-        background-color: #1e2030;
-        font-family: ComicShannsMono Nerd Font;
-        font-size: 18px;
+      #custom-playerctl.backward {
+        color: #cba6f7;
+        border-radius: 24px 0px 0px 10px;
+        padding-left: 16px;
+        margin-left: 7px;
       }
 
-      tooltip label {
-        padding: 5px;
-        font-family: ComicShannsMono Nerd Font;
+      #custom-playerctl.play {
+        color: #89b4fa;
+        padding: 0 5px;
       }
 
-      label:focus {
-        background-color: #1e2030;
+      #custom-playerctl.foward {
+        color: #cba6f7;
+        border-radius: 0px 10px 24px 0px;
+        padding-right: 12px;
+        margin-right: 7px
       }
-      '';
-    };
-  }
+
+      #custom-playerlabel {
+        background: #25253a;
+        color: #f5f5f5;
+        padding: 0 20px;
+        border-radius: 24px 10px 24px 10px;
+        margin: 5px 0;
+        font-weight: bold;
+      }
+
+      #window {
+        background: #25253a;
+        padding-left: 15px;
+        padding-right: 15px;
+        border-radius: 16px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        font-weight: normal;
+        font-style: normal;
+      }
+    '';
+  };
+}
