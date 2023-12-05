@@ -35,7 +35,7 @@
         "clock" 
       ];
       clock = {
-        format = " {:%a, %d %b, %I:%M %p}";
+        format = " {:%a, %d %b %Y, %I:%M %p}";
         tooltip = "true";
         tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
         format-alt = " {:%d/%m}";
@@ -138,16 +138,20 @@
         on-click = "";
       };
       battery = {
+        interval = 30;
+        full-at = 100;
         states = {
           good = 95;
           warning = 30;
           critical = 15;
         };
-        format ="{icon}  {capacity}%";
-        format-charging = "  {capacity}%";
-        format-plugged = " {capacity}% ";
-        format-alt = "{icon} {time}";
-        format-icons = ["" "" "" "" ""];
+        format = "{icon} {capacity}%";
+        format-icons = {
+          default = ["󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
+          charging = ["󰢜 " "󰂆 " "󰂇 " "󰂈 " "󰢝 " "󰂉 " "󰢞 " "󰂊 " "󰂋 " "󰂅 "];
+        };
+        format-time = "{H}h {m}m";
+        tooltip-format = "{time}";
       };
 
       memory = {
@@ -172,8 +176,8 @@
         spacing = 8;
       };
       wireplumber = {
-        format = "<span font='16'>{icon}</span> {volume}%";
-        format-muted = "<span font='16'> </span>";
+        format = "<span font='14'>{icon}</span> {volume}%";
+        format-muted = "<span font='14'> </span>";
         format-icons = {
           headphone = " ";
           hands-free = "󰦢";
@@ -181,7 +185,7 @@
           phone = "";
           portable = " ";
           car = " ";
-          default= ["󰕿" "󰖀" "󰕾"];
+          default = ["󰕿" "󰖀" "󰕾"];
         };
         reverse-scrolling = 1;
         max-volume = 100.0;
@@ -204,11 +208,11 @@
       }
 
       window#waybar {
-        background: rgba(17, 17, 27, 1);
+        background: #25253a;
       }
 
       #cava.left, #cava.right {
-        background: #25253a;
+        background: #11111b;
         margin: 5px; 
         padding: 8px 16px;
         color: #cba6f7;
@@ -223,7 +227,7 @@
       }
 
       #workspaces {
-        background: #25253a;
+        background: #11111b;
         margin: 5px 5px;
         padding: 8px 5px;
         border-radius: 16px;
@@ -235,7 +239,7 @@
         margin: 0px 3px;
         border-radius: 16px;
         color: transparent;
-        background: rgba(17, 17, 27, 1);
+        background: #25253a;
         transition: all 0.3s ease-in-out;
       }
 
@@ -258,7 +262,7 @@
 
       #tray, #wireplumber, #network, #battery,
       #custom-playerctl.backward, #custom-playerctl.play, #custom-playerctl.foward {
-        background: #25253a;
+        background: #11111b;
         font-weight: bold;
         margin: 5px 0px;
       }
@@ -272,7 +276,7 @@
 
       #clock {
         color: #f5f5f5;
-        background: #25253a;
+        background: #11111b;
         border-radius: 0px 0px 0px 40px;
         padding: 10px 10px 15px 25px;
         margin-left: 7px;
@@ -282,7 +286,7 @@
 
       #custom-launcher {
         color: #89b4fa;
-        background: #25253a;
+        background: #11111b;
         border-radius: 0px 0px 40px 0px;
         margin: 0px;
         padding: 0px 35px 0px 15px;
@@ -290,7 +294,7 @@
       }
 
       #custom-playerctl.backward, #custom-playerctl.play, #custom-playerctl.foward {
-        background: #25253a;
+        background: #11111b;
         font-size: 22px;
       }
 
@@ -318,7 +322,7 @@
       }
 
       #custom-playerlabel {
-        background: #25253a;
+        background: #11111b;
         color: #f5f5f5;
         padding: 0 20px;
         border-radius: 24px 10px 24px 10px;
@@ -327,7 +331,7 @@
       }
 
       #window {
-        background: #25253a;
+        background: #11111b;
         padding-left: 15px;
         padding-right: 15px;
         border-radius: 16px;
