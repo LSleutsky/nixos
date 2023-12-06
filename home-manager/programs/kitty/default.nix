@@ -10,9 +10,9 @@
     };
     settings = {
       background_opacity = "0.75";
-      font_family = "ComicShannsMono Nerd Font";
-      bold_font = "ComicShannsMono Nerd Font Extra Bold";
-      bold_italic = "ComicShannsMono Nerd Font Extra Bold Italic";
+      font_family = "RobotoMono Nerd Font";
+      bold_font = "RobotoMono Nerd Font Extra Bold";
+      bold_italic = "RobotoMono Nerd Font Extra Bold Italic";
       cursor_blink_interval = 0;
       cursor_shape = "beam";
       linux_display_server = "wayland";

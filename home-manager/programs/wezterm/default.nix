@@ -12,7 +12,7 @@
         default_cursor_style = "BlinkingBar",
         enable_tab_bar = true,
         enable_wayland = true,
-        font = wezterm.font("ComicShannsMono Nerd Font"),
+        font = wezterm.font("RobotoMono Nerd Font"),
         font_size = 12.0,
         front_end = "OpenGL",
         hide_tab_bar_if_only_one_tab = true,

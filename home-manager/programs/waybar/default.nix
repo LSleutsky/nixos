@@ -113,18 +113,15 @@
           warning = 30;
           critical = 15;
         };
-        format="{icon} <span rise='-1.5pt'>{capacity}%</span>";
-        format-alt= "{icon} <span rise='-1.5pt'>{time}</span>";
-        format-icons = {
-          default = ["󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
-          charging = ["󰢜 " "󰂆 " "󰂇 " "󰂈 " "󰢝 " "󰂉 " "󰢞 " "󰂊 " "󰂋 " "󰂅 "];
-        };
+        format="{icon}  {capacity}%";
+        format-alt= "{icon} {time}";
+        format-icons= ["" "" "" "" ""];
         format-time = "{H}h {m}m";
         tooltip = false;
       };
       wireplumber = {
-        format = "<span font='14'>{icon}</span> {volume}%";
-        format-muted = "<span font='14'> </span>";
+        format = "<span font='15'>{icon}</span> <span rise='1.5pt'>{volume}%</span>";
+        format-muted = "<span font='13'> </span>";
         format-icons = {
           headphone = " ";
           hands-free = "󰦢";
@@ -139,14 +136,14 @@
         tooltip = false;
       };
       network = {
-        format-wifi = "  <span rise='-1pt'>{signalStrength}%</span>";
+        format-wifi = "  {signalStrength}%";
         format-ethernet = "󰈀 100% ";
         tooltip-format = "Connected to {essid}";
         format-linked = "{ifname} (No IP)";
         format-disconnected = "󰖪 0% ";
       };
       clock = {
-        format = "<span letter_spacing='7500'></span> <span rise='-1pt'>{:%a, %d %b %Y, %I:%M %p}</span>";
+        format = " {:%a, %d %b %Y, %I:%M %p}";
         tooltip = "false";
         tooltip-format = "<tt><big>{calendar}</big></tt>";
       };
@@ -165,7 +162,7 @@
       * {
         border: none;
         border-radius: 0;
-        font-family: ComicShannsMono Nerd Font;
+        font-family: "RobotoMono Nerd Font", "ComicShannsMono Nerd Font", "JetBrains Mono Nerd Font", sans-serif;
         font-size: 14px;
         min-height: 0;
       }

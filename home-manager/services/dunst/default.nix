@@ -5,7 +5,7 @@
      enable = true;
      settings = {
        global = {
-         font = "ComicShannsMono Nerd Font";
+         font = "RobotoMono Nerd Font";
          allow_markup = "yes";
          format = "<b>%s</b>\n%b";
          sort = "yes";

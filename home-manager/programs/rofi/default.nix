@@ -6,7 +6,7 @@ in {
   programs.rofi = {
     enable = true;
     cycle = true;
-    font = "ComicShannsMono Nerd Font 12";
+    font = "RobotoMono Nerd Font 12";
     location = "center";
     terminal = "${pkgs.kitty}/bin/kitty";
     plugins = with pkgs; [

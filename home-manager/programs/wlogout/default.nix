@@ -39,7 +39,7 @@ in {
     ];
     style = ''
       window {
-        font-family: "ComicShannsMono Nerd Font", "JetBrains Mono Nerd Font", sans-serif;
+        font-family: "RobotoMono Nerd Font", "ComicShannsMono Nerd Font", "JetBrains Mono Nerd Font", sans-serif;
         font-size: 16px;
         font-weight: 900;
         color: #cdd6f4;

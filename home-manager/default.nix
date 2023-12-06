@@ -41,7 +41,7 @@
   };
   gtk = {
     enable = true;
-    font.name = "ComicShannsMono Nerd Font 12";
+    font.name = "RobotoMono Nerd Font 12";
     iconTheme.name = "Catppuccin-Mocha";
     cursorTheme = {
       name = "Bibata-Modern-Classic";
