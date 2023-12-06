@@ -114,7 +114,7 @@
           critical = 15;
         };
         format="{icon}  {capacity}%";
-        format-alt= "{icon} {time}";
+        format-alt= "{icon}  {time}";
         format-icons= ["" "" "" "" ""];
         format-time = "{H}h {m}m";
         tooltip = false;
@@ -244,7 +244,7 @@
 
       #cava.left,
       #cava.right {
-        background: #11111b;
+        background: #25253a;
         margin: 5px; 
         padding: 8px 16px;
         color: #cba6f7;
