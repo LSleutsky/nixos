@@ -17,10 +17,6 @@
       margin-right = 0;
       modules-left = [
         "custom/launcher" 
-        "custom/playerctl#backward" 
-        "custom/playerctl#play" 
-        "custom/playerctl#foward" 
-        "custom/playerlabel"
       ];
       modules-center = [
         "cava#left"
@@ -34,26 +30,11 @@
         "network"
         "clock" 
       ];
-      clock = {
-        format = " {:%a, %d %b %Y, %I:%M %p}";
-        tooltip = "true";
-        tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
-        format-alt = " {:%d/%m}";
-      };
-      "hyprland/workspaces" = {
-        active-only = false;
-        all-outputs = false;
-        disable-scroll = false;
-        on-scroll-up = "hyprctl dispatch workspace e-1";
-        on-scroll-down = "hyprctl dispatch workspace e+1";
-        format = "{name}";
-        on-click= "activate";
-        format-icons = {
-          urgent = "";
-          active = "";
-          default = "";
-          sort-by-number = true;
-        };
+      "custom/launcher" = {
+        format = "";
+        # on-click= "bash $HOME/.config/rofi/launcher.sh";
+        # on-click-right= "bash $HOME/.config/rofi/run.sh"; 
+        tooltip = "false";
       };
       "cava#left" = {
         framerate = 60;
@@ -80,6 +61,21 @@
           "<span foreground='#89b4fa'>█</span>" 
         ];
       };
+      "hyprland/workspaces" = {
+        active-only = false;
+        all-outputs = false;
+        disable-scroll = false;
+        on-scroll-up = "hyprctl dispatch workspace e-1";
+        on-scroll-down = "hyprctl dispatch workspace e+1";
+        format = "{name}";
+        on-click= "activate";
+        format-icons = {
+          urgent = "";
+          active = "";
+          default = "";
+          sort-by-number = true;
+        };
+      };
       "cava#right" = {
         framerate = 60;
         autosens = 1;
@@ -105,37 +101,9 @@
           "<span foreground='#89b4fa'>█</span>" 
         ];
       };
-      "custom/playerctl#backward" = {
-        format = "󰙣 ";
-        on-click = "playerctl previous";
-        on-scroll-up = "playerctl volume .05+";
-        on-scroll-down = "playerctl volume .05-";
-      };
-      "custom/playerctl#play" = {
-        format = "{icon}";
-        return-type = "json";
-        exec = "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F";
-        on-click = "playerctl play-pause";
-        on-scroll-up = "playerctl volume .05+";
-        on-scroll-down = "playerctl volume .05-";
-        format-icons = {
-          Playing = "<span>󰏥 </span>";
-          Paused = "<span> </span>";
-          Stopped = "<span> </span>";
-        };
-      };
-      "custom/playerctl#foward" = {
-        format = "󰙡 ";
-        on-click = "playerctl next";
-        on-scroll-up = "playerctl volume .05+";
-        on-scroll-down = "playerctl volume .05-";
-      };
-      "custom/playerlabel" = {
-        format = "<span>󰎈 {} 󰎈</span>";
-        return-type = "json";
-        max-length = 40;
-        exec = "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F";
-        on-click = "";
+      tray = {
+        icon-size = 20;
+        spacing = 8;
       };
       battery = {
         interval = 30;
@@ -145,35 +113,14 @@
           warning = 30;
           critical = 15;
         };
-        format = "{icon} {capacity}%";
+        format="{icon} <span rise='-1.5pt'>{capacity}%</span>";
+        format-alt= "{icon} <span rise='-1.5pt'>{time}</span>";
         format-icons = {
           default = ["󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
           charging = ["󰢜 " "󰂆 " "󰂇 " "󰂈 " "󰢝 " "󰂉 " "󰢞 " "󰂊 " "󰂋 " "󰂅 "];
         };
         format-time = "{H}h {m}m";
-        tooltip-format = "{time}";
-      };
-
-      memory = {
-        format = "󰍛 {}%";
-        format-alt = "󰍛 {used}/{total} GiB";
-        interval = 5;
-      };
-      cpu = {
-        format = "󰻠 {usage}%";
-        format-alt = "󰻠 {avg_frequency} GHz";
-        interval = 5;
-      };
-      network = {
-        format-wifi = "  {signalStrength}%";
-        format-ethernet = "󰈀 100% ";
-        tooltip-format = "Connected to {essid} {ifname} via {gwaddr}";
-        format-linked = "{ifname} (No IP)";
-        format-disconnected = "󰖪 0% ";
-      };
-      tray = {
-        icon-size = 20;
-        spacing = 8;
+        tooltip = false;
       };
       wireplumber = {
         format = "<span font='14'>{icon}</span> {volume}%";
@@ -191,39 +138,63 @@
         max-volume = 100.0;
         tooltip = false;
       };
-      "custom/launcher" = {
-        format = "";
-        # on-click= "bash $HOME/.config/rofi/launcher.sh";
-        # on-click-right= "bash $HOME/.config/rofi/run.sh"; 
+      network = {
+        format-wifi = "  <span rise='-1pt'>{signalStrength}%</span>";
+        format-ethernet = "󰈀 100% ";
+        tooltip-format = "Connected to {essid}";
+        format-linked = "{ifname} (No IP)";
+        format-disconnected = "󰖪 0% ";
+      };
+      clock = {
+        format = "<span letter_spacing='7500'></span> <span rise='-1pt'>{:%a, %d %b %Y, %I:%M %p}</span>";
         tooltip = "false";
+        tooltip-format = "<tt><big>{calendar}</big></tt>";
+      };
+      memory = {
+        format = "󰍛 {}%";
+        format-alt = "󰍛 {used}/{total} GiB";
+        interval = 5;
+      };
+      cpu = {
+        format = "󰻠 {usage}%";
+        format-alt = "󰻠 {avg_frequency} GHz";
+        interval = 5;
       };
     };
     style = ''
       * {
         border: none;
-        border-radius: 0px;
+        border-radius: 0;
         font-family: ComicShannsMono Nerd Font;
         font-size: 14px;
         min-height: 0;
+      }
+
+      #window {
+        background: #11111b;
+        padding-left: 15px;
+        padding-right: 15px;
+        border-radius: 16px;
+        margin-bottom: 5px;
+        font-weight: normal;
+        font-style: normal;
       }
 
       window#waybar {
         background: #25253a;
       }
 
-      #cava.left, #cava.right {
+      #custom-launcher {
+        color: #89b4fa;
         background: #11111b;
-        margin: 5px; 
-        padding: 8px 16px;
-        color: #cba6f7;
+        border-radius: 0 0 40px 0px;
+        margin: 0;
+        padding: 0 35px 0 15px;
+        font-size: 28px;
       }
 
       #cava.left {
         border-radius: 24px 10px 24px 10px;
-      }
-
-      #cava.right {
-        border-radius: 10px 24px 10px 24px;
       }
 
       #workspaces {
@@ -235,8 +206,8 @@
       }
 
       #workspaces button {
-        padding: 0px 5px;
-        margin: 0px 3px;
+        padding: 0 5px;
+        margin: 0 3px;
         border-radius: 16px;
         color: transparent;
         background: #25253a;
@@ -260,85 +231,45 @@
         background-size: 400% 400%;
       }
 
-      #tray, #wireplumber, #network, #battery,
-      #custom-playerctl.backward, #custom-playerctl.play, #custom-playerctl.foward {
-        background: #11111b;
-        font-weight: bold;
-        margin: 5px 0px;
-      }
-
-      #tray, #wireplumber, #network, #battery {
-        color: #f5f5f5;
+      #cava.right {
         border-radius: 10px 24px 10px 24px;
-        padding: 0 20px;
-        margin-left: 7px;
       }
 
       #clock {
         color: #f5f5f5;
         background: #11111b;
-        border-radius: 0px 0px 0px 40px;
+        border-radius: 0 0 0 40px;
         padding: 10px 10px 15px 25px;
         margin-left: 7px;
         font-weight: bold;
         font-size: 16px;
       }
 
-      #custom-launcher {
-        color: #89b4fa;
+      #cava.left,
+      #cava.right {
         background: #11111b;
-        border-radius: 0px 0px 40px 0px;
-        margin: 0px;
-        padding: 0px 35px 0px 15px;
-        font-size: 28px;
-      }
-
-      #custom-playerctl.backward, #custom-playerctl.play, #custom-playerctl.foward {
-        background: #11111b;
-        font-size: 22px;
-      }
-
-      #custom-playerctl.backward:hover, #custom-playerctl.play:hover, #custom-playerctl.foward:hover {
-        color: #f5f5f5;
-      }
-
-      #custom-playerctl.backward {
+        margin: 5px; 
+        padding: 8px 16px;
         color: #cba6f7;
-        border-radius: 24px 0px 0px 10px;
-        padding-left: 16px;
-        margin-left: 7px;
       }
 
-      #custom-playerctl.play {
-        color: #89b4fa;
-        padding: 0 5px;
-      }
-
-      #custom-playerctl.foward {
-        color: #cba6f7;
-        border-radius: 0px 10px 24px 0px;
-        padding-right: 12px;
-        margin-right: 7px
-      }
-
-      #custom-playerlabel {
+      #tray,
+      #battery,
+      #wireplumber,
+      #network {
         background: #11111b;
-        color: #f5f5f5;
-        padding: 0 20px;
-        border-radius: 24px 10px 24px 10px;
-        margin: 5px 0;
         font-weight: bold;
+        margin: 5px 0;
       }
 
-      #window {
-        background: #11111b;
-        padding-left: 15px;
-        padding-right: 15px;
-        border-radius: 16px;
-        margin-top: 5px;
-        margin-bottom: 5px;
-        font-weight: normal;
-        font-style: normal;
+      #tray,
+      #battery,
+      #wireplumber,
+      #network {
+        color: #f5f5f5;
+        border-radius: 10px 24px 10px 24px;
+        padding: 0 20px;
+        margin-left: 7px;
       }
     '';
   };
