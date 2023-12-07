@@ -18,9 +18,9 @@
   };
 
   fileSystems = {
-    "/".options = [ "compress=zstd" ];
-    "/home".options = [ "compress=zstd" ];
-    "/nix".options = [ "compress=zstd" "noatime" ];
+    "/".options = ["compress=zstd"];
+    "/home".options = ["compress=zstd"];
+    "/nix".options = ["compress=zstd" "noatime"];
   };
 
   zramSwap = {
@@ -30,9 +30,9 @@
 
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
-    blacklistedKernelModules = [ "iTCO_wdt" "sp5100_tco" ];
+    blacklistedKernelModules = ["iTCO_wdt" "sp5100_tco"];
     initrd = {
-      kernelModules = [ "i915" ];
+      kernelModules = ["i915"];
     };
     kernelParams = [
       "i915.fastboot=1"
@@ -57,7 +57,7 @@
 
   console = {
     earlySetup = true;
-    packages = with pkgs; [ terminus_font ];
+    packages = with pkgs; [terminus_font];
     font = "${pkgs.terminus_font}/share/consolefonts/ter-122b.psf.gz";
     keyMap = "us";
   };
@@ -86,7 +86,7 @@
     };
     settings = {
       auto-optimise-store = true;
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = ["nix-command" "flakes"];
     };
   };
 
@@ -115,7 +115,7 @@
   systemd = {
     services = {
       fprintd = {
-        wantedBy = [ "multi-user.target" ];
+        wantedBy = ["multi-user.target"];
         serviceConfig.Type = "simple";
       };
       NetworkManager-wait-online.enable = false;
