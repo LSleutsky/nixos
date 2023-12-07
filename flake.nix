@@ -6,6 +6,7 @@
     nixos-hardware.url = "github:nixos/nixos-hardware/master";
     hyprland.url = "github:hyprwm/Hyprland";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -20,11 +21,11 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixos-hardware, home-manager, nixvim, ... }@inputs:
+  outputs = { self, nixpkgs, nixos-hardware, chaotic, home-manager, nixvim, ... }@inputs:
 
   let
     system = "x86_64-linux";
-    overlays = [ inputs.neovim-nightly-overlay.overlay ];
+    overlays = [inputs.neovim-nightly-overlay.overlay];
     pkgs = import nixpkgs {
       inherit system;
       config.allowUnfree = true;
@@ -36,6 +37,7 @@
         specialArgs = { inherit inputs; };
         modules = [
           ./configuration.nix
+          chaotic.nixosModules.default
           nixos-hardware.nixosModules.framework-12th-gen-intel
           home-manager.nixosModules.home-manager
           {
