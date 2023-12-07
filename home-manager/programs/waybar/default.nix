@@ -33,7 +33,7 @@
       ];
       "custom/launcher" = {
         format = "";
-        on-click = "rofi_toggle";
+        on-click = "${pkgs.rofi}/bin/rofi -show drun";
         tooltip = false;
       };
       "cava#left" = {
@@ -140,8 +140,8 @@
         format-icons = ["󰃚" "󰃛" "󰃜" "󰃝" "󰃞" "󰃟" "󰃠"];
         reverse-scrolling = true;
         reverse-mouse-scrolling = true;
-        on-scroll-up = "brillo -U 2";
-        on-scroll-down = "brillo -A 2";
+        on-scroll-up = "${pkgs.brillo}/bin/brillo -A 2";
+        on-scroll-down = "${pkgs.brillo}/bin/brillo -U 2";
         tooltip = false;
       };
       network = {
