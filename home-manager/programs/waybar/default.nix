@@ -131,6 +131,8 @@
           car = " ";
           default = ["󰕿" "󰖀" "󰕾"];
         };
+        on-scroll-up = "${pkgs.wireplumber}/bin/wpctl set-volume --limit 1.0 @DEFAULT_AUDIO_SINK@ 2%+";
+        on-scroll-down = "${pkgs.wireplumber}/bin/wpctl set-volume --limit 1.0 @DEFAULT_AUDIO_SINK@ 2%-";
         reverse-scrolling = 1;
         max-volume = 100.0;
         tooltip = false;
