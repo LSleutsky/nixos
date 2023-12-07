@@ -27,6 +27,7 @@
         "tray" 
         "battery"
         "wireplumber" 
+        "backlight"
         "network"
         "clock" 
       ];
@@ -132,6 +133,15 @@
         };
         reverse-scrolling = 1;
         max-volume = 100.0;
+        tooltip = false;
+      };
+      backlight = {
+        format = "{icon} {percent}%";
+        format-icons = ["󰃚" "󰃛" "󰃜" "󰃝" "󰃞" "󰃟" "󰃠"];
+        reverse-scrolling = true;
+        reverse-mouse-scrolling = true;
+        on-scroll-up = "brillo -U 2";
+        on-scroll-down = "brillo -A 2";
         tooltip = false;
       };
       network = {
@@ -252,20 +262,14 @@
       #tray,
       #battery,
       #wireplumber,
+      #backlight,
       #network {
         background: #11111b;
         font-weight: bold;
-        margin: 5px 0;
-      }
-
-      #tray,
-      #battery,
-      #wireplumber,
-      #network {
         color: #f5f5f5;
         border-radius: 10px 24px 10px 24px;
         padding: 0 20px;
-        margin-left: 7px;
+        margin: 5px 0 5px 7px;
       }
     '';
   };
