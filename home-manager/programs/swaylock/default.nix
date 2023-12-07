@@ -7,11 +7,12 @@
     settings = {
       daemonize = true;
       scaling = "fill";
-      effect-blur = "10x30";
+      effect-blur = "10x35";
       hide-keyboard-layout = true;
       clock = true;
       timestr = "%T";
       datestr = "%a, %d %b %Y";
+      image = "~/nixos/home-manager/programs/swww/wallpapers/auroral-forest.png";
       indicator = true;
       indicator-radius = 220;
       indicator-thickness = 7;

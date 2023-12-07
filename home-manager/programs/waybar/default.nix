@@ -32,9 +32,8 @@
       ];
       "custom/launcher" = {
         format = "";
-        # on-click= "bash $HOME/.config/rofi/launcher.sh";
-        # on-click-right= "bash $HOME/.config/rofi/run.sh"; 
-        tooltip = "false";
+        on-click = "rofi_toggle";
+        tooltip = false;
       };
       "cava#left" = {
         framerate = 60;
