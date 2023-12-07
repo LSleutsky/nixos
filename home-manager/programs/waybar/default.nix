@@ -17,11 +17,10 @@
       margin-right = 0;
       modules-left = [
         "custom/launcher" 
+        "cava"
       ];
       modules-center = [
-        "cava#left"
         "hyprland/workspaces"
-        "cava#right"
       ];
       modules-right = [
         "tray" 
@@ -36,7 +35,7 @@
         on-click = "${pkgs.rofi}/bin/rofi -show drun";
         tooltip = false;
       };
-      "cava#left" = {
+      "cava" = {
         framerate = 60;
         autosens = 1;
         bars = 18;
@@ -75,31 +74,6 @@
           default = "";
           sort-by-number = true;
         };
-      };
-      "cava#right" = {
-        framerate = 60;
-        autosens = 1;
-        bars = 18;
-        lower_cutoff_freq = 50;
-        higher_cutoff_freq = 10000;
-        method = "pipewire";
-        source = "auto";
-        stereo = true;
-        reverse = false;
-        bar_delimiter = 0;
-        monstercat = false;
-        waves = false;
-        input_delay = 2;
-        format-icons = [ 
-          "<span foreground='#cba6f7'>▁</span>" 
-          "<span foreground='#cba6f7'>▂</span>" 
-          "<span foreground='#cba6f7'>▃</span>" 
-          "<span foreground='#cba6f7'>▄</span>" 
-          "<span foreground='#89b4fa'>▅</span>" 
-          "<span foreground='#89b4fa'>▆</span>" 
-          "<span foreground='#89b4fa'>▇</span>" 
-          "<span foreground='#89b4fa'>█</span>" 
-        ];
       };
       tray = {
         icon-size = 20;
@@ -201,8 +175,12 @@
         font-size: 28px;
       }
 
-      #cava.left {
+      #cava {
         border-radius: 24px 10px 24px 10px;
+        background: #25253a;
+        margin: 5px; 
+        padding: 8px 16px;
+        color: #cba6f7;
       }
 
       #workspaces {
@@ -239,10 +217,6 @@
         background-size: 400% 400%;
       }
 
-      #cava.right {
-        border-radius: 10px 24px 10px 24px;
-      }
-
       #clock {
         color: #f5f5f5;
         background: #11111b;
@@ -251,14 +225,6 @@
         margin-left: 7px;
         font-weight: bold;
         font-size: 16px;
-      }
-
-      #cava.left,
-      #cava.right {
-        background: #25253a;
-        margin: 5px; 
-        padding: 8px 16px;
-        color: #cba6f7;
       }
 
       #tray,
