@@ -86,7 +86,7 @@
       nxv = "nvim ~/nixos/nixvim/default.nix";
       pow = "sudo shutdown now";
       reb = "sudo reboot now";
-      rebuild = "sudo nixos-rebuild switch --flake '.#hyprnova' --upgrade";
+      rebuild = "nix flake update && sudo nixos-rebuild switch --flake '.#hyprnova' --upgrade";
       sn = "sudo -Es nvim";
       tree = "tree -ad --gitignore -C -L 2";
     };

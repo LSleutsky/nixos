@@ -22,7 +22,7 @@
         enable = true;
         text = ''
           prefix = ''${HOME}/.npm-packages
-          '';
+        '';
       };
       ".zlogin" = {
         enable = true;

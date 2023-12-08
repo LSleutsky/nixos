@@ -35,18 +35,19 @@
       "custom/launcher" = {
         format = "";
         on-click = "${pkgs.rofi}/bin/rofi -show drun";
+        interval = 5;
         tooltip = false;
       };
       temperature = {
         critical-threshold = 100;
         format = " {temperatureC}°C";
         format-alt = " {temperatureF}°F";
-        hwmon-path = "/sys/class/hwmon/hwmon3/temp1_input";
+        hwmon-path = "/sys/class/hwmon/hwmon4/temp1_input";
         tooltip = false;
       };
       memory = {
         format = "  {}%";
-        format-alt = "  {used}/{total} GiB";
+        format-alt = "  {used} / {total} GiB";
         interval = 5;
       };
       "cava" = {
