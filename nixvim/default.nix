@@ -57,6 +57,7 @@
       termguicolors = true;
       mouse = "a";
       swapfile = false;
+      undofile = true;
     };
     autoCmd = [
       {
@@ -367,6 +368,12 @@
       ts-autotag.enable = true;
       auto-session = {
         enable = true;
+        autoRestore.enabled = true;
+        autoSave.enabled = true;
+        autoSession = {
+          enabled = true;
+          enableLastSession = true;
+        };
       };
       barbar = {
         enable = true;
