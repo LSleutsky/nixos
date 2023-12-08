@@ -50,14 +50,18 @@
       autoindent = true;
       preserveindent = true;
 			smartindent = true;
+      cursorline = true;
       shiftwidth = 2;
       softtabstop = 2;
       tabstop = 2;
+      clipboard = "unnamedplus";
       signcolumn = "yes";
-      termguicolors = true;
       mouse = "a";
+      shortmess = "sI";
+      termguicolors = true;
       swapfile = false;
       undofile = true;
+      whichwrap = "<>[]hl";
     };
     autoCmd = [
       {
@@ -432,7 +436,13 @@
       lsp = {
         enable = true;
         servers = {
+          cssls = {
+            enable = true;
+          };
           nixd = {
+            enable = true;
+          };
+          tailwindcss = {
             enable = true;
           };
           tsserver = {
@@ -456,6 +466,7 @@
         enable = true;
         autoEnableSources = true;
         snippet.expand = "luasnip";
+        completion.autocomplete = ["TextChanged"];
       };
 			nvim-colorizer = {
 				enable = true;
