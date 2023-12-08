@@ -5,7 +5,7 @@
     enable = true;
     systemd.enable = true;
     package = pkgs.waybar.overrideAttrs (oldAttrs: {
-      mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+      mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
     });
     settings.mainBar = {
       position = "top";
@@ -17,6 +17,8 @@
       margin-right = 0;
       modules-left = [
         "custom/launcher" 
+        "temperature"
+        "memory"
         "cava"
       ];
       modules-center = [
@@ -34,6 +36,18 @@
         format = "";
         on-click = "${pkgs.rofi}/bin/rofi -show drun";
         tooltip = false;
+      };
+      temperature = {
+        critical-threshold = 100;
+        format = " {temperatureC}°C";
+        format-alt = " {temperatureF}°F";
+        hwmon-path = "/sys/class/hwmon/hwmon3/temp1_input";
+        tooltip = false;
+      };
+      memory = {
+        format = "  {}%";
+        format-alt = "  {used}/{total} GiB";
+        interval = 5;
       };
       "cava" = {
         framerate = 60;
@@ -132,16 +146,6 @@
         tooltip = "false";
         tooltip-format = "<tt><big>{calendar}</big></tt>";
       };
-      memory = {
-        format = "󰍛 {}%";
-        format-alt = "󰍛 {used}/{total} GiB";
-        interval = 5;
-      };
-      cpu = {
-        format = "󰻠 {usage}%";
-        format-alt = "󰻠 {avg_frequency} GHz";
-        interval = 5;
-      };
     };
     style = ''
       * {
@@ -173,6 +177,16 @@
         margin: 0;
         padding: 0 35px 0 15px;
         font-size: 28px;
+      }
+
+      #temperature,
+      #memory {
+        background: #11111b;
+        font-weight: bold;
+        color: #f5f5f5;
+        border-radius: 24px 10px 24px 10px;
+        padding: 0 20px;
+        margin: 5px 0 5px 7px;
       }
 
       #cava {
