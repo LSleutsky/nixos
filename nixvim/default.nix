@@ -437,19 +437,22 @@
         servers = {
           bashls.enable = true;
           cssls.enable = true;
+          dockerls.enable = true;
           eslint.enable = true;
           html.enable = true;
+          jsonls.enable = true;
           lua-ls.enable = true;
           nixd.enable = true;
           rnix-lsp.enable = true;
           tailwindcss.enable = true;
           tsserver.enable = true;
+          yamlls.enable = true;
         };
       };
 			navic = {
 				enable = true;
 				highlight = true;
-        lsp.autoAttach =  true;
+        lsp.autoAttach = true;
 			};
       nvim-autopairs = {
         enable = true;
@@ -462,7 +465,7 @@
         enable = true;
         autoEnableSources = true;
         snippet.expand = "luasnip";
-        completion.autocomplete = ["TextChanged"];
+        completion.autocomplete = ["TextChanged" "TextChangedI"];
       };
 			nvim-colorizer = {
 				enable = true;
@@ -562,7 +565,7 @@
           end
         },
         mapping = cmp.mapping.preset.insert({
-          ["<S-tab"] = cmp.mapping.select_prev_item(),
+          ["<S-tab>"] = cmp.mapping.select_prev_item(),
           ["<tab>"] = cmp.mapping.select_next_item(),
           ["<C-b>"] = cmp.mapping.scroll_docs(-4),
           ["<C-f>"] = cmp.mapping.scroll_docs(4),

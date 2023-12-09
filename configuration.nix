@@ -68,6 +68,7 @@
   };
 
   security = {
+    polkit.enable = true;
     rtkit.enable = true;
     pam.services.swaylock = {
       text = ''
@@ -234,6 +235,7 @@
       pipes
       playerctl
       pngquant
+      polkit_gnome
       pulsemixer
       python3
       ramfetch
