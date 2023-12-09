@@ -133,7 +133,6 @@
     thermald.enable = true;
     pipewire = {
       enable = true;
-      audio.enable = true;
       alsa = {
         enable = true;
         support32Bit = true;
