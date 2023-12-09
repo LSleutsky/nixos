@@ -1,4 +1,6 @@
-{ config, lib, pkgs, ... }: {
+{ config, lib, pkgs, ... }: 
+
+{
   programs.nixvim = {
     enable = true;
 		enableMan = true;
