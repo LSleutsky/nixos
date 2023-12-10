@@ -5,6 +5,7 @@ let
 in {
   programs.rofi = {
     enable = true;
+    package = pkgs.rofi-wayland;
     cycle = true;
     font = "RobotoMono Nerd Font 12";
     location = "center";

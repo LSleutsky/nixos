@@ -11,12 +11,12 @@
       cfg = "$HOME/.config";
       dl = "$HOME/Downloads";
       docs = "$HOME/Documents";
-      nv = "$HOME/nixos/nixvim";
       nx = "$HOME/nixos";
       nxh = "$HOME/nixos/home-manager";
       nxp = "$HOME/nixos/home-manager/programs";
       nxs = "$HOME/nixos/home-manager/services";
       nxx = "$HOME/nixos/scripts";
+      nxv = "$HOME/nixos/nixvim";
       pics = "$HOME/Pictures";
       repos = "$HOME/repos";
       vids = "$HOME/Videos";
@@ -82,6 +82,7 @@
       man = "batman";
       mkdir = "mkdir -p";
       n = "nvim";
+      nf = "nvim ~/nixos/flake.nix";
       nxh = "nvim ~/nixos/home-manager/default.nix";
       nxv = "nvim ~/nixos/nixvim/default.nix";
       pow = "sudo shutdown now";

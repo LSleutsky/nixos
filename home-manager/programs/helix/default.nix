@@ -1,8 +1,9 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, inputs, pkgs, ... }:
 
 {
   programs.helix = {
     enable = true;
+    package = inputs.helix.packages.${pkgs.system}.helix;
     languages = {
       language = [
         {
