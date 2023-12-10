@@ -17,6 +17,7 @@
       margin-right = 0;
       modules-left = [
         "custom/launcher" 
+        "idle_inhibitor"
         "temperature"
         "memory"
         "cava"
@@ -36,6 +37,14 @@
         format = "";
         on-click = "${pkgs.rofi}/bin/rofi -show drun";
         interval = 5;
+        tooltip = false;
+      };
+      idle_inhibitor = {
+        format = "<span font='13'>{icon}</span>";
+        format-icons = {
+          activated = "󰛨";
+          deactivated = "󰌶";
+        };
         tooltip = false;
       };
       temperature = {
@@ -180,6 +189,7 @@
         font-size: 28px;
       }
 
+      #idle_inhibitor,
       #temperature,
       #memory {
         background: #11111b;
@@ -188,6 +198,10 @@
         border-radius: 24px 10px 24px 10px;
         padding: 0 20px;
         margin: 5px 0 5px 7px;
+      }
+
+      #idle_inhibitor.activated {
+        padding-right: 24px;
       }
 
       #cava {
