@@ -270,6 +270,7 @@
       wget
       wl-clipboard
       zip
+      zk
     ];
     variables = {
       BROWSER = "firefox";

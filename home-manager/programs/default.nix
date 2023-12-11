@@ -8,7 +8,6 @@
     ./eza
     ./feh
     ./firefox
-    ./gh
     ./git
     ./gitui
     ./helix
