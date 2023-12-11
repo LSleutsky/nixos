@@ -2,7 +2,6 @@
 
 {
   programs = {
-    git-credential-oauth.enable = true;
     gitui.enable = true;
     gh = {
       enable = true;
@@ -43,8 +42,14 @@
         ".yarn"
       ];
       extraConfig = {
+        credential.helper = "${
+          pkgs.git.override { withLibsecret = true; }
+        }/bin/git-credential-libsecret";
         init = {
           defaultBranch = "main";
+        };
+        push = {
+          autoSetupRemote = true;
         };
         safe = {
           directory = "$HOME/.local/share/nvim/lazy/*";
