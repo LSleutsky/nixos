@@ -3,24 +3,24 @@
 {
   programs = {
     gitui.enable = true;
-    gh = {
-      enable = true;
-      gitCredentialHelper = {
-        enable = true;
-        hosts = ["https://github.com"];
-      };
-	    settings = {
-		    browser = "firefox";
-		    editor = "nvim";
-		    git_protocol = "https";
-		    pager = "less";
-		    aliases = {
-          al = "auth login";
-			    rc = "repo create";
-			    rcl = "repo clone";
-		    };
-	    };
-    };
+    # gh = {
+    #   enable = true;
+    #   gitCredentialHelper = {
+    #     enable = true;
+    #     hosts = ["https://github.com"];
+    #   };
+	   #  settings = {
+		  #   browser = "firefox";
+		  #   editor = "nvim";
+		  #   git_protocol = "https";
+		  #   pager = "less";
+		  #   aliases = {
+    #       al = "auth login";
+			 #    rc = "repo create";
+			 #    rcl = "repo clone";
+		  #   };
+	   #  };
+    # };
     git = {
       enable = true;
       delta = {
