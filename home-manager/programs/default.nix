@@ -9,7 +9,6 @@
     ./feh
     ./firefox
     ./git
-    ./gitui
     ./helix
     ./kitty
     ./ncmpcpp

@@ -541,6 +541,11 @@
 					hiSurroundAlways = true;
 				};
 			};
+      zk = {
+        enable = true;
+        picker = "telescope";
+        lsp.autoAttach.enabled = true;
+      };
 		};
     extraPlugins = with pkgs.vimPlugins; [
       friendly-snippets
