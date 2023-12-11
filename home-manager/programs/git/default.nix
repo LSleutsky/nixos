@@ -4,11 +4,7 @@
   programs = {
     gitui.enable = true;
     gh = {
-      enable = true;
-      gitCredentialHelper = {
-        enable = true;
-        hosts = ["https://github.com"];
-      };
+      enable = false;
 	    settings = {
 		    browser = "firefox";
 		    editor = "nvim";
