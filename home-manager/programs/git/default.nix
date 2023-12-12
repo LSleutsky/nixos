@@ -4,7 +4,7 @@
   programs = {
     gitui.enable = true;
     gh = {
-      enable = false;
+      enable = true;
 	    settings = {
 		    browser = "firefox";
 		    editor = "nvim";
