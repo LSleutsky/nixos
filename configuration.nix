@@ -226,7 +226,6 @@
       gcc
       gimp
       git
-      git-credential-manager
       glow
       gnumake
       google-chrome

@@ -3,23 +3,20 @@
 {
   programs = {
     gitui.enable = true;
-    # gh = {
-    #   enable = true;
-    #   extensions = [
-    #     pkgs.gh-eco
-    #   ];
-	   #  settings = {
-		  #   browser = "firefox";
-		  #   editor = "nvim";
-		  #   git_protocol = "https";
-		  #   pager = "less";
-		  #   aliases = {
-    #       al = "auth login";
-			 #    rc = "repo create";
-			 #    rcl = "repo clone";
-		  #   };
-	   #  };
-    # };
+    gh = {
+      enable = true;
+	    settings = {
+		    browser = "firefox";
+		    editor = "nvim";
+		    git_protocol = "ssh";
+		    pager = "less";
+		    aliases = {
+          al = "auth login";
+			    rc = "repo create";
+			    rcl = "repo clone";
+		    };
+	    };
+    };
     git = {
       enable = true;
       package = pkgs.gitFull;
@@ -42,7 +39,6 @@
         ".yarn"
       ];
       extraConfig = {
-        credential.credentialStore = "cache";
         init = {
           defaultBranch = "main";
         };
