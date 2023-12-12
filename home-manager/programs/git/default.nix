@@ -8,7 +8,7 @@
 	    settings = {
 		    browser = "firefox";
 		    editor = "nvim";
-		    git_protocol = "ssh";
+		    git_protocol = "https";
 		    pager = "less";
 		    aliases = {
           al = "auth login";
