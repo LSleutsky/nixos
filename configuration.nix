@@ -29,7 +29,7 @@
   };
 
   boot = {
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages_cachyos;
     blacklistedKernelModules = ["iTCO_wdt" "sp5100_tco"];
     initrd = {
       kernelModules = ["i915"];
