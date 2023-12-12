@@ -42,6 +42,7 @@
         ".yarn"
       ];
       extraConfig = {
+        credential.credentialStore = "cache";
         init = {
           defaultBranch = "main";
         };

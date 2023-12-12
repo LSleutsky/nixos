@@ -9,6 +9,7 @@
 
   services = {
     blueman-applet.enable = true;
+    gnome-keyring.enable = true;
   };
 
   programs = {
