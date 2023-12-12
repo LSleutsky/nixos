@@ -55,6 +55,5 @@
       userEmail = "LushSleutsky@gmail.com";
       userName = "LSleutsky";
     };
-    git-credential-oauth.enable = true;
   };
 }
