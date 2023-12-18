@@ -12,7 +12,6 @@
     ./helix
     ./kitty
     ./ncmpcpp
-    ./nnn
     ./pyenv
     ./ripgrep
     ./rofi
@@ -23,6 +22,7 @@
     ./waybar
     ./wezterm
     ./wlogout
+    ./yazi
     ./zathura
     ./zsh
   ];

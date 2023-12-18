@@ -9,6 +9,7 @@
 
   services = {
     blueman-applet.enable = true;
+    dropbox.enable = true;
   };
 
   programs = {

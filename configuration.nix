@@ -226,6 +226,7 @@
       cpufetch
       curl
       discord
+      dropbox-cli
       fd
       figlet
       fortune
@@ -257,7 +258,6 @@
       pngquant
       polkit
       polkit_gnome
-      pulsemixer
       python3
       ramfetch
       sassc
