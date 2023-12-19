@@ -128,6 +128,23 @@
       NetworkManager-wait-online.enable = false;
     };
     user.services = {
+      dropbox = {
+        description = "Dropbox";
+        wantedBy = ["graphical-session.target"];
+        environment = {
+          QT_PLUGIN_PATH = "/run/current-system/sw/" + pkgs.qt5.qtbase.qtPluginPrefix;
+          QML2_IMPORT_PATH = "/run/current-system/sw/" + pkgs.qt5.qtbase.qtQmlPrefix;
+        };
+        serviceConfig = {
+          ExecStart = "${lib.getBin pkgs.dropbox}/bin/dropbox";
+          ExecReload = "${lib.getBin pkgs.coreutils}/bin/kill -HUP $MAINPID";
+          KillMode = "control-group";
+          Restart = "on-failure";
+          PrivateTmp = true;
+          ProtectSystem = "full";
+          Nice = 10;
+        };
+      };
       polkit-gnome-authentication-agent-1 = {
         description = "polkit-gnome-authentication-agent-1";
         wantedBy = ["graphical-session.target"];
@@ -172,11 +189,6 @@
     autojump.enable = true;
     hyprland.enable = true;
     zsh.enable = true;
-    _1password.enable = true;
-    _1password-gui = {
-      enable = true;
-      polkitPolicyOwners = ["lush"];
-    };
   };
 
   fonts = {
@@ -226,6 +238,7 @@
       cpufetch
       curl
       discord
+      dropbox
       dropbox-cli
       fd
       figlet
