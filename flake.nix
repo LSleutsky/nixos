@@ -2,31 +2,17 @@
   description = "NixOS Configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixos-hardware.url = "github:nixos/nixos-hardware/master";
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+    dipc.url = "github:doprz/dipc";
+    helix.url = "github:helix-editor/helix";
+    home-manager.url = "github:nix-community/home-manager";
     hyprland.url = "github:hyprwm/Hyprland";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
-    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    dipc = {
-      url = "github:doprz/dipc";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    helix = {
-      url = "github:helix-editor/helix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    yazi = {
-      url = "github:sxyazi/yazi";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixos-hardware.url = "github:nixos/nixos-hardware/master";
+    nixvim.url = "github:nix-community/nixvim";
+    nur.url = "github:nix-community/NUR";
+    yazi.url = "github:sxyazi/yazi";
   };
 
   outputs = { self, nixpkgs, nixos-hardware, chaotic, home-manager, nixvim, ... }@inputs:
