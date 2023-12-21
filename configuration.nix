@@ -279,6 +279,7 @@
       starfetch
       swappy
       swayidle
+      tlrc
       tree
       tty-clock
       typescript
