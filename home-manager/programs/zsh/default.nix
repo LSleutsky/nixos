@@ -141,6 +141,8 @@
       bindkey "^[[B" down-line-or-beginning-search
       bindkey "^[OB" down-line-or-beginning-search
       bindkey '^w' zsh-backward-kill-word
+
+      eval "$(op completion zsh)"; compdef _op op
     '';
     initExtraBeforeCompInit = ''
       autoload -Uz up-line-or-beginning-search

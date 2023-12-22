@@ -76,10 +76,12 @@
   security = {
     polkit.enable = true;
     rtkit.enable = true;
-    pam.services.swaylock = {
-      text = ''
-        auth include login
-      '';
+    pam.services = {
+      swaylock = {
+        text = ''
+          auth include login
+        '';
+      };
     };
   };
 
@@ -189,6 +191,12 @@
     autojump.enable = true;
     hyprland.enable = true;
     zsh.enable = true;
+    _1password.enable = true;
+    _1password-gui = {
+      enable = true;
+      package = pkgs._1password-gui-beta;
+      polkitPolicyOwners = ["lush"];
+    };
   };
 
   fonts = {
@@ -256,6 +264,7 @@
       hyprpicker
       imagemagick
       inxi
+      libsecret
       lolcat
       lshw
       neo-cowsay
