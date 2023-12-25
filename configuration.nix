@@ -282,6 +282,7 @@
       polkit
       polkit_gnome
       python3
+      qbittorrent
       ramfetch
       sassc
       sl
