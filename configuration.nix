@@ -235,6 +235,7 @@
 
   environment = {
     systemPackages = with pkgs; [
+      audio-recorder
       bibata-cursors
       catppuccin-gtk
       cava
